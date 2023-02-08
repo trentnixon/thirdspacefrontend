@@ -113,12 +113,12 @@ export default function Briefing() {
       >
         <div
           style={{
-            minHeight: '100vh',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignContent: 'center',
-            alignItems: 'center'
+            minHeight: "100vh",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignContent: "center",
+            alignItems: "center",
           }}
         >
           <Title className={classes.title}>Briefing Form</Title>
@@ -127,10 +127,10 @@ export default function Briefing() {
             high-quality videos in no time! Our platform streamlines the
             video-making process, allowing you to select your campaign and
             choose a pre-made template from our vast library. Simply upload your
-            CSV file, click "render", and we'll take care of the rest. Sit back
-            and relax while we prepare your videos for use. We'll notify you by
-            email as soon as they're ready. Start creating professional-grade
-            videos today with the AI Assembler.
+            CSV file, click &quot;render&quot;, and we&apos;ll take care of the rest.
+            Sit back and relax while we prepare your videos for use. We&apos;ll
+            notify you by email as soon as they&apos;re ready. Start creating
+            professional-grade videos today with the AI Assembler.
           </Text>
         </div>
         <div className={classes.form}>
