@@ -36,6 +36,8 @@ export const SelectBrandFromTable = (props) => {
     },
   ];
 
+  console.log(Response)
+  if(!Response) return
   return (
     <UIPaperWrapper>
       <Table>
