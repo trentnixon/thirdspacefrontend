@@ -8,7 +8,7 @@ import {
   IconMovie,
   IconPhoto,
   IconMicrophone,
-  IconSpeaker,
+  IconSpeakerphone,
 } from "@tabler/icons-react";
 export const HasAssets = ({ Campaign }) => {
   return (
@@ -125,7 +125,7 @@ const ImageThumb = ({ IMAGE }) => {
 const AudioThumb = ({ AUDIO }) => {
   console.log(AUDIO);
   return (
-    <IconSpeaker
+    <IconSpeakerphone
       style={{
         color: "#888",
         width: "64px",
