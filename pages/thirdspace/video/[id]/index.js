@@ -22,7 +22,7 @@ import { CampaignIsRendering } from "../../../../components/Pages/Video/Campaign
 import { VideoStateComplete } from "../../../../components/Pages/Video/VideoStateComplete/VideoStateComplete";
 import { RightPanelTabs } from "../../../../components/Pages/Video/Tabs/Tabs_rightPanel";
 
-const qs = require("qs");
+const qs = require("qs"); 
 
 const VideoCreatorPreviewer = ({ video, Modules, Videoid, fonts }) => {
   // Update the video sequence to the DB

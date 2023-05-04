@@ -16,7 +16,7 @@ const Components = {
 	GlobusFlatColorUnderlayFullScreen: M.GlobusFlatColorUnderlayFullScreen,
 	GlobusFlatColorUnderlayHalfScreen: M.GlobusFlatColorUnderlayHalfScreen,
 	ManshakeTwoImagesAndHero: M.ManshakeTwoImagesAndHero,
-	ManshakeTwoCardSwap: M.ManshakeTwoCardSwap,
+	ManshakeTwoCardSwap: M.ManshakeTwoCardSwap, 
 };
 
 export const VideoShell916 = ({DATA, RESOLUTION}) => {

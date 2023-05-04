@@ -17,7 +17,7 @@ export const VideoPreviewMainTabs = (props) => {
     setpreviewDataSetRow,
     Videoid,
     CampaignRender,
-    setCampaignRender,
+    setCampaignRender, 
     VideoTitle
   } = props;
 

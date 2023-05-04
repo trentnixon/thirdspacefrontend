@@ -22,7 +22,7 @@ export const VideoPreviewContainer = (props) => {
     if (useSequence) {
       setIsLoading(false);
     } else {
-      setIsLoading(true);
+      setIsLoading(true); 
     }
   }, [useSequence]);
 

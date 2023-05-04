@@ -50,7 +50,7 @@ export const BuildOutro = (props) => {
 							style={{
 								opacity: interpolateOpacityByFrame(frame, 30, 35, 0, 1),
 								width: props.SIZINGS.Create.width,
-							}}
+							}}   
 						>
 							<Create />
 						</div>

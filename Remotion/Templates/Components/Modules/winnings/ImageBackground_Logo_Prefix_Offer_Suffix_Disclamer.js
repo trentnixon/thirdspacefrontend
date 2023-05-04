@@ -31,7 +31,7 @@ export const WinningsLogoAndOfferIMG916 = (props) => {
 			500
 		),
 		TITLE: '6.5em',
-		DISCLAIMER: '1.8em',
+		DISCLAIMER: '1.8em', 
 	}; 
 
 	return <ModuleContainer STYLES={STYLE} SIZINGS={SIZINGS} {...props} />;
@@ -47,7 +47,7 @@ export const WinningsLogoAndOfferIMG45 = (props) => {
 			250,
 			500
 		),
-		TITLE: '6em',
+		TITLE: '5.2em',
 		DISCLAIMER: '2em',
 	};
 
@@ -77,7 +77,7 @@ const ModuleContainer = (props) => {
 
 	return (
 		<Sequence>
-			<PackageLogoandOffer
+			<PackageLogoandOffer 
 				SIZINGS={SIZINGS}
 				DATA={DATA}
 				Duration={Duration}
@@ -90,3 +90,4 @@ const ModuleContainer = (props) => {
 		</Sequence>
 	);
 };
+ 

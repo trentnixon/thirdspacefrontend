@@ -1,0 +1,58 @@
+[
+  {
+    "Brand": "Electrolux",
+    "leadIn": "Vented 6kg dryer",
+    "Offer": "$699",
+    "LeadOut": "Price match guarantee",
+    "Logo": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/Electrolux_logo_new_30a066be1a.png",
+    "Image": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/Electrolux_Dryer_Lifestyle_b60fce043b.png?updated_at=2023-07-03T02:20:46.692Z"
+  },
+  {
+    "Brand": "ASKO",
+    "leadIn": "Compact Combi-Microwave Oven (60cm)",
+    "Offer": "Save $400",
+    "LeadOut": "Only $2999",
+    "Logo": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/Asko_logo_wordmark_879f34d413.png",
+    "Image": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/Asko_Lifestyle_e504861c44.png?updated_at=2023-07-03T02:20:46.991Z"
+  },
+  {
+    "Brand": "Vintec",
+    "leadIn": "100 Beer Bottle Beverage Centre",
+    "Offer": "\"$2,295\"",
+    "LeadOut": "Save 15%",
+    "Logo": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/vintec_LOGO_NEW_2deb81a93e.png",
+    "Image": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/vinteclifestylefinal_4e2d43387f.png?updated_at=2023-07-03T02:20:47.297Z"
+  },
+  {
+    "Brand": "Miele",
+    "leadIn": "save up to",
+    "Offer": "$700",
+    "LeadOut": "on selected refrigeration appliance",
+    "Logo": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/Miele_Logo_M_Red_s_RGB_b3b5692d0b_a0feba1474.png",
+    "Image": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/meiliefridge_9f6180b4bf.jpg?updated_at=2023-06-13T02:09:42.240Z"
+  },
+  {
+    "Brand": "Miele",
+    "leadIn": "save up to",
+    "Offer": "$800",
+    "LeadOut": "on selected cooking appliances",
+    "Logo": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/Miele_Logo_M_Red_s_RGB_b3b5692d0b_a0feba1474.png",
+    "Image": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/connted_394a101a53.jpg?updated_at=2023-06-13T02:09:53.530Z"
+  },
+  {
+    "Brand": "Miele",
+    "leadIn": "save up to",
+    "Offer": "$400",
+    "LeadOut": "on selected refrigeration appliances",
+    "Logo": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/Miele_Logo_M_Red_s_RGB_b3b5692d0b_a0feba1474.png",
+    "Image": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/meiliefridge_9f6180b4bf.jpg?updated_at=2023-06-13T02:09:42.240Z"
+  },
+  {
+    "Brand": "Miele",
+    "leadIn": "save up to",
+    "Offer": "$500",
+    "LeadOut": "on selected cooking appliances",
+    "Logo": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/Miele_Logo_M_Red_s_RGB_b3b5692d0b_a0feba1474.png",
+    "Image": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/connted_394a101a53.jpg?updated_at=2023-06-13T02:09:53.530Z"
+  }
+]

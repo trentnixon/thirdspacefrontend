@@ -20,7 +20,7 @@ export const ImageBackground = (props) => {
 		<AbsoluteFill style={STYLES}>
 			<Img
 				src={`${MEDIA}`}
-				width="2000px"
+				
 				style={{
 					transform: `scale(${
 						SCALEBY[
@@ -72,7 +72,7 @@ export const ImageBackgroundPush = (props) => {
     <AbsoluteFill style={STYLES}>
       <Img
         src={`${MEDIA}`}
-        width="2000px"
+       
         style={{
           transform: `translateX(${translateValue}px)`, 
         }}

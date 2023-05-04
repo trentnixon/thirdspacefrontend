@@ -19,7 +19,7 @@
 			"Type": "Video",
 			"ID": "0320054652",
 			"DATA": {
-					"Duration": 150,
+					"Duration": 75,
 					"Settings": {},
 					"BackgroundAudio": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/WINNING_SENSES_INTRO_AUDIO_3f7d591ff2.mp3",
 					"BackgroundVideo": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/Winning_Outro_Short_Version_f314d80ad0.mp4"

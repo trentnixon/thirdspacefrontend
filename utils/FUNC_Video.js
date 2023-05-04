@@ -1,6 +1,7 @@
 // Video Compiler
 
 export function mainCompileVideoObjects(timelineObj, dataset) {
+  console.log(timelineObj, dataset)
   const DATASETROW = dataset.data_set_rows.data;
 
   function findValueByKey(objArray, targetKey) {
@@ -51,8 +52,8 @@ export function mainCompileVideoObjects(timelineObj, dataset) {
     };
   });
 
-  //console.log("videoObjectsArray")
-  //console.log(videoObjectsArray)
+  console.log("videoObjectsArray")
+  console.log(videoObjectsArray)
   return videoObjectsArray;
 }
 

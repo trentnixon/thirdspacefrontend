@@ -3,21 +3,15 @@ import {Img} from 'remotion';
 import {AnimateElement} from '../../../../../Utils/Animations/RemotionAnimate';
 import {useImageOrientation} from '../../../../../Utils/FUNC/imageFunctions';
 
-/*
-<BrandLogoCenterAnimated
-				DATA={DATA}
-				SIZINGS={SIZINGS}
-				Duration={Duration}
-			/>
-*/
+
 export const WinningLogoCenteredFadeIn = ({
 	DATA,
-	SIZINGS,
+
 	Duration,
 	In = 15,
 	Out = 15,
 }) => {
-	const orientation = useImageOrientation(DATA?.BrandLogo?.URL);
+	const orientation = useImageOrientation(DATA?.BrandLogo); 
 
 
   const IMGRATIO={
@@ -53,7 +47,7 @@ export const WinningLogoCenteredFadeIn = ({
 				ANIMATEINOUT="FadeOut"
 				ease = 'Wobbly'
 			>
-				<Img src={`${DATA.BrandLogo.URL}`} style={imgStyle} />
+				<Img src={`${DATA.BrandLogo}`} style={imgStyle} />
 			</AnimateElement>
 		</div>
 	);

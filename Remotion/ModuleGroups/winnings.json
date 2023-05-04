@@ -19,11 +19,97 @@
 			"Type": "Video",
 			"ID": "0320054652",
 			"DATA": {
-					"Duration": 76,
+					"Duration": 75,
 					"Settings": {},
 					"BackgroundAudio": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/WINNING_SENSES_INTRO_AUDIO_3f7d591ff2.mp3",
 					"BackgroundVideo": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/Winning_Outro_Short_Version_f314d80ad0.mp4"
 			}
-	}
+	},
+		{
+			"component": "DefaultBackgroundOnly",
+			"componentID": 2,
+			"Name": "Video Background with NoText",
+			"Type": "Video",
+			"ID": "7164611746",
+			"DATA": {
+					"Duration": 144,
+					"Settings": {},
+					"BackgroundAudio":null,
+					"BackgroundVideo": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/videoblocks_couple_come_to_aiport_to_travel_he9dwuhzo_3b70ac8bb2dbdbad90e577152e0b7473_P360_b0d61a570a.mp4"
+			}
+	},
+	{
+    "component": "WinningsLogoAndOffer",
+    "componentID": 3,
+    "Name": "Centered Logo And Offer",
+    "Type": "Video",
+    "ID": "5338338688",
+    "DATA": {
+        "Duration": 150,
+        "Settings": {},
+        "Prefix": "tetwtwt",
+        "StaticOffer": "fsfsf",
+        "Suffix": "fsfa",
+        "LongCopy": "long sentence",
+        "BrandLogo": {
+            "URL": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/800px_AEG_Logo_Red_CMYK_svg_2856202847_4b01244e69.png",
+            "height": 303,
+            "width": 800
+        },
+        "BackgroundVideo": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/WINNING_SENSES_OUTRO_2980d04dca.mp4"
+    }
+},
+		{
+			"component": "BackgroundAudioFull",
+			"componentID": 14,
+			"Name": "Background Audio Full",
+			"Type": "Audio",
+			"ID": "9790441612",
+			"DATA": {
+					"Duration": 150,
+					"Settings": {},
+					"BackgroundAudio": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/WINNING_SENSES_MUSIC_TV_6727f14ff1.mp3"
+			}
+	},
+		{
+			"component": "WinningsLogoAndOfferIMG",
+			"componentID": 3,
+			"Name": "Centered Logo And Offer",
+			"Type": "Video",
+			"ID": "5480448164",
+			"DATA": {
+				"Duration": 150,
+				"Settings": {},
+				"Prefix": "this should be an image",
+				"StaticOffer": "$600*",
+				"Suffix": " would the image be great?",
+				"BrandLogo": {
+					"URL": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/800px_AEG_Logo_Red_CMYK_svg_2856202847_4b01244e69.png",
+					"height": 303,
+					"width": 800
+				},
+				"BackgroundMediaImage": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/meiliefridge_07266910ee.jpg"
+			}
+		},
+		{
+			"component": "WinningsLogoAndOffer",
+			"componentID": 3,
+			"Name": "Video Background with Logo Suffix Title Prefix and Disclamer",
+			"Type": "Video",
+			"ID": "2808392947",
+			"DATA": {
+				"Duration": 150,
+				"Settings": {},
+				"Prefix": "",
+				"StaticOffer": "$600*",
+				"Suffix": "OFF",
+				"BrandLogo": {
+					"URL": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/800px_AEG_Logo_Red_CMYK_svg_2856202847_4b01244e69.png",
+					"height": 119,
+					"width": 834
+				},
+				"BackgroundVideo": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/videoblocks_young_beautiful_couple_hipsters_riding_retro_motorcycle_on_the_beach_outdoor_portrait_riding_guy_and_girl_travel_together_ocean_sea_sjgve9bi64_b42bf770e3cfc4fc33ba6e18946f76f0_P360_97e4c9b501.mp4"
+			}
+		}
 	]
 }

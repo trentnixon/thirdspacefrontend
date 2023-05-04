@@ -21,6 +21,6 @@ export const PackageLogoandOffer = (props) => {
 			</AnimateElement>
 
 			<SmallDisclaimerAtBottom {...props} />
-		</DefaultContainer>
+		</DefaultContainer> 
 	);
 };

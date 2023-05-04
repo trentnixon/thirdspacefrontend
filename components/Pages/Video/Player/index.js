@@ -71,7 +71,7 @@ console.log(VideoOBJ)
         fps={30}
         style={RatioObj[RATIO].style}
         inputProps={{
-          DATA: FormattVideoData(VideoOBJ), 
+          DATA: FormattVideoData(VideoOBJ),  
           RESOLUTION:{
 						w: RatioObj[RATIO].W,
             h: RatioObj[RATIO].H,
