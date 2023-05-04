@@ -3,37 +3,37 @@ import { useState, useEffect } from "react";
 
 export const LogoPosition = (props) => {
   const { OBJ, setOBJ } = props;
-  const [value, setValue] = useState("NONE");
   const Field = "BrandLogo";
-const SettingName ='LogoPosition'
-  useEffect(() => {
-  //console.log("OBJ");
-  //console.log(OBJ.DATA.fields);
-  }, [OBJ]);
+  const SettingName = "LogoPosition";
+  
+  // Default to 'NONE' if LogoPosition is not set in OBJ.DATA.Settings
+  const defaultLogoPosition = OBJ?.DATA?.Settings?.LogoPosition ?? 'NONE';
+  const [value, setValue] = useState(defaultLogoPosition);
+
+  useEffect(() => {}, [OBJ]);
 
   const handleChange = (selectedValue) => {
     setValue(selectedValue);
-    
-    // Make sure OBJ, DATA, and Settings exist.
+
     if (OBJ?.DATA?.Settings) {
-      // If Field exists in Settings, update its value. If not, add it with the selected value.
-      setOBJ(prevState => {
-        let newOBJ = {...prevState};  // creating a deep copy of the state
+      setOBJ((prevState) => {
+        let newOBJ = { ...prevState }; 
         newOBJ.DATA.Settings[SettingName] = selectedValue;
         return newOBJ;
       });
     } else {
-      // If Settings doesn't exist, add it and add Field with the selected value.
-      setOBJ(prevState => {
-        let newOBJ = {...prevState};  // creating a deep copy of the state
-        newOBJ.DATA = {...newOBJ.DATA, Settings: {[SettingName]: selectedValue}};
+      setOBJ((prevState) => {
+        let newOBJ = { ...prevState }; 
+        newOBJ.DATA = {
+          ...newOBJ.DATA,
+          Settings: { [SettingName]: selectedValue },
+        };
         return newOBJ;
       });
     }
   };
-  
 
-  if ( OBJ.DATA.fields === undefined) return false;
+  if (OBJ.DATA.fields === undefined) return false;
   return (
     <Select
       label="Logo Position"
@@ -49,3 +49,4 @@ const SettingName ='LogoPosition'
     />
   );
 };
+

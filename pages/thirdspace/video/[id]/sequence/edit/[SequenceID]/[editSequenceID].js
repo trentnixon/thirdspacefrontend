@@ -12,7 +12,7 @@ import { DisplaySequenceComponents } from "../../../../../../../components/Pages
 
 // UTILS
 import MembersShell from "../../../../../../../components/template/MembersShell";
-import {  H2 } from "../../../../../../../components/ui/type";
+import { H2 } from "../../../../../../../components/ui/type";
 import { fetcher } from "../../../../../../../lib/api";
 import { useUpdateVideo } from "../../../../../../../hooks/Video/useStoreVideo";
 import { SequenceSettings } from "../../../../../../../components/Pages/Video/VideoEditSequence/Placeholders/Settings";
@@ -58,7 +58,7 @@ function SequencePage({ Video, VideoModule, editSequenceID }) {
     };
 
     const success = await UpdateVideo(updatedObject, Video.data.id);
-  //console.log("Update success:", success); // Add this line
+    //console.log("Update success:", success); // Add this line
 
     if (success) {
       setUpdateSuccessful(true);
@@ -75,7 +75,7 @@ function SequencePage({ Video, VideoModule, editSequenceID }) {
               sx={(theme) => ({
                 backgroundColor: theme.colors.background,
               })}
-            > 
+            >
               <DisplaySequenceComponents
                 Video={Video.data.attributes}
                 VideoModule={VideoModule.data.attributes}
@@ -84,7 +84,7 @@ function SequencePage({ Video, VideoModule, editSequenceID }) {
                 dataset={Video.data.attributes.dataset.data.attributes}
               />
             </Grid.Col>
-            <Grid.Col span={7}>
+            <Grid.Col span={6}>
               <H2>Edit Sequence</H2>
               <Group position="apart" my={20}>
                 <BackToListBtn HREF={`/thirdspace/video/${Video.data.id}`} />
@@ -100,25 +100,24 @@ function SequencePage({ Video, VideoModule, editSequenceID }) {
                 CreateSequenceOBJ={CreateSequenceOBJ}
                 dataset={Video.data.attributes.dataset.data.attributes}
               />
-          
-               <SequenceSettings
-              setOBJ={setCreateSequenceOBJ}
-              OBJ={CreateSequenceOBJ}
-            />
-            </Grid.Col>
-
-            <Grid.Col
-              span={2}
-              sx={(theme) => ({
-                backgroundColor: theme.colors.background,
-              })}
-            >
               <CreateProcessIndicator
                 VideoModule={VideoModule.data.attributes}
                 video_placeholders={
                   VideoModule.data.attributes.video_placeholders.data
                 }
                 CreateSequenceOBJ={CreateSequenceOBJ}
+              />
+            </Grid.Col>
+
+            <Grid.Col
+              span={3}
+              sx={(theme) => ({
+                backgroundColor: theme.colors.background,
+              })}
+            >
+              <SequenceSettings
+                setOBJ={setCreateSequenceOBJ}
+                OBJ={CreateSequenceOBJ}
               />
             </Grid.Col>
           </Grid>

@@ -7,14 +7,14 @@ import { DynamicTextInput } from "./Controllers/DynamicTextInput";
 
 export const StaticOffer = (props) => {
   const { handleInputChange, PlaceHolder, dataset,CreateSequenceOBJ } = props;
-  return (
+  return ( 
     
     <DynamicTextInput
       handleInputChange={handleInputChange}
       PlaceHolder={PlaceHolder}
       dataset={dataset}
       CreateSequenceOBJ={CreateSequenceOBJ}
-      title="Centered Copy"
+      title="Centered Copy" 
     />
   );
 };

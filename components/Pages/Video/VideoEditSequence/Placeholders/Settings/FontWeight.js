@@ -3,29 +3,26 @@ import { useState, useEffect } from "react";
 
 export const SelectAFontWeight = (props) => {
   const { OBJ, setOBJ } = props;
-  const [value, setValue] = useState("NONE");
-
   const SettingName = "FontWeight";
-  useEffect(() => {
-  /*   console.log("OBJ");
-    console.log(OBJ.DATA.fields); */
-  }, [OBJ]);
+  
+  // Default to 'NONE' if FontWeight is not set in OBJ.DATA.Settings
+  const defaultFontWeight = OBJ?.DATA?.Settings?.FontWeight ?? 'NONE';
+  const [value, setValue] = useState(defaultFontWeight);
+
+  useEffect(() => {}, [OBJ]);
 
   const handleChange = (selectedValue) => {
     setValue(selectedValue);
 
-    // Make sure OBJ, DATA, and Settings exist.
     if (OBJ?.DATA?.Settings) {
-      // If Field exists in Settings, update its value. If not, add it with the selected value.
       setOBJ((prevState) => {
-        let newOBJ = { ...prevState }; // creating a deep copy of the state
+        let newOBJ = { ...prevState }; 
         newOBJ.DATA.Settings[SettingName] = selectedValue;
         return newOBJ;
       });
     } else {
-      // If Settings doesn't exist, add it and add Field with the selected value.
       setOBJ((prevState) => {
-        let newOBJ = { ...prevState }; // creating a deep copy of the state
+        let newOBJ = { ...prevState }; 
         newOBJ.DATA = {
           ...newOBJ.DATA,
           Settings: { [SettingName]: selectedValue },

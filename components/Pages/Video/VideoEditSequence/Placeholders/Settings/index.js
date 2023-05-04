@@ -13,7 +13,7 @@ export const SequenceSettings = (props) => {
       <H3>Logo Positioning</H3>
       <LogoPosition {...props} />
       <H3>Over Lay Settings</H3>
-
+ 
       <ContainerHorizontalEntryPoint {...props} />
 
       <H3>Background Settings</H3>
