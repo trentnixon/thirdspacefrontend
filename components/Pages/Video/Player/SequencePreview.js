@@ -1,12 +1,14 @@
 import { Player, Thumbnail } from "@remotion/player";
 import { useEffect, useState } from "react";
-import { VideoShell916 } from "../../../../Remotion/Templates/DefaultVideoShell/Video_916";
-import { VideoShellSQ } from "../../../../Remotion/Templates/DefaultVideoShell/Video_SQ";
+import { VideoShell916 } from "../../../../Remotion/Templates/Video_916";
+import { VideoShellSQ } from "../../../../Remotion/Templates/Video_SQ";
 import { miniCompileVideoObjects } from "../../../../utils/FUNC_Video";
+import { splitAudioAndVisual } from "../../../../Remotion/Utils/FUNC/DataFormatting";
 const MustHave = [
   "BackgroundVideo",
   "BackgroundMediaImage",
   "BackgroundMediaColor",
+  "IMGBefore"
 ];
 
 export const RemotionSequencePlayer = ({ DATA, dataSet,Settings }) => {
@@ -27,6 +29,20 @@ export const RemotionSequencePlayer = ({ DATA, dataSet,Settings }) => {
     return false;
   }
 
+  
+  const FormattVideoData = (VIDEODATA) =>{
+    console.log(VIDEODATA)
+    const {SequenceAudio, SequenceVisual} = splitAudioAndVisual(VIDEODATA);
+    return {
+      SequenceAudio,
+      SequenceVisual,
+      Settings: Settings,
+    }
+  }
+
+  console.log(FormattVideoData([SequenceOBJ]))
+
+
   if (SequenceOBJ.length === 0) return <>Start video create</>;
 
   if (
@@ -37,8 +53,10 @@ export const RemotionSequencePlayer = ({ DATA, dataSet,Settings }) => {
   if (!hasMustHave(SequenceOBJ.DATA, MustHave))
     return <>Preview Unavailable, Key Sequence items missing</>;
   return (
+    <>
+    
     <Player
-      id="VideoShell916"
+      id="VideoShell916" 
       component={VideoShell916}
       durationInFrames={SequenceOBJ.DATA.Duration}
       compositionWidth={1920}
@@ -48,13 +66,14 @@ export const RemotionSequencePlayer = ({ DATA, dataSet,Settings }) => {
       fps={30}
       style={{ width: "100%" }}
       inputProps={{
-        DATA: { Series: [SequenceOBJ],Settings:Settings },
+        DATA:FormattVideoData([SequenceOBJ]),
         RESOLUTION:{
           w:1920,
           h:1080
-        }
+        }  
       }}
     />
+    </>
   );
 };
 

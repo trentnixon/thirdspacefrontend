@@ -76,13 +76,13 @@ function SequencePage({ Video, VideoModule, editSequenceID }) {
                 backgroundColor: theme.colors.background,
               })}
             >
-              <DisplaySequenceComponents
+              <DisplaySequenceComponents 
                 Video={Video.data.attributes}
                 VideoModule={VideoModule.data.attributes}
                 CreateSequenceOBJ={CreateSequenceOBJ}
                 setCreateSequenceOBJ={setCreateSequenceOBJ}
                 dataset={Video.data.attributes.dataset.data.attributes}
-              />
+              /> 
             </Grid.Col>
             <Grid.Col span={6}>
               <H2>Edit Sequence</H2>
@@ -108,7 +108,7 @@ function SequencePage({ Video, VideoModule, editSequenceID }) {
                 CreateSequenceOBJ={CreateSequenceOBJ}
               />
             </Grid.Col>
-
+ 
             <Grid.Col
               span={3}
               sx={(theme) => ({

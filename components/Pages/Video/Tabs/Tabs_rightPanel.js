@@ -27,6 +27,7 @@ export const RightPanelTabs = (props) => {
             },
           })}
         ></Tabs.Tab>
+        
       </Tabs.List>
 
       <Tabs.Panel value="modules" pt="xs">

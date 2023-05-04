@@ -1,0 +1,52 @@
+{
+	"Settings": {
+		"Theme": {
+			"Primary": "#ffffff",
+			"Secondary": "#353535",
+			"BackgroundColor": "#000000"
+		},
+		"Font": {
+			"fontFamily": "Montserrat"
+		}
+	},
+
+	"Series": [
+        {
+            "component": "DefaultColorBackgroundWithLogoAnimation",
+            "componentID": 15,
+            "Name": "Centered Logo And Offer",
+            "Type": "Image",
+            "ID": "4134595659",
+            "DATA": {
+                "Duration": 150,
+                "Settings": {},
+                "BrandLogo": {
+                    "URL": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/before_bd9d068211.jpg",
+                    "height": 500,
+                    "width": 400
+                }
+            }
+        },
+		{
+            "component": "ManshakeTwoCardSwap",
+            "componentID": 3,
+            "Name": "Centered Logo And Offer",
+            "Type": "Video",
+            "ID": "5480448164",
+            "DATA": {
+                "Duration": 150,
+                "Settings": {},
+                "Prefix": "BRUCE",
+                "StaticOffer": "LOST 15KG",
+                "Suffix": " ",
+                "BrandLogo": {
+                    "URL": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/800px_AEG_Logo_Red_CMYK_svg_2856202847_4b01244e69.png",
+                    "height": 303,
+                    "width": 800
+                },
+                "IMGBefore": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/before_bd9d068211.jpg",
+                "IMGAfter": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/after_77f308215d.jpg"
+            }
+        }
+	]
+}

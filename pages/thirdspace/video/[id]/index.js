@@ -9,11 +9,12 @@ import { useUpdateVideo } from "../../../../hooks/Video/useStoreVideo";
 
 //UTILS
 import MembersShell from "../../../../components/template/MembersShell";
-import { H1, H2, H3, P } from "../../../../components/ui/type";
+import {  H2 } from "../../../../components/ui/type";
 import { fetcher } from "../../../../lib/api";
 import { Grid, ScrollArea } from "@mantine/core";
-import TimelineV2 from "../../../../components/Pages/Video/Player/TimelineV2";
-import { UIPaperWrapper } from "../../../../components/ui/Containers";
+//import TimelineV2 from "../../../../components/Pages/Video/Player/TimelineV2";
+import TimelineV3 from "../../../../components/Pages/Video/Player/TimelineV3";
+//import { UIPaperWrapper } from "../../../../components/ui/Containers";
 //import { VideoDataset } from "../../../../components/Pages/Video/VideoPreviewContainer/VideoDataset";
 import { VideoPreviewMainTabs } from "../../../../components/Pages/Video/VideoPreviewContainer/VideoPreviewMainTabs";
 import { RenderSampleCTA } from "../../../../components/Pages/Video/VideoPreviewContainer/RenderSampleCTA";
@@ -23,7 +24,7 @@ import { RightPanelTabs } from "../../../../components/Pages/Video/Tabs/Tabs_rig
 
 const qs = require("qs");
 
-const VideoCreatorPreviewer = ({ video, Modules, Videoid,fonts }) => {
+const VideoCreatorPreviewer = ({ video, Modules, Videoid, fonts }) => {
   // Update the video sequence to the DB
   const [Video, UpdateVideo, working] = useUpdateVideo();
   const [VideoOBJ, setVideoOBJ] = useState(video.OBJ);
@@ -80,53 +81,26 @@ const VideoCreatorPreviewer = ({ video, Modules, Videoid,fonts }) => {
   return (
     <MembersShell>
       <Grid mt={-15} mx={-14}>
-        <Grid.Col
-          span={2}
-          sx={(theme) => ({
-            backgroundColor: theme.colors.background,
-          })}
-        >
-          {sequence?.Series?.length === undefined ? (
-            false
-          ) : (
-            <>
-              <RenderSampleCTA Videoid={Videoid} />
-
-              <H3>Timeline ({sequence?.Series?.length})</H3>
-              <ScrollArea h={700} offsetScrollbars>
-                <TimelineV2
-                  sequence={sequence}
-                  onModuleMove={handleModuleMove}
-                  onModuleEdit={handleModuleEdit}
-                  onModuleDelete={handleModuleDelete}
-                  setVideoOBJ={setVideoOBJ} // Pass the setVideoOBJ function here
-                  Videoid={Videoid}
-                  playerRef={playerRef}
-                  dataSet={dataSet}
-                />
-              </ScrollArea>
-            </>
-          )}
-        </Grid.Col> 
-        <Grid.Col span={6}>
+        <Grid.Col span={8}>
           <H2>{video.Name}</H2>
-          {sequence?.Series?.length === undefined ? ( 
+          {sequence?.Series?.length === undefined ? (
             "Create a New Video."
           ) : (
-            <VideoPreviewMainTabs
-              VideoOBJ={VideoOBJ}
-              playerRef={playerRef}
-              dataSet={dataSet}
-              previewDataSetRow={previewDataSetRow}
-              setpreviewDataSetRow={setpreviewDataSetRow}
-              Videoid={Videoid}
-              CampaignRender={CampaignRender}
-              setCampaignRender={setCampaignRender}
-              VideoTitle={video.Name}
-            />
-          )}
-        </Grid.Col>
-
+            <>
+              <VideoPreviewMainTabs 
+                VideoOBJ={VideoOBJ}
+                playerRef={playerRef}
+                dataSet={dataSet}
+                previewDataSetRow={previewDataSetRow}
+                setpreviewDataSetRow={setpreviewDataSetRow}
+                Videoid={Videoid}
+                CampaignRender={CampaignRender}
+                setCampaignRender={setCampaignRender}
+                VideoTitle={video.Name}
+              />
+            </>
+          )} 
+        </Grid.Col> 
         <Grid.Col
           span={4}
           sx={(theme) => ({
@@ -136,14 +110,27 @@ const VideoCreatorPreviewer = ({ video, Modules, Videoid,fonts }) => {
           <RightPanelTabs
             Modules={Modules}
             setSequence={setSequence}
-            Videoid={Videoid}
+            Videoid={Videoid} 
             dataSet={dataSet}
             VideoOBJ={VideoOBJ}
             setVideoOBJ={setVideoOBJ}
             fonts={fonts}
           />
+          <RenderSampleCTA Videoid={Videoid} />
         </Grid.Col>
       </Grid>
+      <ScrollArea h={140} w={`auto`} offsetScrollbars>
+        <TimelineV3
+          sequence={sequence}
+          onModuleMove={handleModuleMove}
+          onModuleEdit={handleModuleEdit}
+          onModuleDelete={handleModuleDelete}
+          setVideoOBJ={setVideoOBJ} // Pass the setVideoOBJ function here
+          Videoid={Videoid}
+          playerRef={playerRef}
+          dataSet={dataSet}
+        />
+      </ScrollArea>
     </MembersShell>
   );
 };
@@ -172,6 +159,7 @@ const Modulesquery = qs.stringify(
       "video_placeholder_type",
       "video_placeholders",
       "video_module_type",
+      "brand"
     ],
   },
   {
@@ -224,12 +212,41 @@ export async function getServerSideProps(ctx) {
       video: videos.attributes,
       Videoid: id,
       Modules: Modules,
-      fonts:fonts
+      fonts: fonts,
     },
   };
 }
 
 export default VideoCreatorPreviewer;
+
+/* <Grid.Col
+          span={2}
+          sx={(theme) => ({
+            backgroundColor: theme.colors.background,
+          })}
+        >
+          {sequence?.Series?.length === undefined ? (
+            false
+          ) : (
+            <>
+              <RenderSampleCTA Videoid={Videoid} />
+
+             { <H3>Timeline ({sequence?.Series?.length})</H3>
+              <ScrollArea h={700} offsetScrollbars>
+                <TimelineV2
+                  sequence={sequence}
+                  onModuleMove={handleModuleMove}
+                  onModuleEdit={handleModuleEdit}
+                  onModuleDelete={handleModuleDelete}
+                  setVideoOBJ={setVideoOBJ} // Pass the setVideoOBJ function here
+                  Videoid={Videoid}
+                  playerRef={playerRef}
+                  dataSet={dataSet}
+                />
+              </ScrollArea>}
+            </>
+          )}
+        </Grid.Col>  */
 
 /* export const getStaticPaths = async () => {
   const response = await fetcher(

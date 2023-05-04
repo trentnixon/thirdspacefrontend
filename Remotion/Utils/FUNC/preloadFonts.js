@@ -2,12 +2,14 @@ import * as Montserrat from "@remotion/google-fonts/Montserrat";
 import * as Roboto from "@remotion/google-fonts/Roboto";
 import * as OpenSans from "@remotion/google-fonts/OpenSans";
 import * as Heebo from "@remotion/google-fonts/Heebo";
+import * as Josefin  from "@remotion/google-fonts/JosefinSans";
 
 const fontImports = {
   Montserrat,
   Roboto,
   OpenSans,
-  Heebo
+  Heebo,
+  Josefin
 };
 
 export const preloadFonts = async () => {

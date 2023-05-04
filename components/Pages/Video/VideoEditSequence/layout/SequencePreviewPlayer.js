@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import { RemotionSequencePlayer } from "../../Player/SequencePreview";
 
-export const SequencePreviewPlayer = ({ CreateSequenceOBJ, dataset, Video }) => {
+export const SequencePreviewPlayer = ({
+  CreateSequenceOBJ,
+  dataset,
+  Video,
+}) => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [videoObjects, setVideoObjects] = useState([]);
 
   useEffect(() => {
     miniCompileVideoObjects(CreateSequenceOBJ, dataset);
-  }, [CreateSequenceOBJ, dataset]); 
- 
-  function miniCompileVideoObjects(userObj, dataset) { 
+  }, [CreateSequenceOBJ, dataset]);
+
+  function miniCompileVideoObjects(userObj, dataset) {
     try {
       const DATASETROW = dataset.data_set_rows.data;
 
@@ -28,12 +32,12 @@ export const SequencePreviewPlayer = ({ CreateSequenceOBJ, dataset, Video }) => 
             Value: item.attributes.Value,
           })
         );
-      
+
         const newData = {
           Duration: userObj.DATA.Duration || 150, // Add Duration field with default value 150
-          Settings: userObj.DATA.Settings , // Initialize Settings as an empty object
+          Settings: userObj.DATA.Settings, // Initialize Settings as an empty object
         };
-      
+
         if (
           userObj.DATA &&
           userObj.DATA.fields &&
@@ -48,19 +52,17 @@ export const SequencePreviewPlayer = ({ CreateSequenceOBJ, dataset, Video }) => 
             }
           });
         }
-    
-      /*   console.log(
-          {
+
+        console.log({
           ...userObj,
           DATA: newData,
-        }
-        ) */
+        });
         return {
           ...userObj,
           DATA: newData,
         };
       });
-      
+
       setErrorMessage(null);
       setVideoObjects(newVideoObjects);
     } catch (error) {
@@ -70,12 +72,16 @@ export const SequencePreviewPlayer = ({ CreateSequenceOBJ, dataset, Video }) => 
     }
   }
 
-//console.log(CreateSequenceOBJ)
+  //console.log(CreateSequenceOBJ)
   if (videoObjects.length === 0) return false;
   return (
     <div>
       {errorMessage && <div className="error-message">{errorMessage}</div>}
-      <RemotionSequencePlayer  DATA={CreateSequenceOBJ} Settings={Video.data.attributes.OBJ.Settings} dataSet={dataset} />
+      <RemotionSequencePlayer
+        DATA={CreateSequenceOBJ}
+        Settings={Video.data.attributes.OBJ.Settings}
+        dataSet={dataset}
+      />
     </div>
   );
 };

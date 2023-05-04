@@ -1,0 +1,27 @@
+{
+	"Settings": {
+		"Theme": {
+			"Primary": "#ffffff",
+			"Secondary": "#353535",
+			"BackgroundColor": "#bb2f2f"
+		},
+		"Font": {
+			"fontFamily": "Montserrat"
+		}
+	},
+
+	"Series": [
+		{
+			"component": "DefaultBackgroundOnly",
+			"componentID": 2,
+			"Name": "Video Background with NoText",
+			"Type": "Video",
+			"ID": "7164611746",
+			"DATA": {
+					"Duration": 144,
+					"Settings": {},
+					"BackgroundVideo": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/videoblocks_couple_come_to_aiport_to_travel_he9dwuhzo_3b70ac8bb2dbdbad90e577152e0b7473_P360_b0d61a570a.mp4"
+			}
+	}
+	]
+}

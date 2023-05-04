@@ -18,7 +18,7 @@ export const SaveToComposition = ({
       if (!hasKey(obj, key)) {
         return false;
       }
-    }
+    } 
     return true;
   }
 

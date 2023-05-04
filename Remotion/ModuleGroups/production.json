@@ -1,0 +1,70 @@
+{
+	"Settings": {
+		"Theme": {
+			"Primary": "#ffffff",
+			"Secondary": "#000000",
+			"BackgroundColor": "#0aaa14"
+		},
+		"Font": {"fontFamily": "Montserrat"}
+	},
+	"Series": [
+		{
+			"component": "DefaultBackgroundOnly",
+			"componentID": 2,
+			"Name": "Video Background",
+			"Type": "Video",
+			"ID": "8712433685",
+			"DATA": {
+				"Duration": 190,
+				"Settings": {},
+				"BackgroundAudio": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/WINNING_SENSES_INTRO_AUDIO_3f7d591ff2.mp3",
+				"BackgroundVideo": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/WINNING_SENSES_INTRO_ad38ed7528.mp4"
+			}
+		},
+		
+		{
+			"component": "WinningsLogoAndOffer",
+			"componentID": 3,
+			"Name": "Centered Logo And Offer",
+			"Type": "Video",
+			"ID": "3775653404",
+			"DATA": {
+				"Duration": 150,
+				"Settings": {},
+				"Prefix": " ",
+				"StaticOffer": "$600*",
+				"Suffix": "OFF",
+				"BrandLogo": {
+					"URL": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/800px_AEG_Logo_Red_CMYK_svg_2856202847_4b01244e69.png",
+					"height": 303,
+					"width": 800
+				},
+				"BackgroundVideo": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/preview_185765_z_Tma_DDCWLY_high_3b89c1d7f9.mp4"
+			}
+		},
+		{
+			"component": "DefaultBackgroundOnly",
+			"componentID": 2,
+			"Name": "Video Background",
+			"Type": "Video",
+			"ID": "9686143498",
+			"DATA": {
+				"Duration": 270,
+				"Settings": {},
+				"BackgroundAudio": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/WINNING_SENSES_OUTRO_AUDIO_57192d2caf.mp3",
+				"BackgroundVideo": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/WINNING_SENSES_OUTRO_27456da62e.mp4"
+			}
+		},{
+			"component": "BackgroundAudioFull",
+			"componentID": 14,
+			"Name": "Background Audio Full",
+			"Type": "Audio",
+			"ID": "6694787787",
+			"DATA": {
+				"Duration": 150,
+				"Settings": {},
+				"BackgroundAudio": "https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/WINNING_SENSES_MUSIC_TV_6727f14ff1.mp3"
+			}
+		}
+	]
+}

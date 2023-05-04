@@ -41,27 +41,21 @@ export const VideoPreviewContainer = (props) => {
         playerRef={playerRef}
         RATIO={RatioValue}
       />
-      <TimeDisplay playerRef={playerRef} />
+      
       <Group position="right" my={10}>
         <SelectRatio setRatioValue={setRatioValue} />
       </Group>
-      <H4>Preview Data</H4>
-
-      <UIPaperWrapper>
-        <ScrollArea>
-        <DatasetTable 
-          DATASET={
-            DATAROW.data_set_rows.data[previewDataSetRow].attributes
-              .data_set_items.data
-          }
-        />
-        </ScrollArea>
-      </UIPaperWrapper>
+    
     </>
   );
 };
 
-const DatasetTable = ({ DATASET }) => {
+
+
+
+
+
+/* const DatasetTable = ({ DATASET }) => {
   const sortedItems = DATASET.sort((a, b) => {
     if (a.attributes.Key < b.attributes.Key) {
       return -1;
@@ -90,3 +84,17 @@ const DatasetTable = ({ DATASET }) => {
     </Table>
   );
 };
+ */
+
+/*   <H4>Preview Data</H4>
+
+      <UIPaperWrapper>
+        <ScrollArea>
+        <DatasetTable  
+          DATASET={
+            DATAROW.data_set_rows.data[previewDataSetRow].attributes
+              .data_set_items.data
+          }
+        />
+        </ScrollArea>
+      </UIPaperWrapper> */

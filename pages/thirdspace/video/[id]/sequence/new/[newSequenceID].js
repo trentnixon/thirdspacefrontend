@@ -69,21 +69,21 @@ export default function SequencePage({ Video, VideoModule }) {
   return (
     <MembersShell>
       {!saving ? (
-        <Grid mt={-15} mx={-14}>
+        <Grid mt={-15} mx={-14}> 
           <Grid.Col
             span={3}
             sx={(theme) => ({
               backgroundColor: theme.colors.background,
-            })}
+            })}  
           >
             <DisplaySequenceComponents 
-              Video={Video.data.attributes}
+              Video={Video.data.attributes} 
               VideoModule={VideoModule.data.attributes}
               CreateSequenceOBJ={CreateSequenceOBJ}
               setCreateSequenceOBJ={setCreateSequenceOBJ}
               dataset={Video.data.attributes.dataset.data.attributes}
             />
-          </Grid.Col>
+          </Grid.Col> 
           <Grid.Col span={6}>
             <H2>Create a New Sequence</H2> 
 
@@ -94,7 +94,7 @@ export default function SequencePage({ Video, VideoModule }) {
                 VideoModule={VideoModule.data}
                 handleAddSequence={handleAddSequence}
               />
-            </Group>
+            </Group> 
             <SequencePreviewPlayer
               VideoModule={VideoModule.data}
               Video={Video}

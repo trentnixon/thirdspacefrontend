@@ -13,7 +13,7 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 
 import { BTN_ICON_FUNC, BTN_ICON_LINK } from "../../../ui/btn";
-import { P } from "../../../ui/type";
+import { H1, P } from "../../../ui/type";
 import { UIPaperWrapper } from "../../../ui/Containers";
 
 import {
@@ -23,6 +23,7 @@ import {
   IconEye,
   IconSquareRoundedPlusFilled,
   IconHexagons,
+  IconHeadphones,
 } from "@tabler/icons-react";
 import { useState } from "react";
 
@@ -30,7 +31,6 @@ export const AddNewSequence = (props) => {
   const { Modules, setSequence, Videoid } = props;
   const theme = useMantineTheme();
   const [opened, handlers] = useDisclosure(false);
-  const [TypeValue, setTypeValue] = useState("Static");
 
   const onClose = () => {
     handlers.close();
@@ -87,6 +87,18 @@ export const AddNewSequence = (props) => {
           >
             Color
           </Tabs.Tab>
+          <Tabs.Tab
+            value="Audio"
+            icon={<IconHeadphones size="0.8rem" />}
+            sx={(theme) => ({
+              color: theme.colors.ui[1],
+              "&[data-active]": {
+                backgroundColor: theme.colors.ui[0],
+              },
+            })}
+          >
+            Audio
+          </Tabs.Tab>
         </Tabs.List>
 
         <Tabs.Panel value="Video" pt="xs">
@@ -94,7 +106,6 @@ export const AddNewSequence = (props) => {
             data={groupedObj["Video"]}
             Videoid={Videoid}
             handlers={handlers}
-            TypeValue={TypeValue}
           />
         </Tabs.Panel>
 
@@ -103,7 +114,6 @@ export const AddNewSequence = (props) => {
             data={groupedObj["Image"]}
             Videoid={Videoid}
             handlers={handlers}
-            TypeValue={TypeValue}
           />
         </Tabs.Panel>
 
@@ -112,7 +122,14 @@ export const AddNewSequence = (props) => {
             data={groupedObj["Color"]}
             Videoid={Videoid}
             handlers={handlers}
-            TypeValue={TypeValue}
+          />
+        </Tabs.Panel>
+
+        <Tabs.Panel value="Audio" pt="xs">
+          <GroupedData
+            data={groupedObj["Audio"]}
+            Videoid={Videoid}
+            handlers={handlers}
           />
         </Tabs.Panel>
       </Tabs>
@@ -122,58 +139,70 @@ export const AddNewSequence = (props) => {
   );
 };
 
-const GroupedData = ({ data, Videoid, handlers, TypeValue }) => {
+const GroupedData = ({ data, Videoid, handlers }) => {
   if (!data || data.length === 0) return false;
 
-  function groupByModuleType(data) {
+  function groupByBrandName(data) {
     return data.reduce((result, item) => {
-      const moduleTypeName =
-        item.attributes.video_module_type.data.attributes.Name;
+      console.log(item?.attributes?.brand?.data?.attributes?.Name);
+      const brandName =
+        item?.attributes?.brand?.data?.attributes?.Name || "default";
 
-      if (!result[moduleTypeName]) {
-        result[moduleTypeName] = [];
+      if (!result[brandName]) {
+        result[brandName] = [];
       }
 
-      result[moduleTypeName].push(item);
+      result[brandName].push(item);
       return result;
     }, {});
   }
 
-  const groupedData = groupByModuleType(data);
-
+  const groupedData = groupByBrandName(data);
   return (
     <>
       {Object.keys(groupedData).map((key) => {
-        if (key === TypeValue)
-          return (
-            <div key={key}>
-              <SimpleGrid cols={2}>
-                {groupedData[key].map((item) => (
-                  <UIPaperWrapper key={item.id} p={5} my={0}>
-                    <Stack>
-                      <Image withPlaceholder height={100} width={`100%`} />
-                      <P size={`xs`} textAlign={`center`}>
-                        {item.attributes.Name}
-                      </P>
-                      <Group position="apart">
-                        <BTN_ICON_FUNC
-                          HANDLE={() => {
-                            handlers.open();
-                          }}
-                          ICON={<IconEye />}
-                        />
+        return (
+          <div key={key}>
+            <Space h={20} />
+            <P Weight={400} marginBottom={10}>
+              {key}
+            </P>
+            <SimpleGrid cols={1}>
+              {groupedData[key].map((item) => (
+                <UIPaperWrapper key={item.id} p={0} my={0}>
+                  <Group position="apart">
+                  <Image
+                      withPlaceholder
+                      alt={item.attributes.Name}
+                      radius={5}
+                      width={`50px`}
+                      height={`50px`}
+                      onClick={() => {
+                        handlers.open();
+                      }}
+                    />
+                    
 
-                        <BTN_ICON_LINK
-                          HREF={`/thirdspace/video/${Videoid}/sequence/new/${item.id}`}
-                          ICON={<IconSquareRoundedPlusFilled />}
-                        />
-                      </Group>
-                    </Stack>
-                  </UIPaperWrapper>
-                ))}
-              </SimpleGrid>
-            </div>
-          );
+                    <P size={`xs`} textAlign={`left`} width={`70%`}>
+                      {item.attributes.Name}
+                    </P>
+                    <BTN_ICON_LINK
+                      HREF={`/thirdspace/video/${Videoid}/sequence/new/${item.id}`}
+                      ICON={<IconSquareRoundedPlusFilled />}
+                    />
+                    {/* <BTN_ICON_FUNC
+                        HANDLE={() => {
+                          handlers.open();
+                        }}
+                        ICON={<IconEye />}
+                      /> */}
+                    
+                  </Group>
+                </UIPaperWrapper>
+              ))}
+            </SimpleGrid>
+          </div>
+        );
       })}
     </>
   );

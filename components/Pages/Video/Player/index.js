@@ -1,8 +1,9 @@
 import { Player } from "@remotion/player";
 import { useEffect, useRef } from "react";
-import { VideoShell916 } from "../../../../Remotion/Templates/DefaultVideoShell/Video_916";
-import { VideoShell45 } from "../../../../Remotion/Templates/DefaultVideoShell/Video_45";
-import { VideoShellSQ } from "../../../../Remotion/Templates/DefaultVideoShell/Video_SQ";
+import { VideoShell916 } from "../../../../Remotion/Templates/Video_916";
+import { VideoShell45 } from "../../../../Remotion/Templates/Video_45";
+import { VideoShellSQ } from "../../../../Remotion/Templates/Video_SQ";
+import { splitAudioAndVisual } from "../../../../Remotion/Utils/FUNC/DataFormatting";
 
 export const RemotionPlayer = (props) => {
   const { VideoOBJ, playerRef, RATIO } = props;
@@ -16,15 +17,15 @@ export const RemotionPlayer = (props) => {
     },
     VideoShell45: {
       component: VideoShell45, 
-      W: 400,
-      H: 500,
+      W: 1080,
+      H: 1350,
       style: { height: "600px" },
       wrapperStyle: { display: "flex", justifyContent: "center" },
     },
     VideoShellSQ: {
       component: VideoShellSQ,
-      W: 1080,
-      H: 1080,
+      W: 1920,
+      H: 1920 ,
       style: { height: "600px" },
       wrapperStyle: { display: "flex", justifyContent: "center" },
     },
@@ -39,7 +40,19 @@ export const RemotionPlayer = (props) => {
 
   if (VideoOBJ.Series.length === 0) return <>Start video create</>;
 
-//console.log(VideoOBJ)
+
+  const FormattVideoData = (VIDEODATA) =>{
+    
+    const {SequenceAudio, SequenceVisual} = splitAudioAndVisual(VIDEODATA.Series);
+    console.log("SequenceVisual", SequenceVisual)
+    return {
+      SequenceAudio,
+      SequenceVisual,
+      Settings: VIDEODATA.Settings,
+    }
+  }
+
+console.log(VideoOBJ)
   return (
     <div style={RatioObj[RATIO].wrapperStyle}>
       <Player
@@ -47,7 +60,7 @@ export const RemotionPlayer = (props) => {
         ref={playerRef}
         id={RATIO}
         component={RatioObj[RATIO].component}
-        durationInFrames={VideoOBJ.Series.reduce(
+        durationInFrames={FormattVideoData(VideoOBJ).SequenceVisual.reduce(
           (acc, obj) => acc + obj.DATA.Duration,
           0
         )}
@@ -58,11 +71,11 @@ export const RemotionPlayer = (props) => {
         fps={30}
         style={RatioObj[RATIO].style}
         inputProps={{
-          DATA: VideoOBJ,
+          DATA: FormattVideoData(VideoOBJ), 
           RESOLUTION:{
 						w: RatioObj[RATIO].W,
             h: RatioObj[RATIO].H,
-					} 
+					}   
         }}
       />
     </div>

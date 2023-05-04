@@ -4,26 +4,35 @@ import { Tabs } from "@mantine/core";
 import { IconPhoto } from "@tabler/icons-react";
 // Import Placeholders
 // Video
-import { BackgroundVideo } from "../Placeholders/BackgroundVideo";
+import { BackgroundVideo } from "../Placeholders/type/video/BackgroundVideo";
 // Images
-import { BackgroundMediaImage } from "../Placeholders/BackgroundMediaImage";
-import { BrandLogo } from "../Placeholders/BrandLogo";
+import { BackgroundMediaImage } from "../Placeholders/type/images/BackgroundMediaImage";
+import { BrandLogo } from "../Placeholders/type/images/BrandLogo";
+import { IMGBefore } from "../Placeholders/type/images/IMGBefore";
+import { IMGAfter } from "../Placeholders/type/images/IMGAfter";
 // Copy
-import { Title } from "../Placeholders/Title";
-import { StaticOffer } from "../Placeholders/Offer";
-import { Prefix } from "../Placeholders/Prefix";
-import { Suffix } from "../Placeholders/Suffix";
+import { Title } from "../Placeholders/type/copy/Title";
+import {LongCopy} from '../Placeholders/type/copy/LongCopy'
+import { StaticOffer } from "../Placeholders/type/copy/Offer";
+import { Prefix } from "../Placeholders/type/copy/Prefix";
+import { Suffix } from "../Placeholders/type/copy/Suffix";
+// Audio
+import { BackgroundAudio } from "../Placeholders/type/audio/BackgroundAudio";
 // Meta
 import { useGETCampaignVideos } from "../../../../../hooks/useGetassets/useAssetsVideos";
 
 const components = {
   BackgroundVideo,
   Title,
+  LongCopy,
   BrandLogo,
-  BackgroundMediaImage,  
+  BackgroundMediaImage,
   StaticOffer,
-  Prefix, 
+  Prefix,
   Suffix,
+  IMGBefore,
+  IMGAfter,
+  BackgroundAudio 
 };
 export const DisplaySequenceComponents = ({
   VideoModule,
@@ -32,9 +41,7 @@ export const DisplaySequenceComponents = ({
   Video,
   dataset,
 }) => {
- 
-
-function groupByVideoPlaceholderTypeName(arr) {
+  function groupByVideoPlaceholderTypeName(arr) {
     return arr.reduce((accumulator, currentObj) => {
       const typeName =
         currentObj.attributes.video_placeholder_type.data.attributes.Name;
@@ -48,24 +55,24 @@ function groupByVideoPlaceholderTypeName(arr) {
     }, {});
   }
 
+  
   const handleInputChange = (newField) => {
-
     //console.log(newField)
-    
+
     if (!CreateSequenceOBJ.DATA.fields) {
       CreateSequenceOBJ.DATA.fields = [];
     }
     const fieldIndex = CreateSequenceOBJ.DATA.fields.findIndex(
       (field) => field.name === newField.name
     );
-  
+
     let newFields = [...CreateSequenceOBJ.DATA.fields];
     if (fieldIndex >= 0) {
       newFields[fieldIndex] = newField;
     } else {
       newFields.push(newField);
     }
-  
+
     let MODULEDATA = {
       ...CreateSequenceOBJ,
       DATA: {
@@ -73,12 +80,11 @@ function groupByVideoPlaceholderTypeName(arr) {
         fields: newFields,
       },
     };
-  
-  //console.log("MODULEDATA", MODULEDATA);
-  
+
+    //console.log("MODULEDATA", MODULEDATA);
+
     setCreateSequenceOBJ(MODULEDATA);
   };
-  
 
   const groupedByPlaceholderTypeName = groupByVideoPlaceholderTypeName(
     VideoModule.video_placeholders.data
@@ -86,13 +92,13 @@ function groupByVideoPlaceholderTypeName(arr) {
   // HOOKS
   const [VideoAssets, GetVideoAssets, working] = useGETCampaignVideos();
   // USE EFFECT
- 
+
   useEffect(() => {
     GetVideoAssets(Video.campaign.data.id);
   }, []);
 
   useEffect(() => {
-  //console.log(VideoAssets);
+    //console.log(VideoAssets);
   }, [VideoAssets]);
   if (working !== false) {
     return <>WORKING</>;
@@ -130,7 +136,7 @@ function groupByVideoPlaceholderTypeName(arr) {
           return (
             <Tabs.Panel value={key} pt="xs" key={key}>
               {groupedByPlaceholderTypeName[key].map((PlaceHolder, i) => {
-              //console.log(PlaceHolder);
+                //console.log(PlaceHolder);
                 return (
                   <div key={i}>
                     {React.createElement(

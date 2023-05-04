@@ -19,6 +19,7 @@ export const P = (props)=>{
     lineHeight='1em',
     textAlign='center',
     letterSpacing='0px'
+    
   } = props
 
   return(
