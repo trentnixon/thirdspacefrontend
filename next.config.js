@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+/* const nextConfig = {
   reactStrictMode: true,
 }
 
-module.exports = nextConfig
+module.exports = nextConfig */
+
+const withTM = require('next-transpile-modules')(['remotion-animated']);
+
+module.exports = withTM({reactStrictMode: true,});

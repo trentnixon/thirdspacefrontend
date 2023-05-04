@@ -1,0 +1,45 @@
+[
+    {
+      "Product": "Natura Herbal Shampoo",
+      "Tagline": "Nourish your hair with the power of herbs",
+      "Target Age Group": "All",
+      "Target Location": "Sydney",
+      "Price": "$15"
+    },
+    {
+      "Product": "Natura Herbal Shampoo",
+      "Tagline": "Nourish your hair with the power of herbs",
+      "Target Age Group": "All",
+      "Target Location": "Melbourne",
+      "Price": "$15"
+    },
+    {
+      "Product": "Natura Nourishing Body Wash",
+      "Tagline": "Recharge your skin with the goodness of nature",
+      "Target Age Group": "All",
+      "Target Location": "Brisbane",
+      "Price": "$18"
+    },
+    {
+      "Product": "Natura Nourishing Body Wash",
+      "Tagline": "Recharge your skin with the goodness of nature",
+      "Target Age Group": "All",
+      "Target Location": "Sydney",
+      "Price": "$18"
+    },
+    {
+      "Product": "Natura Radiant Face Cream",
+      "Tagline": "Revive your skin's natural glow with nature's touch",
+      "Target Age Group": "25-45",
+      "Target Location": "Melbourne",
+      "Price": "$35"
+    },
+    {
+      "Product": "Natura Radiant Face Cream",
+      "Tagline": "Revive your skin's natural glow with nature's touch",
+      "Target Age Group": "25-45",
+      "Target Location": "Brisbane",
+      "Price": "$35"
+    }
+  ]
+  

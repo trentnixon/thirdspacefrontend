@@ -1,0 +1,28 @@
+
+/**
+ * Calculates the orientation and ratio of an image and returns the dimensions needed for it to be placed correctly
+ * @param {number} height - The height of the image in pixels
+ * @param {number} width - The width of the image in pixels
+ * @returns {string} - A string representing the dimensions needed for the image to be placed correctly
+ */
+export function calculateImageSize(height, width, MaxHeight=300, MaxWidth=600) {
+  const ratio = width / height;
+  let newHeight = height;
+  let newWidth = width;
+
+  if (ratio === 1) {
+    newHeight = 400;
+    newWidth = 400;
+  } else if (newHeight > MaxHeight) {
+    newHeight = MaxHeight;
+    newWidth = newHeight * ratio;
+  }
+
+  if (newWidth > MaxWidth) {
+    newWidth = MaxWidth;
+    newHeight = newWidth / ratio;
+  }
+
+  return { height: newHeight, width: newWidth };
+}
+

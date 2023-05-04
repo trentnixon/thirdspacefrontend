@@ -1,0 +1,45 @@
+[
+    {
+      "Product": "Tecno Spark 7 Pro Smartphone",
+      "Tagline": "Experience the power of performance",
+      "Target Age Group": "18-35",
+      "Target Location": "Sydney",
+      "Price": "$200"
+    },
+    {
+      "Product": "Tecno Spark 7 Pro Smartphone",
+      "Tagline": "Experience the power of performance",
+      "Target Age Group": "18-35",
+      "Target Location": "Melbourne",
+      "Price": "$200"
+    },
+    {
+      "Product": "Tecno Camon 17 Pro Smartphone",
+      "Tagline": "Capture life's moments like a pro",
+      "Target Age Group": "18-35",
+      "Target Location": "Brisbane",
+      "Price": "$400"
+    },
+    {
+      "Product": "Tecno Camon 17 Pro Smartphone",
+      "Tagline": "Capture life's moments like a pro",
+      "Target Age Group": "18-35",
+      "Target Location": "Sydney",
+      "Price": "$400"
+    },
+    {
+      "Product": "Tecno SmartWatch",
+      "Tagline": "Stay connected, stay stylish",
+      "Target Age Group": "25-45",
+      "Target Location": "Melbourne",
+      "Price": "$150"
+    },
+    {
+      "Product": "Tecno SmartWatch",
+      "Tagline": "Stay connected, stay stylish",
+      "Target Age Group": "25-45",
+      "Target Location": "Brisbane",
+      "Price": "$150"
+    }
+  ]
+  

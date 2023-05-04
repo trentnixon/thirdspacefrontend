@@ -105,3 +105,36 @@ a {
     color-scheme: dark;
   }
 }
+
+
+.timeline-module {
+  /* Add styles for the modules */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin-right: 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+
+.module-name {
+  /* Add styles for the module name */
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.module-preview {
+  /* Add styles for the module preview */
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.module-options {
+  /* Add styles for the module options */
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
