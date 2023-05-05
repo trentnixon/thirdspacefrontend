@@ -2,7 +2,7 @@ import { Sequence, Img } from "remotion";
 // Import styled from 'styled-components';
 
 import {
-  ContainerTransparentColumn,
+  ContainerTransparentColumn, 
   DefaultContainer,
 } from "../../../../../../Utils/UI/Containers/glass";
 

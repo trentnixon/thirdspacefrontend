@@ -22,7 +22,7 @@ export const UploadNewDataset = () => {
   };
 
   const UploadDataset = () => {
-    const NAME = "Natura Test Data V3";
+    const NAME = "Techo V1";
     const ID = 6;
     console.log("UPLOAD", UploadedData);
  
