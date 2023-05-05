@@ -43,9 +43,7 @@ const ViewCampaign = ({ campaign }) => {
         <H1>{campaign.Name}</H1>
         <P> {campaign.brand?.data?.attributes?.Name}</P>
 
-      <IsCampaignSelected campaign={campaign} />
-
-      <CampaignTabs Campaign={campaign} />
+     
     </MembersShell>
   ); 
 };
