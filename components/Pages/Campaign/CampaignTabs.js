@@ -5,7 +5,7 @@ import { HasVideo } from "./Tabs/hasVideo";
 export const CampaignTabs = ({ Campaign }) => {
   return (
     <>
-     {/* <HasVideo Campaign={Campaign} />*/}
+     <HasVideo Campaign={Campaign} />
        <HasDataSet Campaign={Campaign} />
       <HasAssets Campaign={Campaign} />  
     </>
