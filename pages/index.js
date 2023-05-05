@@ -55,5 +55,5 @@ export const getServerSideProps = async (context) => {
 /*
  git add .
  git commit -am "Third Space POC"
- git push heroku main
+git push -u origin main 
 */
