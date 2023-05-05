@@ -82,10 +82,10 @@ const ShowVideo = ({ Video }) => {
                     <P>{v.attributes?.Name}</P>
                   </td>
                   <td style={{ textAlign: "center" }}>
-                    {v.attributes.dataset.data.attributes?.Name}
+                    {v?.attributes.dataset.data?.attributes?.Name}
                   </td>
                   <td style={{ textAlign: "center" }}>
-                    {v.attributes.renders.data.length}
+                    {v?.attributes.renders.data.length}
                   </td>
                   <td style={{ textAlign: "center" }}>
                     <BTN_LINK
