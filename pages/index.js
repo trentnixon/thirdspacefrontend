@@ -18,7 +18,7 @@ export default function Home() {
     if (isUser) {
       router.push("/thirdspace");
     }
-  }, [isUser, render]);
+  }, [isUser, router]);
 
   useEffect(() => {}, [render]);
 
@@ -48,4 +48,12 @@ export const getServerSideProps = async (context) => {
     },
   };
 };
+*/
+
+
+
+/*
+ git add .
+ git commit -am "Third Space POC"
+ git push heroku main
 */

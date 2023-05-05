@@ -16,7 +16,7 @@ const useStyles = createStyles((theme) => ({
     minHeight: 900,
     backgroundSize: "cover",
     backgroundImage:
-      "url(http://localhost:1337/uploads/3rdspace_Vendingmachine_1cc01a9774.jpg?updated_at=2023-02-23T00:12:30.896Z)",
+      "url(https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/screencapture_images_unsplash_photo_1464639351491_a172c2aa2911_2023_05_05_10_02_07_2a83f6c6b5.jpg?updated_at=2023-05-05T00:03:30.490Z)",
   },
 
   form: {

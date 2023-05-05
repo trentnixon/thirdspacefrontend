@@ -51,9 +51,9 @@ export const VideoShell916 = ({DATA}) => {
 				</Series>
 			</AbsoluteFill>
 
-			<AbsoluteFill>
+			{/* <AbsoluteFill>
 				<Audio src="https://thirdspace-creator-assets.s3.ap-southeast-2.amazonaws.com/audiotest_e5c1837f81_a2d9c41b9f.mp3?updated_at=2023-04-26T01:57:19.255Z" />
-			</AbsoluteFill>
+			</AbsoluteFill> */}
 		</AbsoluteFill>
 	);
 };
