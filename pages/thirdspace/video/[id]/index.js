@@ -22,7 +22,7 @@ import { VideoStateComplete } from "../../../../components/Pages/Video/VideoStat
 
 const qs = require("qs");
 
-export const getStaticPaths = async () => {
+/* export const getStaticPaths = async () => {
   const response = await fetcher(
     `${process.env.NEXT_PUBLIC_STRAPI_URL}/videos`,
     {
@@ -47,7 +47,7 @@ export const getStaticPaths = async () => {
     paths: path,
     fallback: false,
   };
-};
+}; */
 
 const VideoCreatorPreviewer = ({ video, Modules, Videoid }) => {
   // Update the video sequence to the DB
