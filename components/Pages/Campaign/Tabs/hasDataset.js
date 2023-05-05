@@ -9,6 +9,7 @@ import { H2, P } from "../../../ui/type";
 import { DataTableHeader } from "../../../ui/table";
 
 export const HasDataSet = ({ Campaign }) => {
+  console.log("hasDataset", Campaign)
   const theme = useMantineTheme();
   const columns = [
     {
@@ -56,7 +57,7 @@ export const HasDataSet = ({ Campaign }) => {
                 return (
                   <tr key={i}>
                     <td style={{ textAlign: "center" }}>
-                      <P>{v.attributes.Name}</P>
+                      <P>{v.attributes?.Name}</P>
                     </td>
                     <td style={{ textAlign: "center" }}>
                       {v.attributes.data_set_rows.data.length}
