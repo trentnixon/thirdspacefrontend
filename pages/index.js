@@ -50,10 +50,8 @@ export const getServerSideProps = async (context) => {
 };
 */
 
-
-
 /*
- git add .
- git commit -am "Third Space POC"
-git push -u origin main 
+  git add .
+  git commit -am "Third Space POC"
+  git push -u origin main 
 */

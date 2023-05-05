@@ -29,6 +29,7 @@ const query = qs.stringify(
 );
 
 const ViewCampaign = ({ campaign }) => {
+  console.log("campaign")
   console.log(campaign)
   return (
     <MembersShell>
