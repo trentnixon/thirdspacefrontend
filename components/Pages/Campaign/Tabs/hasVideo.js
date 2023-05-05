@@ -79,10 +79,10 @@ const ShowVideo = ({ Video }) => {
               return (
                 <tr key={i}>
                   <td style={{ textAlign: "center" }}>
-                    <P>{v.attributes.Name}</P>
+                    <P>{v.attributes?.Name}</P>
                   </td>
                   <td style={{ textAlign: "center" }}>
-                    {v.attributes.dataset.data.attributes.Name}
+                    {v.attributes.dataset.data.attributes?.Name}
                   </td>
                   <td style={{ textAlign: "center" }}>
                     {v.attributes.renders.data.length}
