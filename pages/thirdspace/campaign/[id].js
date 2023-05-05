@@ -67,7 +67,7 @@ export async function getServerSideProps(ctx) {
   console.log(campaign)
   return {
     props: {
-      campaign: campaign.attributes,
+      campaign: campaign?.attributes,
     },
   };
 }
