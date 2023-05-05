@@ -22,32 +22,7 @@ import { VideoStateComplete } from "../../../../components/Pages/Video/VideoStat
 
 const qs = require("qs");
 
-/* export const getStaticPaths = async () => {
-  const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/videos`,
-    {
-      headers: {
-        "Content-Type": "application/json",
-        //Authorization: `Bearer ${Cookies.get("jwt")}`,
-      },
-    }
-  );
 
-  let Response = response.data;
-
-  const path = Response.map((d, i) => {
-    return {
-      params: {
-        id: d.id.toString(),
-      },
-    };
-  });
-
-  return {
-    paths: path,
-    fallback: false,
-  };
-}; */
 
 const VideoCreatorPreviewer = ({ video, Modules, Videoid }) => {
   // Update the video sequence to the DB
@@ -242,3 +217,31 @@ export async function getServerSideProps(ctx) {
 }
 
 export default VideoCreatorPreviewer;
+
+
+/* export const getStaticPaths = async () => {
+  const response = await fetcher(
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/videos`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        //Authorization: `Bearer ${Cookies.get("jwt")}`,
+      },
+    }
+  );
+
+  let Response = response.data;
+
+  const path = Response.map((d, i) => {
+    return {
+      params: {
+        id: d.id.toString(),
+      },
+    };
+  });
+
+  return {
+    paths: path,
+    fallback: false,
+  };
+}; */

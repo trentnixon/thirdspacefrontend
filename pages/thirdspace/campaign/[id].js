@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
 import MembersShell from "../../../components/template/MembersShell";
-import { Container, Group } from "@mantine/core";
+import {  Group } from "@mantine/core";
 import { BTN_LINK } from "../../../components/ui/btn";
 import { H1, P } from "../../../components/ui/type";
 import { fetcher } from "../../../lib/api";
@@ -30,6 +29,7 @@ const query = qs.stringify(
 );
 
 const ViewCampaign = ({ campaign }) => {
+  console.log(campaign)
   return (
     <MembersShell>
       <Group position="right" my={10}>
@@ -62,7 +62,7 @@ export async function getServerSideProps(ctx) {
     }
   );
   let campaign = response.data;
-
+    console.log(campaign)
   return {
     props: {
       campaign: campaign.attributes,
