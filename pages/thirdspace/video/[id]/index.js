@@ -6,7 +6,6 @@ import { useUpdateVideo } from "../../../../hooks/Video/useStoreVideo";
 
 //COMPONENTS
 import { AddNewSequence } from "../../../../components/Pages/Video/AddNewSequence/AddSequence";
-//import { VideoPreviewContainer } from "../../../../components/Pages/Video/VideoPreviewContainer/VideoPreviewContainer";
 
 //UTILS
 import MembersShell from "../../../../components/template/MembersShell";
@@ -20,16 +19,6 @@ import { VideoPreviewMainTabs } from "../../../../components/Pages/Video/VideoPr
 import { RenderSampleCTA } from "../../../../components/Pages/Video/VideoPreviewContainer/RenderSampleCTA";
 import { CampaignIsRendering } from "../../../../components/Pages/Video/CampaignRendering/CampaignIsRendering";
 import { VideoStateComplete } from "../../../../components/Pages/Video/VideoStateComplete/VideoStateComplete";
-
-/*
-  TO DO TODAY:
-  Finish moving all of the modules to the new sytem, get all of them working with the dynamic to static filter
-  maybe even the vid and images, with a validation on the dataset type
-
-  set up the rendering process, click, check, confirm, monitor, review, download
-
-
-*/
 
 const qs = require("qs");
 
@@ -148,21 +137,21 @@ const VideoCreatorPreviewer = ({ video, Modules, Videoid }) => {
         <Grid.Col span={6}>
           <H2>{video.Name}</H2>
           {sequence?.Series?.length === undefined ? (
-            'Create a New Video.'
+            "Create a New Video."
           ) : (
             <VideoPreviewMainTabs
-            VideoOBJ={VideoOBJ}
-            playerRef={playerRef}
-            dataSet={dataSet}
-            previewDataSetRow={previewDataSetRow}
-            setpreviewDataSetRow={setpreviewDataSetRow}
-            Videoid={Videoid}
-            CampaignRender={CampaignRender}
-            setCampaignRender={setCampaignRender}
-            VideoTitle={video.Name}
-          />
+              VideoOBJ={VideoOBJ}
+              playerRef={playerRef}
+              dataSet={dataSet}
+              previewDataSetRow={previewDataSetRow}
+              setpreviewDataSetRow={setpreviewDataSetRow}
+              Videoid={Videoid}
+              CampaignRender={CampaignRender}
+              setCampaignRender={setCampaignRender}
+              VideoTitle={video.Name}
+            />
           )}
-         {/* 
+          {/* 
           <UIPaperWrapper>TODO : instructions and tooltip,</UIPaperWrapper> */}
         </Grid.Col>
 
@@ -216,7 +205,7 @@ const Modulesquery = qs.stringify(
 
 //Value
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
   const { params } = ctx;
   const id = params.id;
   //
