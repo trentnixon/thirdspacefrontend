@@ -6,8 +6,8 @@ export const CampaignTabs = ({ Campaign }) => {
   return (
     <>
       <HasVideo Campaign={Campaign} />
-      <HasDataSet Campaign={Campaign} />
-      <HasAssets Campaign={Campaign} /> 
+    {/*   <HasDataSet Campaign={Campaign} />
+      <HasAssets Campaign={Campaign} />  */}
     </>
   );
 };

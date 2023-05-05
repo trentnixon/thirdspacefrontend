@@ -45,7 +45,7 @@ const ViewCampaign = ({ campaign }) => {
 
       <IsCampaignSelected campaign={campaign} />
 
-      {/* <CampaignTabs Campaign={campaign} /> */}
+      <CampaignTabs Campaign={campaign} />
     </MembersShell>
   ); 
 };
