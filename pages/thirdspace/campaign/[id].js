@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import MembersShell from "../../../components/template/MembersShell";
 import { Container, Group } from "@mantine/core";
 import { BTN_LINK } from "../../../components/ui/btn";
@@ -28,32 +29,6 @@ const query = qs.stringify(
   }
 );
 
-export const getStaticPaths = async () => {
-  const response = await fetcher(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/campaigns?${query}`,
-    {
-      headers: {
-        "Content-Type": "application/json",
-        //Authorization: `Bearer ${Cookies.get("jwt")}`,
-      },
-    }
-  );
-  let Response = response.data;
-
-  const path = Response.map((d, i) => {
-    return {
-      params: {
-        id: d.id.toString(),
-      },
-    };
-  });
-
-  return {
-    paths: path,
-    fallback: false, 
-  };
-};
-
 const ViewCampaign = ({ campaign }) => {
   return (
     <MembersShell>
@@ -74,7 +49,7 @@ const ViewCampaign = ({ campaign }) => {
   ); 
 };
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
   const { params } = ctx;
   const id = params.id;
   const response = await fetcher(
