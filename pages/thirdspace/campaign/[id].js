@@ -41,7 +41,7 @@ const ViewCampaign = ({ campaign }) => {
           />
         </Group>
         <H1>{campaign.Name}</H1>
-        <P> {campaign.brand.data.attributes.Name}</P>
+        <P> {campaign.brand?.data?.attributes?.Name}</P>
 
       <IsCampaignSelected campaign={campaign} />
 
