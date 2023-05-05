@@ -43,7 +43,9 @@ const ViewCampaign = ({ campaign }) => {
         <H1>{campaign.Name}</H1>
         <P> {campaign.brand?.data?.attributes?.Name}</P>
 
-     
+      <IsCampaignSelected campaign={campaign} />
+
+      {/* <CampaignTabs Campaign={campaign} /> */}
     </MembersShell>
   ); 
 };
@@ -61,8 +63,6 @@ export async function getServerSideProps(ctx) {
     }
   );
   let campaign = response.data;
-  console.log("campaign", id) 
-  console.log(campaign)
   return {
     props: {
       campaign: campaign?.attributes,
