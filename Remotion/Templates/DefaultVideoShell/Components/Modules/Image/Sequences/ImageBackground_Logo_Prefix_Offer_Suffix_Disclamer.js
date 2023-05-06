@@ -1,10 +1,10 @@
 import {Sequence} from 'remotion';
 // Import styled from 'styled-components';
+
 import {calculateImageSize} from '../../../../../../Utils/FUNC/imageFunctions';
-import {BackgroundVideoandStyles} from '../Modules/ImportBackgroundVideoandStyles';
-import {PreBuildMainTitleCenteredLogoBottomDisclaimer} from '../../../Global/prebuilt/MaintitleCenteredLogoSmallDisclaimer';
 
-
+import {PreBuildPrefixVariableSuffixLogoDisclaimer} from '../../../Global/prebuilt/PrebuildPrefixVariableSuffixLogoDisclaimer';
+import {ImageBackground} from '../Modules/ImageBackground';
 const STYLES = {
 	landscape: {zIndex: 0, position: 'absolute'},
 	portrait: {
@@ -20,12 +20,10 @@ const DefaultDisclamer = `The views and opinions expressed in this TV commercial
 those of the advertiser and do not necessarily reflect the views and
 opinions of the network or its affiliates.`;
 
-export const ModuleVideoBackgroundLogoStaticOfferDisclamer916 = ({
+export const ModuleImageBackgroundLogoPrefixOfferSuffixDisclamer916 = ({
 	DATA,
 	Duration,
 }) => {
-	console.log(DATA);
-	/* If(!DATA?.BrandLogo) return  */
 	const STYLE = STYLES.landscape;
 	const SIZINGS = {
 		LOGO: calculateImageSize(
@@ -48,7 +46,7 @@ export const ModuleVideoBackgroundLogoStaticOfferDisclamer916 = ({
 	);
 };
 
-export const ModuleVideoBackgroundLogoStaticOfferDisclamer45 = ({
+export const ModuleImageBackgroundLogoPrefixOfferSuffixDisclamer45 = ({
 	DATA,
 	Duration,
 }) => {
@@ -74,7 +72,7 @@ export const ModuleVideoBackgroundLogoStaticOfferDisclamer45 = ({
 	);
 };
 
-export const ModuleVideoBackgroundLogoStaticOfferDisclamerSQ = ({
+export const ModuleImageBackgroundLogoPrefixOfferSuffixDisclamerSQ = ({
 	DATA,
 	Duration,
 }) => {
@@ -101,16 +99,18 @@ export const ModuleVideoBackgroundLogoStaticOfferDisclamerSQ = ({
 };
 
 const ModuleContainer = ({DATA, STYLES, SIZINGS, Duration}) => {
+	console.log(DATA);
 	return (
 		<Sequence>
-			<PreBuildMainTitleCenteredLogoBottomDisclaimer
+			<PreBuildPrefixVariableSuffixLogoDisclaimer
 				SIZINGS={SIZINGS}
 				DATA={DATA}
 				Duration={Duration}
-				COPY={DefaultDisclamer}
+				Disclaimer={DefaultDisclamer}
+				STYLES={STYLES}
 			/>
 
-			<BackgroundVideoandStyles STYLES={STYLES} VIDEO={DATA.BackgroundVideo} />
+<ImageBackground STYLES={STYLES} MEDIA={DATA.BackgroundMediaImage} />
 		</Sequence>
 	);
 };

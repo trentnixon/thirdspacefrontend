@@ -11,7 +11,7 @@ const StaticH1 = styled.h1`
 	line-height: 1em;
 	text-align: center;
 	text-transform: uppercase;
-	margin: 0;
+	margin: 0 5%;
 	color: #000000;
 `;
 
@@ -20,6 +20,7 @@ export const StaticTitle = (props) => {
 };
 
 export const ClipInTitle = (props) => {
+	console.log("ClipInTitle ", props)
 	const {start = 0, ease = 'Wobbly'} = props;
 	return (
 		<StaticH1

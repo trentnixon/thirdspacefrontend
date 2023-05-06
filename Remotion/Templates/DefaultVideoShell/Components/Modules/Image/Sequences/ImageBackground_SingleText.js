@@ -1,11 +1,6 @@
 import {useCurrentFrame, Sequence} from 'remotion';
-
-import {VerticalDrop} from '../../../../../../Utils/UI/Containers/glass';
-import {ClipInTitle} from '../../../../../../Utils/UI/Copy/Titles';
-
-import {FromMiddle} from '../../../../../../Utils/Animations/ClipWipe';
-import {interpolateOpacityByFrame} from '../../../../../../Utils/Animations/interpolate';
-import { ImageBackground } from '../Modules/ImageBackground';
+import {ImageBackground} from '../Modules/ImageBackground';
+import { PrebuildSingleTitleInGlassBox } from '../../../Global/prebuilt/SingleTitleInGlassBox';
 
 const STYLES = {
 	landscape: {zIndex: 0, position: 'absolute'},
@@ -38,22 +33,8 @@ const ModuleContainer = ({DATA, Duration, STYLES}) => {
 	return (
 		<>
 			<Sequence>
-				<VerticalDrop
-					style={{
-						clipPath: FromMiddle(0, 'Wobbly'),
-						opacity: interpolateOpacityByFrame(
-							frame,
-							Duration - 15,
-							Duration,
-							1,
-							0
-						),
-					}}
-				>
-					<ClipInTitle start={3}>{DATA.Title}</ClipInTitle>
-				</VerticalDrop>
-				<ImageBackground STYLES={STYLES} MEDIA={DATA.BackgroundMediaImage}/>
-        
+        <PrebuildSingleTitleInGlassBox Title={DATA.Title} frame={frame} Duration={Duration}/>
+				<ImageBackground STYLES={STYLES} MEDIA={DATA.BackgroundMediaImage} />
 			</Sequence>
 		</>
 	);

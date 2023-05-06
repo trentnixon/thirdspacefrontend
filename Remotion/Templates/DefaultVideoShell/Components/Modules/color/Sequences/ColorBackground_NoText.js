@@ -2,7 +2,7 @@ import {Sequence} from 'remotion';
 import { ColorBackground } from '../Modules/ColorBackground';
 
 export const ModuleColorBackgroundNoText916 = ({DATA}) => {
-	//console.log(DATA.BackgroundMediaColor)
+	console.log(DATA.BackgroundMediaColor)
 	const STYLES = {
 		zIndex: 0,
 		position: 'absolute',
@@ -25,7 +25,7 @@ export const ModuleColorBackgroundNoText45 = ({DATA}) => {
 };
 
 export const ModuleColorBackgroundNoTextSQ = ({DATA}) => {
-	//console.log(DATA);
+	console.log(DATA);
 	const STYLES = {
 		zIndex: 0,
 		position: 'absolute',

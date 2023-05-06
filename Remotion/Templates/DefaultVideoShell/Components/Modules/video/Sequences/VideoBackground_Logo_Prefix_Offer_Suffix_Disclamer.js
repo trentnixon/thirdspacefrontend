@@ -1,27 +1,19 @@
-import { Sequence, Img } from "remotion";
+import {Sequence} from 'remotion';
 // Import styled from 'styled-components';
 
-import {
-  ContainerTransparentColumn, 
-  DefaultContainer,
-} from "../../../../../../Utils/UI/Containers/glass";
-
-import { calculateImageSize } from "../../../../../../Utils/FUNC/imageFunctions";
-import { P } from "../../../../../../Utils/UI/Static_Copy";
-
-import { AnimateElement } from "../../../../../../Utils/Animations/RemotionAnimate";
-import { BackgroundVideoandStyles } from "../Modules/ImportBackgroundVideoandStyles";
-
+import {calculateImageSize} from '../../../../../../Utils/FUNC/imageFunctions';
+import {BackgroundVideoandStyles} from '../Modules/ImportBackgroundVideoandStyles';
+import {PreBuildPrefixVariableSuffixLogoDisclaimer} from '../../../Global/prebuilt/PrebuildPrefixVariableSuffixLogoDisclaimer';
 
 const STYLES = {
-  landscape: { zIndex: 0, position: "absolute" },
-  portrait: {
-    zIndex: 0,
-    position: "absolute",
-    height: "100%",
-    flexDirection: "row",
-    justifyContent: "center",
-  },
+	landscape: {zIndex: 0, position: 'absolute'},
+	portrait: {
+		zIndex: 0,
+		position: 'absolute',
+		height: '100%',
+		flexDirection: 'row',
+		justifyContent: 'center',
+	},
 };
 
 const DefaultDisclamer = `The views and opinions expressed in this TV commercial are solely
@@ -29,166 +21,96 @@ those of the advertiser and do not necessarily reflect the views and
 opinions of the network or its affiliates.`;
 
 export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamer916 = ({
-  DATA,
-  Duration,
+	DATA,
+	Duration,
 }) => {
-  const STYLE = STYLES.landscape;
-  const SIZINGS = {
-    LOGO: calculateImageSize( 
-      DATA?.BrandLogo?.height,
-      DATA?.BrandLogo?.width,
-      250,
-      500
-    ),
-    TITLE: "6.5em",
-    DISCLAIMER: "1.4em",
-  };
+	const STYLE = STYLES.landscape;
+	const SIZINGS = {
+		LOGO: calculateImageSize(
+			DATA?.BrandLogo?.height,
+			DATA?.BrandLogo?.width,
+			250,
+			500
+		),
+		TITLE: '6.5em',
+		DISCLAIMER: '1.4em',
+	};
 
-  return (
-    <ModuleContainer
-      DATA={DATA}
-      STYLES={STYLE}
-      SIZINGS={SIZINGS}
-      Duration={Duration}
-    />
-  );
+	return (
+		<ModuleContainer
+			DATA={DATA}
+			STYLES={STYLE}
+			SIZINGS={SIZINGS}
+			Duration={Duration}
+		/>
+	);
 };
 
 export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamer45 = ({
-  DATA,
-  Duration,
+	DATA,
+	Duration,
 }) => {
-  const STYLE = STYLES.portrait;
-  const SIZINGS = {
-    LOGO: calculateImageSize(
-      DATA?.BrandLogo?.height,
-      DATA?.BrandLogo?.width,
-      250,
-      500
-    ),
-    TITLE: "6.5em",
-    DISCLAIMER: "1.4em",
-  };
+	const STYLE = STYLES.portrait;
+	const SIZINGS = {
+		LOGO: calculateImageSize(
+			DATA?.BrandLogo?.height,
+			DATA?.BrandLogo?.width,
+			250,
+			500
+		),
+		TITLE: '6.5em',
+		DISCLAIMER: '1.4em',
+	};
 
-  return (
-    <ModuleContainer
-      DATA={DATA}
-      STYLES={STYLE}
-      SIZINGS={SIZINGS}
-      Duration={Duration}
-    />
-  );
+	return (
+		<ModuleContainer
+			DATA={DATA}
+			STYLES={STYLE}
+			SIZINGS={SIZINGS}
+			Duration={Duration}
+		/>
+	);
 };
 
 export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamerSQ = ({
-  DATA,
-  Duration,
+	DATA,
+	Duration,
 }) => {
-  const STYLE = STYLES.portrait;
-  const SIZINGS = {
-    LOGO: calculateImageSize(
-      DATA?.BrandLogo?.height,
-      DATA?.BrandLogo?.width,
-      400,
-      800
-    ),
-    TITLE: "10em",
-    DISCLAIMER: "1.4em",
-  };
+	const STYLE = STYLES.portrait;
+	const SIZINGS = {
+		LOGO: calculateImageSize(
+			DATA?.BrandLogo?.height,
+			DATA?.BrandLogo?.width,
+			400,
+			800
+		),
+		TITLE: '10em',
+		DISCLAIMER: '1.4em',
+	};
 
-  return (
-    <ModuleContainer
-      DATA={DATA}
-      STYLES={STYLE}
-      SIZINGS={SIZINGS}
-      Duration={Duration}
-    />
-  );
+	return (
+		<ModuleContainer
+			DATA={DATA}
+			STYLES={STYLE}
+			SIZINGS={SIZINGS}
+			Duration={Duration}
+		/>
+	);
 };
 
-const ModuleContainer = ({ DATA, STYLES, SIZINGS, Duration }) => {
-	//console.log(DATA)
-  return (
-    <Sequence>
-      <DefaultContainer>
-        {DATA?.BrandLogo === undefined ? (
-          false
-        ) : (
-          <div
-            style={{
-              position: "absolute",
-              top: `calc(50% - ${SIZINGS.LOGO.height}px )`,
-              left: "50%",
-              transform: "translateX(-50%)",
-              transformOrigin: "center center",
-            }}
-          >
-            <AnimateElement
-              In={0}
-              Out={Duration - 15}
-              ANIMATEIN="FadeInMoveDown"
-              ANIMATEINOUT="FadeOutMoveUp"
-            >
-              <Img
-                src={`${DATA.BrandLogo.URL}`}
-                height={SIZINGS.LOGO.height}
-                width={SIZINGS.LOGO.width}
-              />
-            </AnimateElement>
-          </div>
-        )}
+const ModuleContainer = ({DATA, STYLES, SIZINGS, Duration}) => {
+	console.log(DATA);
+	return (
+		<Sequence>
+			<PreBuildPrefixVariableSuffixLogoDisclaimer
+				SIZINGS={SIZINGS}
+				DATA={DATA}
+				Duration={Duration}
+				Disclaimer={DefaultDisclamer}
+				STYLES={STYLES}
+			/>
 
-        <div
-          style={{
-            position: "absolute",
-            top: "calc(50%)",
-            left: "50%",
-            transform: "translateX(-50%)",
-            transformOrigin: "center center",
-            width: "100%",
-          }}
-        >
-          <AnimateElement
-            In={15}
-            Out={Duration - 15}
-            ANIMATEIN="FadeInScale"
-            ANIMATEINOUT="FadeOutMoveDown"
-          >
-            <P
-              size={SIZINGS.TITLE}
-              margin=".3em 0 0 0"
-              color="#fff"
-              weight={100}
-              letterSpacing="2px"
-            >
-              {DATA.Prefix}{" "}
-              <span style={{ fontWeight: 900 }}>{DATA.StaticOffer}</span>{" "}
-              {DATA.Suffix}
-            </P>
-          </AnimateElement>
-        </div>
-      </DefaultContainer>
-      <ContainerTransparentColumn>
-        <div
-          style={{
-            position: "absolute",
-            bottom: "20px",
-          }}
-        >
-          <P
-            lineHeight="1em"
-            size={SIZINGS.DISCLAIMER}
-            margin="1em 0 0 0"
-            color="#fff"
-            weight={100}
-          >
-            {DefaultDisclamer}
-          </P>
-        </div>
-      </ContainerTransparentColumn>
-    
-      <BackgroundVideoandStyles STYLES={STYLES} VIDEO={DATA.BackgroundVideo}/>
-      
-    </Sequence>
-  );
+			<BackgroundVideoandStyles STYLES={STYLES} VIDEO={DATA.BackgroundVideo} />
+		</Sequence>
+	);
 };

@@ -1,9 +1,8 @@
 import {Sequence} from 'remotion';
 // Import styled from 'styled-components';
 import {calculateImageSize} from '../../../../../../Utils/FUNC/imageFunctions';
-import {BackgroundVideoandStyles} from '../Modules/ImportBackgroundVideoandStyles';
 import {PreBuildMainTitleCenteredLogoBottomDisclaimer} from '../../../Global/prebuilt/MaintitleCenteredLogoSmallDisclaimer';
-
+import {ImageBackground} from '../Modules/ImageBackground';
 
 const STYLES = {
 	landscape: {zIndex: 0, position: 'absolute'},
@@ -109,8 +108,7 @@ const ModuleContainer = ({DATA, STYLES, SIZINGS, Duration}) => {
 				Duration={Duration}
 				COPY={DefaultDisclamer}
 			/>
-
-			<BackgroundVideoandStyles STYLES={STYLES} VIDEO={DATA.BackgroundVideo} />
+			<ImageBackground STYLES={STYLES} MEDIA={DATA.BackgroundMediaImage} />
 		</Sequence>
 	);
 };

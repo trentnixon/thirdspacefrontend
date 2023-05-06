@@ -2,7 +2,7 @@ import {Sequence} from 'remotion';
 import { ImageBackground } from '../Modules/ImageBackground';
 
 export const ModuleImageBackgroundNoText916 = ({DATA}) => {
-	//console.log(DATA.BackgroundMediaImage)
+	console.log(DATA.BackgroundMediaImage)
 	const STYLES = {
 		zIndex: 0,
 		position: 'absolute',
@@ -23,7 +23,7 @@ export const ModuleImageBackgroundNoText45 = ({DATA}) => {
 };
 
 export const ModuleImageBackgroundNoTextSQ = ({DATA}) => {
-	//console.log(DATA);
+	console.log(DATA);
 	const STYLES = {
 		zIndex: 0,
 		position: 'absolute',

@@ -22,7 +22,7 @@ export const ModuleVideoBackgroundNoText45 = ({DATA}) => {
 };
 
 export const ModuleVideoBackgroundNoTextSQ = ({DATA}) => {
-	//console.log(DATA);
+	console.log(DATA);
 	const STYLES = {
 		zIndex: 0,
 		position: 'absolute',

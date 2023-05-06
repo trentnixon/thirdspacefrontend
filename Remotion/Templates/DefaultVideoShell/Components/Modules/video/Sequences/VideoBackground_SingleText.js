@@ -1,11 +1,6 @@
 import {useCurrentFrame, Sequence} from 'remotion';
-
-import {VerticalDrop} from '../../../../../../Utils/UI/Containers/glass';
-import {ClipInTitle} from '../../../../../../Utils/UI/Copy/Titles';
-
-import {FromMiddle} from '../../../../../../Utils/Animations/ClipWipe';
-import {interpolateOpacityByFrame} from '../../../../../../Utils/Animations/interpolate';
 import {BackgroundVideoandStyles} from '../Modules/ImportBackgroundVideoandStyles';
+import {PrebuildSingleTitleInGlassBox} from '../../../Global/prebuilt/SingleTitleInGlassBox';
 
 const STYLES = {
 	landscape: {zIndex: 0, position: 'absolute'},
@@ -34,24 +29,18 @@ export const ModuleVideoBackgroundSingleTextSQ = ({DATA, Duration}) => {
 };
 
 const ModuleContainer = ({DATA, Duration, STYLES}) => {
+	console.log("DATADATA", DATA)
 	const frame = useCurrentFrame();
 	return (
 		<>
 			<Sequence>
-				<VerticalDrop
-					style={{
-						clipPath: FromMiddle(0, 'Wobbly'),
-						opacity: interpolateOpacityByFrame(
-							frame,
-							Duration - 15,
-							Duration,
-							1,
-							0
-						),
-					}}
-				>
-					<ClipInTitle start={3}>{DATA.Title}</ClipInTitle>
-				</VerticalDrop>
+				<PrebuildSingleTitleInGlassBox
+					Title={DATA.Title}
+					DATA={DATA}
+					frame={frame}
+					Duration={Duration}
+				/>
+
 				<BackgroundVideoandStyles
 					STYLES={STYLES}
 					VIDEO={DATA.BackgroundVideo}
