@@ -1,7 +1,7 @@
 import { Group, Slider } from "@mantine/core";
 import { useEffect, useState } from "react";
-import { UIPaperWrapper } from "../../../../ui/Containers";
-import { H3, P } from "../../../../ui/type";
+import { UIPaperWrapper } from "../../../../../ui/Containers";
+import { H3, P } from "../../../../../ui/type";
 
 export const SelectFPS = (props) => {
   const { OBJ, setOBJ } = props;

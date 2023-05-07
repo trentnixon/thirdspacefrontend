@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import {FromMiddle} from '../../Animations/ClipWipe';
-import {Animated, Move, Scale,Fade} from 'remotion-animated';
-import {SpringConfig} from '../../Animations/RemotionSpring'
-
+import {Animated, Move, Scale, Fade} from 'remotion-animated';
+import {SpringConfig} from '../../Animations/RemotionSpring';
 
 const StaticH1 = styled.h1`
 	font-style: normal;
@@ -20,11 +19,11 @@ export const StaticTitle = (props) => {
 };
 
 export const ClipInTitle = (props) => {
-	console.log("ClipInTitle ", props)
-	const {start = 0, ease = 'Wobbly'} = props;
+	const {start = 0, ease = 'Wobbly', Theme} = props;
 	return (
 		<StaticH1
 			style={{
+				color: Theme?.Primary ? Theme.Primary : 'white',
 				clipPath: FromMiddle(start, ease),
 			}}
 		>
@@ -44,10 +43,11 @@ const StaticTagline = styled.h1`
 	color: #000000;
 `;
 export const ClipInTagline = (props) => {
-	const {start = 0, ease = 'Wobbly'} = props;
+	const {start = 0, ease = 'Wobbly', Theme} = props;
 	return (
 		<StaticTagline
 			style={{
+				color: Theme?.Primary ? Theme.Primary : 'white',
 				clipPath: FromMiddle(start, ease),
 			}}
 		>
@@ -56,21 +56,18 @@ export const ClipInTagline = (props) => {
 	);
 };
 
-
-
-
 // REMOTION ANIMATE TITLES
 
 export const TitleFadeandScale = (props) => {
-	const {In, Out, ease='Wobbly'} = props;
+	const {In, Out, ease = 'Wobbly'} = props;
 	return (
 		<Animated
 			in={In}
 			animations={[
-				Scale({ by: 1,initial: 0.1,...SpringConfig[ease] }),
+				Scale({by: 1, initial: 0.1, ...SpringConfig[ease]}),
 				Fade({to: 1, initial: 0, start: In}),
 				Fade({to: 0, start: Out}),
-				Scale({ by: 0, start: Out,...SpringConfig[ease] }),
+				Scale({by: 0, start: Out, ...SpringConfig[ease]}),
 			]}
 		>
 			{props.children}

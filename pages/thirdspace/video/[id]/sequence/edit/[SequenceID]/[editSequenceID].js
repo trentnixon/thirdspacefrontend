@@ -12,10 +12,10 @@ import { DisplaySequenceComponents } from "../../../../../../../components/Pages
 
 // UTILS
 import MembersShell from "../../../../../../../components/template/MembersShell";
-import { H1, H2 } from "../../../../../../../components/ui/type";
+import {  H2 } from "../../../../../../../components/ui/type";
 import { fetcher } from "../../../../../../../lib/api";
 import { useUpdateVideo } from "../../../../../../../hooks/Video/useStoreVideo";
-import { SelectFPS } from "../../../../../../../components/Pages/Video/VideoEditSequence/Placeholders/FPS";
+import { SequenceSettings } from "../../../../../../../components/Pages/Video/VideoEditSequence/Placeholders/Settings";
 const qs = require("qs");
 
 const findItemById = (arr, id) => {
@@ -39,35 +39,31 @@ function SequencePage({ Video, VideoModule, editSequenceID }) {
     if (updateSuccessful) {
       router.push(`/thirdspace/video/${Video.data.id}`);
     }
-  }, [updateSuccessful]); 
+  }, [updateSuccessful]);
   // FUNC
 
   const handleAddSequence = async (OBJ) => {
     setSaving(true);
-  
+
     const updatedSeries = Video.data.attributes.OBJ.Series.map((item) => {
       if (item.ID === OBJ.ID) {
         return OBJ;
       }
       return item;
     });
-  
+
     const updatedObject = {
       ...Video.data.attributes.OBJ,
       Series: updatedSeries,
     };
 
-  
     const success = await UpdateVideo(updatedObject, Video.data.id);
     console.log("Update success:", success); // Add this line
-  
+
     if (success) {
       setUpdateSuccessful(true);
     }
   };
-
-  
-
 
   return (
     <MembersShell>
@@ -78,9 +74,9 @@ function SequencePage({ Video, VideoModule, editSequenceID }) {
               span={3}
               sx={(theme) => ({
                 backgroundColor: theme.colors.background,
-              })} 
-            >
-              <DisplaySequenceComponents 
+              })}
+            > 
+              <DisplaySequenceComponents
                 Video={Video.data.attributes}
                 VideoModule={VideoModule.data.attributes}
                 CreateSequenceOBJ={CreateSequenceOBJ}
@@ -99,15 +95,16 @@ function SequencePage({ Video, VideoModule, editSequenceID }) {
                 />
               </Group>
               <SequencePreviewPlayer
-              VideoModule={VideoModule.data}
-              Video={Video}
-              CreateSequenceOBJ={CreateSequenceOBJ}
-              dataset={Video.data.attributes.dataset.data.attributes}
-            />
-              <SelectFPS
-                setOBJ={setCreateSequenceOBJ}
-                OBJ={CreateSequenceOBJ}
+                VideoModule={VideoModule.data}
+                Video={Video}
+                CreateSequenceOBJ={CreateSequenceOBJ}
+                dataset={Video.data.attributes.dataset.data.attributes}
               />
+          
+               <SequenceSettings
+              setOBJ={setCreateSequenceOBJ}
+              OBJ={CreateSequenceOBJ}
+            />
             </Grid.Col>
 
             <Grid.Col
@@ -125,13 +122,10 @@ function SequencePage({ Video, VideoModule, editSequenceID }) {
               />
             </Grid.Col>
           </Grid>
-
-         
         </>
       ) : (
         <p>Please wait, Saving Sequence...</p>
       )}
-  
     </MembersShell>
   );
 }

@@ -8,7 +8,8 @@ import {P} from '../../../../../../Utils/UI/Static_Copy';
 					Duration={Duration}
 				/>
 */
-export const PrefixVariableSuffix = ({Duration, SIZINGS, DATA}) => {
+export const PrefixVariableSuffix = (props) => {
+	const {Duration, SIZINGS, DATA, Theme} = props;
 	return (
 		<div
 			style={{
@@ -29,7 +30,7 @@ export const PrefixVariableSuffix = ({Duration, SIZINGS, DATA}) => {
 				<P
 					size={SIZINGS.TITLE}
 					margin=".3em 0 0 0"
-					color="#fff"
+					color={Theme?.Primary ? Theme.Primary : 'white'}
 					weight={100}
 					letterSpacing="2px"
 				>

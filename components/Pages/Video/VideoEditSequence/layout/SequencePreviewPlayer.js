@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import { RemotionSequencePlayer } from "../../Player/SequencePreview";
 
-export const SequencePreviewPlayer = ({ CreateSequenceOBJ, dataset }) => {
+export const SequencePreviewPlayer = ({ CreateSequenceOBJ, dataset, Video }) => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [videoObjects, setVideoObjects] = useState([]);
 
   useEffect(() => {
+    console.log(CreateSequenceOBJ, Video.data)
     miniCompileVideoObjects(CreateSequenceOBJ, dataset);
-  }, [CreateSequenceOBJ, dataset]);
-
+  }, [CreateSequenceOBJ, dataset]); 
+ 
   function miniCompileVideoObjects(userObj, dataset) {
     try {
       const DATASETROW = dataset.data_set_rows.data;
@@ -47,10 +48,12 @@ export const SequencePreviewPlayer = ({ CreateSequenceOBJ, dataset }) => {
             }
           });
         }
+        console.log(userObj)
 
         return {
           ...userObj,
           DATA: newData,
+          //Video.data.attributes.OBJ.Settings
         };
       });
       setErrorMessage(null);
@@ -62,11 +65,12 @@ export const SequencePreviewPlayer = ({ CreateSequenceOBJ, dataset }) => {
     }
   }
 
+  console.log(CreateSequenceOBJ)
   if (videoObjects.length === 0) return false;
   return (
     <div>
       {errorMessage && <div className="error-message">{errorMessage}</div>}
-      <RemotionSequencePlayer  DATA={CreateSequenceOBJ} dataSet={dataset} />
+      <RemotionSequencePlayer  DATA={CreateSequenceOBJ} Settings={Video.data.attributes.OBJ.Settings} dataSet={dataset} />
     </div>
   );
 };

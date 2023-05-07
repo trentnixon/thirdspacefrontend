@@ -45,7 +45,7 @@ export function mainCompileVideoObjects(timelineObj, dataset) {
     });
 
     return {
-      Theme: timelineObj.Theme,
+      Settings: timelineObj.Settings,
       Series: videoObjects,
     };
   });

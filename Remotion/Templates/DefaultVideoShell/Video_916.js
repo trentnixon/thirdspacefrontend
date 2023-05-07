@@ -30,9 +30,10 @@ const Components = {
 	ModuleColorBackgroundNoText,
 };
 
-export const VideoShell916 = ({DATA, fontName = 'Heebo'}) => {
+export const VideoShell916 = ({DATA}) => {
+	console.log(DATA);
 	const [fontFamilies, setFontFamilies] = useState({});
-
+	const fontFamily = fontFamilies[DATA.Settings.Font.fontFamily] || 'Heebo';
 	useEffect(() => {
 		const loadFonts = async () => {
 			const loadedFontFamilies = await preloadFonts();
@@ -42,11 +43,11 @@ export const VideoShell916 = ({DATA, fontName = 'Heebo'}) => {
 		loadFonts();
 	}, []);
 
-	const fontFamily = fontFamilies[fontName] || 'sans-serif';
-
 	// A <AbsoluteFill> is just a absolutely positioned <div>!
 	return (
-		<AbsoluteFill style={{backgroundColor: 'white', fontFamily}}>
+		<AbsoluteFill
+			style={{backgroundColor: DATA.Settings.Theme.BackgroundColor, fontFamily}}
+		>
 			<AbsoluteFill>
 				<Series>
 					{DATA.Series.map((series, i) => {
@@ -55,6 +56,7 @@ export const VideoShell916 = ({DATA, fontName = 'Heebo'}) => {
 								{React.createElement(Components[series.component], {
 									DATA: series.DATA,
 									Duration: series.DATA.Duration,
+									Theme:DATA.Settings.Theme
 								})}
 							</Series.Sequence>
 						);

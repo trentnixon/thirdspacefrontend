@@ -1,76 +1,60 @@
-import { Sequence, AbsoluteFill, Video } from "remotion";
-import styled from "styled-components";
-import { P } from "../../../../../../Utils/UI/Static_Copy";
+import {Sequence} from 'remotion';
+import styled from 'styled-components';
+import {
+	ClipInTitle,
+	ClipInTagline,
+} from '../../../../../../Utils/UI/Copy/Titles';
 
+import {BackgroundVideoandStyles} from '../Modules/ImportBackgroundVideoandStyles';
 
 const STYLES = {
-  landscape: { zIndex: 0, position: "absolute" },
-  portrait: {
-    zIndex: 0,
-    position: "absolute",
-    height: "100%",
-    flexDirection: "row",
-    justifyContent: "center",
-  },
+	landscape: {zIndex: 0, position: 'absolute'},
+	portrait: {
+		zIndex: 0,
+		position: 'absolute',
+		height: '100%',
+		flexDirection: 'row',
+		justifyContent: 'center',
+	},
 };
 
-export const ModuleVideoBackgroundTitleSubtitle916 = ({ DATA }) => {
-  const STYLE = STYLES.landscape;
-  return <ModuleContainer DATA={DATA} STYLES={STYLE} />;
+export const ModuleVideoBackgroundTitleSubtitle916 = (props) => {
+	const STYLE = STYLES.landscape;
+	return <ModuleContainer {... props} STYLES={STYLE} />;
 };
 
-export const ModuleVideoBackgroundTitleSubtitle45 = ({ DATA }) => {
-  const STYLE = STYLES.portrait;
-  return <ModuleContainer DATA={DATA} STYLES={STYLE} />;
+export const ModuleVideoBackgroundTitleSubtitle45 = (props) => {
+	const STYLE = STYLES.portrait;
+	return <ModuleContainer {... props} STYLES={STYLE} />;
 };
 
-export const ModuleVideoBackgroundTitleSubtitleSQ = ({ DATA }) => {
-  const STYLE = STYLES.portrait;
-  return <ModuleContainer DATA={DATA} STYLES={STYLE} />;
+export const ModuleVideoBackgroundTitleSubtitleSQ = (props) => {
+	const STYLE = STYLES.portrait;
+	return <ModuleContainer {... props} STYLES={STYLE} />;
 };
 
-const ModuleContainer = ({ DATA, STYLES }) => {
-  const SIZINGS = {
-    TITLE: "6.5em",
-    DISCLAIMER: "1.4em",
-  };
-  return (
-    <>
-      <CenterTitles>
-        <Sequence>
-          <P
-            size={SIZINGS.TITLE}
-            margin=".3em 0 0 0"
-            color="#fff"
-            weight={100}
-            letterSpacing="2px"
-          >
-            <span style={{ fontWeight: 900 }}>{DATA.Title}</span>
-          </P>
-        </Sequence>
-        <Sequence from={35}>
-          <P
-            size={SIZINGS.TITLE}
-            margin=".3em 0 0 0"
-            color="#fff"
-            weight={100}
-            letterSpacing="2px"
-          >
-            <span style={{ fontWeight: 900 }}>{DATA.Tagline}</span>
-          </P>
-        </Sequence>
-      </CenterTitles>
-      <AbsoluteFill style={STYLES}>
-        <Video volume={0} src={DATA.BackgroundVideo} />
-      </AbsoluteFill>
-    </>
-  );
+const ModuleContainer = (props) => {
+	const {DATA, Theme, STYLES} = props
+	return (
+		<Sequence>
+			<CenterTitles>
+				<ClipInTitle start={3} DATA={DATA} Theme={Theme}>
+					{DATA.Title}
+				</ClipInTitle>
+				<ClipInTagline start={3} DATA={DATA} Theme={Theme}>
+					{DATA.Tagline}
+				</ClipInTagline>
+			</CenterTitles>
+			<BackgroundVideoandStyles STYLES={STYLES} VIDEO={DATA.BackgroundVideo} />
+		</Sequence>
+	);
 };
 
 const CenterTitles = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+  flex-direction:column;
+	z-index: 100;
 `;

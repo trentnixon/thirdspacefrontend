@@ -4,23 +4,14 @@ import {SmallDisclaimerAtBottom} from '../components/copy/SmallDisclaimerAtBotto
 import {BrandLogoCenterAnimated} from '../components/Images/BrandLogoCenterAnimated';
 import {PrefixVariableSuffix} from '../components/copy/PrefixVariableSuffix';
 
-export const PreBuildPrefixVariableSuffixLogoDisclaimer = ({
-	SIZINGS,
-	DATA,
-	Duration,
-	Disclaimer,
-}) => {
+export const PreBuildPrefixVariableSuffixLogoDisclaimer = (props) => {
 	return (
 		<DefaultContainer>
-			<BrandLogoCenterAnimated
-				DATA={DATA}
-				SIZINGS={SIZINGS}
-				Duration={Duration}
-			/>
+			<BrandLogoCenterAnimated {...props} />
 
-			<PrefixVariableSuffix DATA={DATA} SIZINGS={SIZINGS} Duration={Duration} />
+			<PrefixVariableSuffix {...props} />
 
-			<SmallDisclaimerAtBottom SIZINGS={SIZINGS} COPY={Disclaimer} />
+			<SmallDisclaimerAtBottom {...props} />
 		</DefaultContainer>
 	);
 };

@@ -9,7 +9,7 @@ const MustHave = [
   "BackgroundMediaColor",
 ];
 
-export const RemotionSequencePlayer = ({ DATA, dataSet }) => {
+export const RemotionSequencePlayer = ({ DATA, dataSet,Settings }) => {
   const [SequenceOBJ, setVideoObjects] = useState(
     miniCompileVideoObjects(DATA, dataSet)[0]
   );
@@ -48,7 +48,7 @@ export const RemotionSequencePlayer = ({ DATA, dataSet }) => {
       fps={30}
       style={{ width: "100%" }}
       inputProps={{
-        DATA: { Series: [SequenceOBJ] },
+        DATA: { Series: [SequenceOBJ],Settings:Settings },
       }}
     />
   );
@@ -57,6 +57,7 @@ export const RemotionSequencePlayer = ({ DATA, dataSet }) => {
 export const SequenceThumb = ({ DATA, dataSet }) => {
   const [SequenceOBJ, setVideoObjects] = useState([]);
 
+  console.log(DATA, dataSet);
   useEffect(() => {
     setVideoObjects(miniCompileVideoObjects(DATA, dataSet)[0]);
   }, [DATA]);
@@ -86,7 +87,19 @@ export const SequenceThumb = ({ DATA, dataSet }) => {
       durationInFrames={SequenceOBJ.DATA.Duration}
       fps={30}
       inputProps={{
-        DATA: { Series: [SequenceOBJ] },
+        DATA: {
+          "Settings": {
+            "Theme": {
+              "Primary": "#fff",
+              "Secondary": "#000",
+              "BackgroundColor": "#333"
+            },
+            "Font": {
+              "fontFamily": "Montserrat"
+            }
+          },
+          Series: [SequenceOBJ],
+        },
       }}
     />
   );

@@ -10,6 +10,7 @@ import {
   Center,
   Image,
   SimpleGrid,
+  Select,
 } from "@mantine/core";
 
 import { useState } from "react";
@@ -43,6 +44,7 @@ export const BackgroundMediaImage = (props) => {
   return (
     <>
       <H3>BackgroundMediaImage</H3>
+      here
       <SimpleGrid cols={2}>
           {filteredArray.map((IMG, i) => {
             console.log(IMG.attributes.Value.data.attributes.url);

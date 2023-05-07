@@ -7,7 +7,8 @@ import {P} from '../../../../../../Utils/UI/Static_Copy';
 				Duration={Duration}
 			/>
 */
-export const TitleCenteredAnimated = ({SIZINGS, DATA, Duration}) => {
+export const TitleCenteredAnimated = (props) => {
+	const {SIZINGS, DATA, Duration,Theme} = props
 	return (
 		<div
 			style={{
@@ -28,7 +29,7 @@ export const TitleCenteredAnimated = ({SIZINGS, DATA, Duration}) => {
 				<P
 					size={SIZINGS.TITLE}
 					margin=".3em 0 0 0"
-					color="#fff"
+					color={Theme?.Primary ?Theme.Primary:'white'}
 					weight={100}
 					letterSpacing="2px"
 				>

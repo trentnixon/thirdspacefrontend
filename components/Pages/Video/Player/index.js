@@ -39,6 +39,7 @@ export const RemotionPlayer = (props) => {
 
   if (VideoOBJ.Series.length === 0) return <>Start video create</>;
 
+  console.log(VideoOBJ)
   return (
     <div style={RatioObj[RATIO].wrapperStyle}>
       <Player

@@ -20,10 +20,10 @@ const DefaultDisclamer = `The views and opinions expressed in this TV commercial
 those of the advertiser and do not necessarily reflect the views and
 opinions of the network or its affiliates.`;
 
-export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamer916 = ({
-	DATA,
-	Duration,
-}) => {
+export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamer916 = (
+	props
+) => {
+	const {DATA} = props;
 	const STYLE = STYLES.landscape;
 	const SIZINGS = {
 		LOGO: calculateImageSize(
@@ -36,20 +36,13 @@ export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamer916 = ({
 		DISCLAIMER: '1.4em',
 	};
 
-	return (
-		<ModuleContainer
-			DATA={DATA}
-			STYLES={STYLE}
-			SIZINGS={SIZINGS}
-			Duration={Duration}
-		/>
-	);
+	return <ModuleContainer STYLES={STYLE} SIZINGS={SIZINGS} {...props} />;
 };
 
-export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamer45 = ({
-	DATA,
-	Duration,
-}) => {
+export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamer45 = (
+	props
+) => {
+	const {DATA} = props;
 	const STYLE = STYLES.portrait;
 	const SIZINGS = {
 		LOGO: calculateImageSize(
@@ -62,20 +55,13 @@ export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamer45 = ({
 		DISCLAIMER: '1.4em',
 	};
 
-	return (
-		<ModuleContainer
-			DATA={DATA}
-			STYLES={STYLE}
-			SIZINGS={SIZINGS}
-			Duration={Duration}
-		/>
-	);
+	return <ModuleContainer STYLES={STYLE} SIZINGS={SIZINGS} {...props} />;
 };
 
-export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamerSQ = ({
-	DATA,
-	Duration,
-}) => {
+export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamerSQ = (
+	props
+) => {
+	const {DATA} = props;
 	const STYLE = STYLES.portrait;
 	const SIZINGS = {
 		LOGO: calculateImageSize(
@@ -88,18 +74,13 @@ export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamerSQ = ({
 		DISCLAIMER: '1.4em',
 	};
 
-	return (
-		<ModuleContainer
-			DATA={DATA}
-			STYLES={STYLE}
-			SIZINGS={SIZINGS}
-			Duration={Duration}
-		/>
-	);
+	return <ModuleContainer STYLES={STYLE} SIZINGS={SIZINGS} {...props} />;
 };
 
-const ModuleContainer = ({DATA, STYLES, SIZINGS, Duration}) => {
+const ModuleContainer = (props) => {
+	const {DATA, STYLES, SIZINGS, Duration, Theme} = props;
 	console.log(DATA);
+
 	return (
 		<Sequence>
 			<PreBuildPrefixVariableSuffixLogoDisclaimer
@@ -108,6 +89,7 @@ const ModuleContainer = ({DATA, STYLES, SIZINGS, Duration}) => {
 				Duration={Duration}
 				Disclaimer={DefaultDisclamer}
 				STYLES={STYLES}
+				Theme={Theme}
 			/>
 
 			<BackgroundVideoandStyles STYLES={STYLES} VIDEO={DATA.BackgroundVideo} />

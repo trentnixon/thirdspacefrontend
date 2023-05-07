@@ -1,0 +1,33 @@
+[
+    {
+      "product": "Lavender Body Wash",
+      "price": "$12.99",
+      "location": "San Francisco",
+      "tagline": "Relax and unwind with the calming scent of lavender"
+    },
+    {
+      "product": "Citrus Shampoo",
+      "price": "$9.99",
+      "location": "New York",
+      "tagline": "Invigorate your senses with zesty citrus"
+    },
+    {
+      "product": "Rosewater Lotion",
+      "price": "$15.99",
+      "location": "Los Angeles",
+      "tagline": "Nourish your skin with the delicate fragrance of rose"
+    },
+    {
+      "product": "Mint Conditioner",
+      "price": "$11.99",
+      "location": "Chicago",
+      "tagline": "Refresh your hair and scalp with the cool tingle of mint"
+    },
+    {
+      "product": "Eucalyptus Body Scrub",
+      "price": "$17.99",
+      "location": "Seattle",
+      "tagline": "Exfoliate and revitalize your skin with the fresh scent of eucalyptus"
+    }
+  ]
+  

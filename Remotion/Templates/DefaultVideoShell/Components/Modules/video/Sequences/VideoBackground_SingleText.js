@@ -13,23 +13,24 @@ const STYLES = {
 	},
 };
 
-export const ModuleVideoBackgroundSingleText916 = ({DATA, Duration}) => {
+export const ModuleVideoBackgroundSingleText916 = (props) => {
 	const STYLE = STYLES.landscape;
-	return <ModuleContainer DATA={DATA} Duration={Duration} STYLES={STYLE} />;
+	return <ModuleContainer {...props} STYLES={STYLE} />;
 };
 
-export const ModuleVideoBackgroundSingleText45 = ({DATA, Duration}) => {
+export const ModuleVideoBackgroundSingleText45 = (props) => {
 	const STYLE = STYLES.portrait;
-	return <ModuleContainer DATA={DATA} Duration={Duration} STYLES={STYLE} />;
+	return <ModuleContainer {...props} STYLES={STYLE} />;
 };
 
-export const ModuleVideoBackgroundSingleTextSQ = ({DATA, Duration}) => {
+export const ModuleVideoBackgroundSingleTextSQ = (props) => {
 	const STYLE = STYLES.portrait;
-	return <ModuleContainer DATA={DATA} Duration={Duration} STYLES={STYLE} />;
+	return <ModuleContainer {...props} STYLES={STYLE} />;
 };
 
-const ModuleContainer = ({DATA, Duration, STYLES}) => {
-	console.log("DATADATA", DATA)
+const ModuleContainer = (props) => {
+	const {DATA, Duration, STYLES, Theme} = props
+	console.log("Theme", Theme)
 	const frame = useCurrentFrame();
 	return (
 		<>
@@ -39,8 +40,9 @@ const ModuleContainer = ({DATA, Duration, STYLES}) => {
 					DATA={DATA}
 					frame={frame}
 					Duration={Duration}
+					Theme={Theme}
 				/>
-
+ 
 				<BackgroundVideoandStyles
 					STYLES={STYLES}
 					VIDEO={DATA.BackgroundVideo}

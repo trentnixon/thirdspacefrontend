@@ -11,15 +11,15 @@ import { SequencePreviewPlayer } from "../../../../../../components/Pages/Video/
 import { BackToListBtn } from "../../../../../../components/Pages/Video/VideoEditSequence/components/BackToListBtn";
 import { SaveToComposition } from "../../../../../../components/Pages/Video/VideoEditSequence/components/SaveToComposition";
 import { DisplaySequenceComponents } from "../../../../../../components/Pages/Video/VideoEditSequence/layout/DisplaySequenceComponents";
-import { SelectFPS } from "../../../../../../components/Pages/Video/VideoEditSequence/Placeholders/FPS";
+import { SelectFPS } from "../../../../../../components/Pages/Video/VideoEditSequence/Placeholders/Settings/FPS";
 
 // UTILS
 
-import {  H2 } from "../../../../../../components/ui/type";
+import { H2 } from "../../../../../../components/ui/type";
 import { fetcher } from "../../../../../../lib/api";
 import { useUpdateVideo } from "../../../../../../hooks/Video/useStoreVideo";
+import { SequenceSettings } from "../../../../../../components/Pages/Video/VideoEditSequence/Placeholders/Settings";
 const qs = require("qs");
-
 
 export default function SequencePage({ Video, VideoModule }) {
   const router = useRouter();
@@ -41,22 +41,21 @@ export default function SequencePage({ Video, VideoModule }) {
     ID: generateRandomID(),
     DATA: {},
   });
- 
-  const handleAddSequence = async (OBJ) => { 
 
+  const handleAddSequence = async (OBJ) => {
     setSaving(true);
     const updatedObject = {
       ...Video.data.attributes.OBJ,
-      Series: [...Video.data.attributes.OBJ.Series, OBJ], 
+      Series: [...Video.data.attributes.OBJ.Series, OBJ],
     };
-    
+
     const success = await UpdateVideo(updatedObject, Video.data.id);
     console.log("Update success:", success); // Add this line
     if (success) {
       setUpdateSuccessful(true);
     }
   };
- 
+
   useEffect(() => {
     if (updateSuccessful) {
       router.push(`/thirdspace/video/${Video.data.id}`);
@@ -100,8 +99,10 @@ export default function SequencePage({ Video, VideoModule }) {
               CreateSequenceOBJ={CreateSequenceOBJ}
               dataset={Video.data.attributes.dataset.data.attributes}
             />
-
-            <SelectFPS setOBJ={setCreateSequenceOBJ} OBJ={CreateSequenceOBJ} />
+           <SequenceSettings
+              setOBJ={setCreateSequenceOBJ}
+              OBJ={CreateSequenceOBJ}
+            />
           </Grid.Col>
 
           <Grid.Col

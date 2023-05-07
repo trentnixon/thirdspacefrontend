@@ -11,8 +11,8 @@ import {ModuleImageBackgroundLogoPrefixOfferSuffixDisclamer45} from './Sequences
 
 // Export Modules
 // Static
-export const ModuleImageBackgroundNoText = ({DATA, Duration}) => ModuleImageBackgroundNoText45({DATA, Duration})
-export const ModuleImageBackgroundSingleText = ({DATA, Duration}) => ModuleImageBackgroundSingleText45({DATA, Duration})
-export const ModuleImageBackgroundLogoPrefixOfferSuffixDisclamer = ({DATA, Duration}) => ModuleImageBackgroundLogoPrefixOfferSuffixDisclamer45({DATA, Duration})
+export const ModuleImageBackgroundNoText = (props) => ModuleImageBackgroundNoText45(props)
+export const ModuleImageBackgroundSingleText = (props) => ModuleImageBackgroundSingleText45(props)
+export const ModuleImageBackgroundLogoPrefixOfferSuffixDisclamer = (props) => ModuleImageBackgroundLogoPrefixOfferSuffixDisclamer45(props)
 
 // Dynamic

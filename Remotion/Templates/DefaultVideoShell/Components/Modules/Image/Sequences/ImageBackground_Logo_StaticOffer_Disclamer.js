@@ -15,15 +15,8 @@ const STYLES = {
 	},
 };
 
-const DefaultDisclamer = `The views and opinions expressed in this TV commercial are solely
-those of the advertiser and do not necessarily reflect the views and
-opinions of the network or its affiliates.`;
-
-export const ModuleVideoBackgroundLogoStaticOfferDisclamer916 = ({
-	DATA,
-	Duration,
-}) => {
-	console.log(DATA);
+export const ModuleVideoBackgroundLogoStaticOfferDisclamer916 = (props) => {
+	const {DATA} = props;
 	/* If(!DATA?.BrandLogo) return  */
 	const STYLE = STYLES.landscape;
 	const SIZINGS = {
@@ -42,15 +35,12 @@ export const ModuleVideoBackgroundLogoStaticOfferDisclamer916 = ({
 			DATA={DATA}
 			STYLES={STYLE}
 			SIZINGS={SIZINGS}
-			Duration={Duration}
 		/>
 	);
 };
 
-export const ModuleVideoBackgroundLogoStaticOfferDisclamer45 = ({
-	DATA,
-	Duration,
-}) => {
+export const ModuleVideoBackgroundLogoStaticOfferDisclamer45 = (props) => {
+	const {DATA} = props;
 	const STYLE = STYLES.portrait;
 	const SIZINGS = {
 		LOGO: calculateImageSize(
@@ -63,20 +53,11 @@ export const ModuleVideoBackgroundLogoStaticOfferDisclamer45 = ({
 		DISCLAIMER: '1.4em',
 	};
 
-	return (
-		<ModuleContainer
-			DATA={DATA}
-			STYLES={STYLE}
-			SIZINGS={SIZINGS}
-			Duration={Duration}
-		/>
-	);
+	return <ModuleContainer DATA={DATA} STYLES={STYLE} SIZINGS={SIZINGS} />;
 };
 
-export const ModuleVideoBackgroundLogoStaticOfferDisclamerSQ = ({
-	DATA,
-	Duration,
-}) => {
+export const ModuleVideoBackgroundLogoStaticOfferDisclamerSQ = (props) => {
+	const {DATA} = props;
 	const STYLE = STYLES.portrait;
 	const SIZINGS = {
 		LOGO: calculateImageSize(
@@ -89,26 +70,25 @@ export const ModuleVideoBackgroundLogoStaticOfferDisclamerSQ = ({
 		DISCLAIMER: '1.4em',
 	};
 
-	return (
-		<ModuleContainer
-			DATA={DATA}
-			STYLES={STYLE}
-			SIZINGS={SIZINGS}
-			Duration={Duration}
-		/>
-	);
+	return <ModuleContainer STYLES={STYLE} SIZINGS={SIZINGS} {...props} />;
 };
 
-const ModuleContainer = ({DATA, STYLES, SIZINGS, Duration}) => {
+const ModuleContainer = (props) => {
+	const DefaultDisclamer = `The views and opinions expressed in this TV commercial are solely
+those of the advertiser and do not necessarily reflect the views and
+opinions of the network or its affiliates.`;
+
 	return (
 		<Sequence>
 			<PreBuildMainTitleCenteredLogoBottomDisclaimer
-				SIZINGS={SIZINGS}
-				DATA={DATA}
-				Duration={Duration}
+				{...props}
 				COPY={DefaultDisclamer}
 			/>
-			<ImageBackground STYLES={STYLES} MEDIA={DATA.BackgroundMediaImage} />
+			<ImageBackground
+				STYLES={STYLES}
+				MEDIA={DATA.BackgroundMediaImage}
+				{...props}
+			/>
 		</Sequence>
 	);
 };

@@ -1,29 +1,16 @@
+import {useCurrentFrame} from 'remotion';
 import {Sequence} from 'remotion';
-import { ImageBackground } from '../Modules/ImageBackground';
+import {ImageBackground} from '../Modules/ImageBackground';
 
-export const ModuleImageBackgroundNoText916 = ({DATA}) => {
-	console.log(DATA.BackgroundMediaImage)
+export const ModuleImageBackgroundNoText916 = (props) => {
 	const STYLES = {
 		zIndex: 0,
 		position: 'absolute',
-
 	};
-	return <ModuleContainer STYLES={STYLES} MEDIA={DATA.BackgroundMediaImage} />
+	return <ModuleContainer STYLES={STYLES} {... props} />;
 };
 
-export const ModuleImageBackgroundNoText45 = ({DATA}) => {
-	const STYLES = {
-		zIndex: 0,
-		position: 'absolute',
-		height: '100%',
-		flexDirection: 'row',
-		justifyContent: 'center',
-	};
-	return <ModuleContainer STYLES={STYLES} MEDIA={DATA.BackgroundMediaImage} />
-};
-
-export const ModuleImageBackgroundNoTextSQ = ({DATA}) => {
-	console.log(DATA);
+export const ModuleImageBackgroundNoText45 = (props) => {
 	const STYLES = {
 		zIndex: 0,
 		position: 'absolute',
@@ -31,13 +18,26 @@ export const ModuleImageBackgroundNoTextSQ = ({DATA}) => {
 		flexDirection: 'row',
 		justifyContent: 'center',
 	};
-	return <ModuleContainer STYLES={STYLES} MEDIA={DATA.BackgroundMediaImage} />
+	return <ModuleContainer STYLES={STYLES} {... props} />;
 };
 
-const ModuleContainer = ({MEDIA, STYLES}) => {
+export const ModuleImageBackgroundNoTextSQ = (props) => {
+
+	const STYLES = {
+		zIndex: 0,
+		position: 'absolute',
+		height: '100%',
+		flexDirection: 'row',
+		justifyContent: 'center',
+	};
+	return <ModuleContainer STYLES={STYLES} {... props} />;
+};
+
+const ModuleContainer = (props) => {
+	const {DATA} = props;
 	return (
 		<Sequence>
-			<ImageBackground STYLES={STYLES} MEDIA={MEDIA}/>
+			<ImageBackground MEDIA={DATA.BackgroundMediaImage} {...props} />
 		</Sequence>
 	);
 };

@@ -3,13 +3,8 @@ import {TitleCenteredAnimated} from '../components/copy/TitleCenteredAnimated';
 import {SmallDisclaimerAtBottom} from '../components/copy/SmallDisclaimerAtBottom';
 import {BrandLogoCenterAnimated} from '../components/Images/BrandLogoCenterAnimated';
 
-export const PreBuildMainTitleCenteredLogoBottomDisclaimer = ({
-	SIZINGS,
-	DATA,
-	Duration,
-	Disclaimer,
-	STYLES
-}) => {
+export const PreBuildMainTitleCenteredLogoBottomDisclaimer = (props) => {
+	const {SIZINGS, DATA, Duration, Disclaimer, STYLES, Theme} = props;
 	return (
 		<DefaultContainer>
 			<BrandLogoCenterAnimated
@@ -23,6 +18,7 @@ export const PreBuildMainTitleCenteredLogoBottomDisclaimer = ({
 				DATA={DATA}
 				Duration={Duration}
 				STYLES={STYLES}
+				Theme={Theme}
 			/>
 
 			<SmallDisclaimerAtBottom SIZINGS={SIZINGS} COPY={Disclaimer} />

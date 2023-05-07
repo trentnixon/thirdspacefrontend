@@ -4,7 +4,6 @@ import {calculateImageSize} from '../../../../../../Utils/FUNC/imageFunctions';
 import {BackgroundVideoandStyles} from '../Modules/ImportBackgroundVideoandStyles';
 import {PreBuildMainTitleCenteredLogoBottomDisclaimer} from '../../../Global/prebuilt/MaintitleCenteredLogoSmallDisclaimer';
 
-
 const STYLES = {
 	landscape: {zIndex: 0, position: 'absolute'},
 	portrait: {
@@ -20,11 +19,8 @@ const DefaultDisclamer = `The views and opinions expressed in this TV commercial
 those of the advertiser and do not necessarily reflect the views and
 opinions of the network or its affiliates.`;
 
-export const ModuleVideoBackgroundLogoStaticOfferDisclamer916 = ({
-	DATA,
-	Duration,
-}) => {
-	console.log(DATA);
+export const ModuleVideoBackgroundLogoStaticOfferDisclamer916 = (props) => {
+	const {DATA} = props;
 	/* If(!DATA?.BrandLogo) return  */
 	const STYLE = STYLES.landscape;
 	const SIZINGS = {
@@ -38,20 +34,11 @@ export const ModuleVideoBackgroundLogoStaticOfferDisclamer916 = ({
 		DISCLAIMER: '1.4em',
 	};
 
-	return (
-		<ModuleContainer
-			DATA={DATA}
-			STYLES={STYLE}
-			SIZINGS={SIZINGS}
-			Duration={Duration}
-		/>
-	);
+	return <ModuleContainer STYLES={STYLE} SIZINGS={SIZINGS} {...props} />;
 };
 
-export const ModuleVideoBackgroundLogoStaticOfferDisclamer45 = ({
-	DATA,
-	Duration,
-}) => {
+export const ModuleVideoBackgroundLogoStaticOfferDisclamer45 = (props) => {
+	const {DATA} = props;
 	const STYLE = STYLES.portrait;
 	const SIZINGS = {
 		LOGO: calculateImageSize(
@@ -64,20 +51,11 @@ export const ModuleVideoBackgroundLogoStaticOfferDisclamer45 = ({
 		DISCLAIMER: '1.4em',
 	};
 
-	return (
-		<ModuleContainer
-			DATA={DATA}
-			STYLES={STYLE}
-			SIZINGS={SIZINGS}
-			Duration={Duration}
-		/>
-	);
+	return <ModuleContainer STYLES={STYLE} SIZINGS={SIZINGS} {...props} />;
 };
 
-export const ModuleVideoBackgroundLogoStaticOfferDisclamerSQ = ({
-	DATA,
-	Duration,
-}) => {
+export const ModuleVideoBackgroundLogoStaticOfferDisclamerSQ = (props) => {
+	const {DATA} = props;
 	const STYLE = STYLES.portrait;
 	const SIZINGS = {
 		LOGO: calculateImageSize(
@@ -90,17 +68,11 @@ export const ModuleVideoBackgroundLogoStaticOfferDisclamerSQ = ({
 		DISCLAIMER: '1.4em',
 	};
 
-	return (
-		<ModuleContainer
-			DATA={DATA}
-			STYLES={STYLE}
-			SIZINGS={SIZINGS}
-			Duration={Duration}
-		/>
-	);
+	return <ModuleContainer STYLES={STYLE} SIZINGS={SIZINGS} {...props} />;
 };
 
-const ModuleContainer = ({DATA, STYLES, SIZINGS, Duration}) => {
+const ModuleContainer = (props) => {
+	const {DATA, STYLES, SIZINGS, Duration,Theme} = props
 	return (
 		<Sequence>
 			<PreBuildMainTitleCenteredLogoBottomDisclaimer
@@ -108,6 +80,7 @@ const ModuleContainer = ({DATA, STYLES, SIZINGS, Duration}) => {
 				DATA={DATA}
 				Duration={Duration}
 				COPY={DefaultDisclamer}
+				Theme={Theme}
 			/>
 
 			<BackgroundVideoandStyles STYLES={STYLES} VIDEO={DATA.BackgroundVideo} />

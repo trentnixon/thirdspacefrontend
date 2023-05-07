@@ -1,6 +1,6 @@
 import {Animated, Move, Scale,Size, Fade} from 'remotion-animated';
 import {SpringConfig} from '../Animations/RemotionSpring';
-
+ 
 const INS = {
 	FadeInScale: (In, ease) => {
 		return [
