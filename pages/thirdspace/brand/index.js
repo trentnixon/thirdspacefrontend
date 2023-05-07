@@ -42,7 +42,7 @@ const Brand = (props) => {
   };
 
   useEffect(() => {
-    console.log("echo session in Brand.js ", session);
+    console.log("echo session in Brand.js ", Response);
   }, [session]);
 
   return (
