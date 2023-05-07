@@ -1,10 +1,10 @@
-import { Container, Group } from "@mantine/core";
+import { Group } from "@mantine/core";
 import { useEffect } from "react";
 
 import { SelectBrandFromTable } from "../../../components/Pages/Brand/selectBrandTable";
 import MembersShell from "../../../components/template/MembersShell";
-import { BTN_FUNC, BTN_LINK } from "../../../components/ui/btn";
-import { H1, P } from "../../../components/ui/type";
+import {  BTN_LINK } from "../../../components/ui/btn";
+import { H1,} from "../../../components/ui/type";
 import { fetcher } from "../../../lib/api";
 import { useSessionDetails } from "../../../lib/session";
 const qs = require("qs");
@@ -69,6 +69,8 @@ Brand.getInitialProps = async (ctx) => {
     }
   );
   let Response = response.data;
+  console.log("Response:")
+  console.log(Response)
   return {
     Response,
   };
