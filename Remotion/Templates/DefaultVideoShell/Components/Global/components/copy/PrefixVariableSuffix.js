@@ -31,7 +31,7 @@ export const PrefixVariableSuffix = (props) => {
 					size={SIZINGS.TITLE}
 					margin=".3em 0 0 0"
 					color={Theme?.Primary ? Theme.Primary : 'white'}
-					weight={100}
+					weight={400}
 					letterSpacing="2px"
 				>
 					{DATA.Prefix}{' '}

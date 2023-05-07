@@ -91,8 +91,8 @@ const ModuleContainer = (props) => {
 				STYLES={STYLES}
 				Theme={Theme}
 			/>
-
-			<ImageBackground STYLES={STYLES} MEDIA={DATA.BackgroundMediaImage} />
+ 
+			<ImageBackground MEDIA={DATA.BackgroundMediaImage} {...props} /> 
 		</Sequence>
 	);
 };

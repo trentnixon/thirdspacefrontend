@@ -38,7 +38,7 @@ const ModuleContainer = (props) => {
 				Title={DATA.Title}
 				frame={frame}
 				{...props}
-			/>
+			/> 
 			<ImageBackground MEDIA={DATA.BackgroundMediaImage} {...props} />
 		</Sequence>
 	);

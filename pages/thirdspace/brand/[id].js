@@ -27,7 +27,7 @@ const query = qs.stringify(
     ],
   },
   {
-    encodeValuesOnly: true,
+    encodeValuesOnly: true, 
   }
 );
 
