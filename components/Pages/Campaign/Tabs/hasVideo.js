@@ -10,7 +10,8 @@ import { UIPaperWrapper, UICopyWrapper } from "../../../ui/Containers";
 import { H2, P } from "../../../ui/type";
 import { DataTableHeader } from "../../../ui/table";
 
-export const HasVideo = ({ Campaign }) => {
+export const HasVideo = (props) => {
+  const { Campaign,CampaignID } = props
   return (
     <UICopyWrapper>
       <Group position="apart">
@@ -23,7 +24,7 @@ export const HasVideo = ({ Campaign }) => {
         >
           Video
         </H2>
-        <BTN_LINK LABEL={"Create"} HREF={`/thirdspace/video/`} />
+        <BTN_LINK LABEL={"Manage"} HREF={`/thirdspace/video/`} />
       </Group>
       {Campaign.videos.data.length === 0 ? (
         <NoVideo />

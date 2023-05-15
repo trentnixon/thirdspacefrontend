@@ -8,7 +8,8 @@ import { UIPaperWrapper, UICopyWrapper } from "../../../ui/Containers";
 import { H2, P } from "../../../ui/type";
 import { DataTableHeader } from "../../../ui/table";
 
-export const HasDataSet = ({ Campaign }) => {
+export const HasDataSet =(props) => {
+  const { Campaign,CampaignID } = props
   console.log("hasDataset", Campaign)
   const theme = useMantineTheme();
   const columns = [
@@ -43,7 +44,7 @@ export const HasDataSet = ({ Campaign }) => {
         <H2 style={{ display: "flex", alignItems: "center" }}>
           Datasets
         </H2>
-        <BTN_LINK LABEL={"Create"} HREF={`/thirdspace/data/create`} />
+        <BTN_LINK LABEL={"Manage"} HREF={`/thirdspace/data/create?id=${CampaignID}`} />
       </Group>
 
       {Campaign.datasets.data.length === 0 ? (

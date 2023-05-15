@@ -1,7 +1,7 @@
 import { Container, Group } from "@mantine/core";
-import MembersShell from "../../../components/template/MembersShell";
-import { BTN_LINK } from "../../../components/ui/btn";
-import { H1, P } from "../../../components/ui/type";
+import MembersShell from "../../../../components/template/MembersShell";
+import { BTN_LINK } from "../../../../components/ui/btn";
+import { H1, P } from "../../../../components/ui/type";
 
 const CreateNewCampaign = () => {
   return (

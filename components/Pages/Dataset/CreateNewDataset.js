@@ -1,19 +1,17 @@
 import { useEffect, useState } from "react";
 
-import { Group, Table } from "@mantine/core";
+import { Group, Table, TextInput } from "@mantine/core";
 import { BTN_FUNC } from "../../ui/btn";
 import { H1, P } from "../../ui/type";
 import { useCreateDataset } from "../../../hooks/useDataset";
 import { Loading } from "../../ui/Loading";
 import { UIPaperWrapper } from "../../ui/Containers";
 
-export const UploadNewDataset = () => {
-
-
+export const UploadNewDataset = ({ ASSIGNTO }) => {
   const [fileData, setFileData] = useState(null);
   const [UploadedData, setUploadedData] = useState(null);
   const [dataset, createDataset, working] = useCreateDataset();
-
+  const [DataSetLabel, setDataSetLabel] = useState("");
   // Functions
 
   const resetData = () => {
@@ -22,10 +20,9 @@ export const UploadNewDataset = () => {
   };
 
   const UploadDataset = () => {
-    const NAME = "Techo V1";
-    const ID = 6;
-    console.log("UPLOAD", UploadedData);
- 
+    const NAME =DataSetLabel;
+    const ID = ASSIGNTO;
+
     createDataset(UploadedData, ID, NAME);
   };
 
@@ -77,28 +74,35 @@ export const UploadNewDataset = () => {
   };
 
   useEffect(() => {
-    console.log(dataset)
+    console.log(dataset);
   }, [dataset]);
 
   if (working) {
     return <Loading />;
   }
-  if (dataset !== null){
-    return(
-      
+  if (dataset !== null) {
+    return (
       <UIPaperWrapper>
-      <Group position="apart">
-        {UploadedData === null ? (
-          <input type="file" onChange={handleFileUpload} />
-        ) : (
-          <P>Dataset : {dataset.data.attributes.Name} has been added to this Campaign</P>
-        )}
-      </Group>
-    </UIPaperWrapper>
-    )
+        <Group position="apart">
+          {UploadedData === null ? (
+            <input type="file" onChange={handleFileUpload} />
+          ) : (
+            <P>
+              Dataset : {dataset.data.attributes.Name} has been added to this
+              Campaign
+            </P>
+          )}
+        </Group>
+      </UIPaperWrapper>
+    );
   }
   return (
     <div>
+      {DataSetLabel}
+      <DatasetName
+        DataSetLabel={DataSetLabel}
+        setDataSetLabel={setDataSetLabel}
+      />
       <UIPaperWrapper>
         <Group position="apart">
           {UploadedData === null ? (
@@ -112,7 +116,7 @@ export const UploadNewDataset = () => {
       <JsonTable jsonData={UploadedData} />
 
       {UploadedData !== null ? (
-        <BTNGROUP resetData={resetData} UploadDataset={UploadDataset} />
+        <BTNGROUP resetData={resetData} UploadDataset={UploadDataset} DataSetLabel={DataSetLabel} />
       ) : (
         false
       )}
@@ -120,19 +124,35 @@ export const UploadNewDataset = () => {
   );
 };
 
-const BTNGROUP = ({ resetData, UploadDataset }) => {
+function DatasetName({ DataSetLabel, setDataSetLabel }) {
+  return (
+    <TextInput
+      placeholder="Dataset Label"
+      label="Dataset Label"
+      description="Provide an Identifing label for your dataset for later use."
+      withAsterisk
+      value={DataSetLabel}
+      onChange={(event) => setDataSetLabel(event.currentTarget.value)}
+    />
+  );
+}
+
+const BTNGROUP = ({ resetData, UploadDataset, DataSetLabel }) => {
+  console.log("DataSetLabel", DataSetLabel)
   return (
     <Group>
       <BTN_FUNC LABEL={`Reset`} HANDLE={resetData} />
-      <BTN_FUNC LABEL={`Upload`} HANDLE={UploadDataset} />
+      <BTN_FUNC
+        LABEL={`Upload`}
+        HANDLE={UploadDataset}
+        isDisabled={!DataSetLabel || !DataSetLabel.trim()}
+      />
     </Group>
   );
 };
 
 // Component to display JSON data
 function JsonTable({ jsonData }) {
-
-
   if (!jsonData) return null;
 
   const headers = Object.keys(jsonData[0]);

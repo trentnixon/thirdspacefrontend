@@ -23,16 +23,16 @@ export const Nav = () => {
       href: "/campaign",
       icon: <IconFlag2 />,
     },
-    {
+   /* {
       label: "Videos",
       href: "/video",
       icon: <IconMovie />,
     },
-    {
+     {
       label: "Assets",
       href: "/assets",
       icon: <IconAlignBoxBottomCenterFilled />,
-    },
+    }, */
   ];
 
   return (

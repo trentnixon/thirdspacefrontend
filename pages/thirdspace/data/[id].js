@@ -1,6 +1,6 @@
-import { Container, Table } from "@mantine/core";
+import { Container, Group, Table } from "@mantine/core";
 import MembersShell from "../../../components/template/MembersShell";
-import { BTN_FUNC } from "../../../components/ui/btn";
+import { BTN_FUNC, PREBUILT_BACKBTN } from "../../../components/ui/btn";
 import { UIPaperWrapper } from "../../../components/ui/Containers";
 import { H1, P } from "../../../components/ui/type";
 import { fetcher } from "../../../lib/api";
@@ -53,6 +53,9 @@ const ViewDataset = ({ dataset }) => {
   console.log(dataset);
   return (
     <MembersShell>
+      <Group position="right">
+        <PREBUILT_BACKBTN />
+      </Group>
       <Container size={"xl"}>
         <H1>{dataset.Name}</H1>
         <P>{dataset.campaigns.data[0].attributes.Name}</P>
@@ -90,7 +93,6 @@ export async function getStaticProps(ctx) {
 export default ViewDataset;
 
 const DatasetTable = ({ DATA }) => {
-  
   const sortItemsByKey = (items) => {
     return items.sort((a, b) => {
       if (a.attributes.Key < b.attributes.Key) {
@@ -111,7 +113,6 @@ const DatasetTable = ({ DATA }) => {
   };
 
   return (
-    
     <UIPaperWrapper>
       <P textAlign={`right`}>Results {DATA.data.length}</P>
       <Table>

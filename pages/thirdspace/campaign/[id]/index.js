@@ -1,10 +1,11 @@
-import MembersShell from "../../../components/template/MembersShell";
+import { useRouter } from "next/router";
+import MembersShell from "../../../../components/template/MembersShell";
 import {  Group } from "@mantine/core";
-import { BTN_LINK } from "../../../components/ui/btn";
-import { H1, P } from "../../../components/ui/type";
-import { fetcher } from "../../../lib/api";
-import { IsCampaignSelected } from "../../../components/Pages/Campaign/isCampaignSelected";
-import { CampaignTabs } from "../../../components/Pages/Campaign/CampaignTabs";
+import { BTN_LINK } from "../../../../components/ui/btn";
+import { H1, P } from "../../../../components/ui/type";
+import { fetcher } from "../../../../lib/api";
+import { IsCampaignSelected } from "../../../../components/Pages/Campaign/isCampaignSelected";
+import { CampaignTabs } from "../../../../components/Pages/Campaign/CampaignTabs";
 
 const qs = require("qs");
 const query = qs.stringify(
@@ -24,28 +25,25 @@ const query = qs.stringify(
     ],
   },
   {
-    encodeValuesOnly: true,
+    encodeValuesOnly: true, 
   }
 );
 
 const ViewCampaign = ({ campaign }) => {
-  console.log("campaign")
-  console.log(campaign)
+ /*  console.log("campaign")
+  console.log(campaign) */
+  const router = useRouter();
   return (
     <MembersShell>
       <Group position="right" my={10}>
           <BTN_LINK LABEL={`Back to List`} HREF={`/thirdspace/campaign`} />
-          <BTN_LINK
-            LABEL={`Create New Campaign`}
-            HREF={`/thirdspace/campaign/create`}
-          />
-        </Group>
+              </Group>
         <H1>{campaign.Name}</H1>
         <P> {campaign.brand?.data?.attributes?.Name}</P>
 
-      <IsCampaignSelected campaign={campaign} />
-
-      <CampaignTabs Campaign={campaign} />
+      <IsCampaignSelected campaign={campaign} CampaignID={router.query.id}/>
+ 
+      <CampaignTabs Campaign={campaign} CampaignID={router.query.id}/>
     </MembersShell>
   ); 
 };

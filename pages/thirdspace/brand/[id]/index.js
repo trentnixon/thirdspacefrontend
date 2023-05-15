@@ -1,13 +1,9 @@
 import { Group, Image } from "@mantine/core";
-//import { useEffect, useState } from "react";
-//import { CreateNewBrand } from "../../../components/Pages/Brand/createNewBrand";
-import { IsBrandSelected } from "../../../components/Pages/Brand/isBrandSelected";
-//import { SelectBrandFromTable } from "../../../components/Pages/Brand/selectBrandTable";
-import MembersShell from "../../../components/template/MembersShell";
-import { BTN_FUNC, BTN_LINK } from "../../../components/ui/btn";
-import { H1, P } from "../../../components/ui/type";
-import { fetcher } from "../../../lib/api";
-//import { useSessionDetails } from "../../../lib/session";
+import { IsBrandSelected } from "../../../../components/Pages/Brand/isBrandSelected";
+import MembersShell from "../../../../components/template/MembersShell";
+import { BTN_LINK } from "../../../../components/ui/btn";
+import { H1 } from "../../../../components/ui/type";
+import { fetcher } from "../../../../lib/api";
 const qs = require("qs");
 const query = qs.stringify(
   {
@@ -24,10 +20,13 @@ const query = qs.stringify(
       "campaigns.datasets.data_set_rows",
       "campaigns.datasets.data_set_rows.data_set_items",
       "LOGO",
+      "video_assets",
+      "video_assets.Value",
+      "video_assets.video_placeholder_type",
     ],
   },
   {
-    encodeValuesOnly: true, 
+    encodeValuesOnly: true,
   }
 );
 
@@ -67,14 +66,12 @@ const ViewBrand = (props) => {
       </Group>
 
       <Group position="apart">
-        <H1>
-          {brand.Name}
-        </H1> 
+        <H1>{brand.Name}</H1>
         <Image
-            width={50}
-            radius={100}
-            src={`${brand?.LOGO?.data?.attributes.url}`}
-          />
+          width={50}
+          radius={100}
+          src={`${brand?.LOGO?.data?.attributes.url}`}
+        />
       </Group>
       <IsBrandSelected brand={brand} />
     </MembersShell>

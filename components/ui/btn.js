@@ -5,6 +5,7 @@ import {
   ActionIcon,
 } from "@mantine/core";
 import Link from "next/link";
+import { useRouter } from 'next/router'
 import { IconAdjustments } from "@tabler/icons-react";
 const useStyles = createStyles((theme, _params, getRef) => ({
   standard: {
@@ -102,3 +103,12 @@ export const BTN_ICON_LINK = ({HREF,ICON = false}) => {
     </Link>
   );
 };
+
+
+/* PRE BUILT BUTTONS*/
+
+
+export const PREBUILT_BACKBTN = ()=>{
+  const router = useRouter()
+  return <BTN_FUNC HANDLE={() => router.back()} LABEL={`Back`} />
+}
