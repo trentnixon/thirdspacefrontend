@@ -6,7 +6,7 @@ export const SequencePreviewPlayer = ({ CreateSequenceOBJ, dataset, Video }) => 
   const [videoObjects, setVideoObjects] = useState([]);
 
   useEffect(() => {
-    console.log(CreateSequenceOBJ, Video.data)
+  //console.log(CreateSequenceOBJ, Video.data)
     miniCompileVideoObjects(CreateSequenceOBJ, dataset);
   }, [CreateSequenceOBJ, dataset]); 
  
@@ -48,7 +48,7 @@ export const SequencePreviewPlayer = ({ CreateSequenceOBJ, dataset, Video }) => 
             }
           });
         }
-        console.log(userObj)
+      //console.log(userObj)
 
         return {
           ...userObj,
@@ -65,7 +65,7 @@ export const SequencePreviewPlayer = ({ CreateSequenceOBJ, dataset, Video }) => 
     }
   }
 
-  console.log(CreateSequenceOBJ)
+//console.log(CreateSequenceOBJ)
   if (videoObjects.length === 0) return false;
   return (
     <div>

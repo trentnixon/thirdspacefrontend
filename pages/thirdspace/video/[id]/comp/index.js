@@ -102,7 +102,7 @@ export default function SequencePage(props) {
   useEffect(() => {
     if (renderState.status === "awaitRender") {
       const intervalId = setInterval(() => {
-        console.log("timer running");
+      //console.log("timer running");
         fetchRenderStatus();
       }, 1000);
 
@@ -156,7 +156,7 @@ const query = qs.stringify(
 export async function getServerSideProps(context) {
   const { id, newSequenceID } = context.query;
 
-  console.log(id, newSequenceID);
+//console.log(id, newSequenceID);
   const Video = await fetcher(
     `${process.env.NEXT_PUBLIC_STRAPI_URL}/videos/${id}?${query}`,
     {

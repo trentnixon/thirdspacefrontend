@@ -50,7 +50,7 @@ export const getStaticPaths = async () => {
 };
 
 const ViewDataset = ({ dataset }) => {
-  console.log(dataset);
+//console.log(dataset);
   return (
     <MembersShell>
       <Group position="right">

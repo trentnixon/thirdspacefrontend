@@ -10,7 +10,7 @@ import { DataTableHeader } from "../../../ui/table";
 
 export const HasDataSet =(props) => {
   const { Campaign,CampaignID } = props
-  console.log("hasDataset", Campaign)
+  //console.log("hasDataset", Campaign)
   const theme = useMantineTheme();
   const columns = [
     {

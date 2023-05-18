@@ -12,15 +12,15 @@ export const useGETCampaignVideos = () => {
     const VideoAssetsquery = qs.stringify(
       {
         filters: {
-          campaign: {
-            id: { $eq: CampaignID },
+          campaigns: {
+            id: { $in: [CampaignID] },
           },
          
         },
         populate: [
           "video_placeholder_type",
           "video_placeholders",
-          "campaign",
+          "campaigns",
           "Value",
         ],
       },
@@ -40,7 +40,7 @@ export const useGETCampaignVideos = () => {
         }
       );
       let VideoAssets = VideoAssetsRes.data;
-      console.log(VideoAssets)
+    console.log(VideoAssets)
       setVideoAssets(VideoAssets);
       setWorking(false);
     } catch (err) {

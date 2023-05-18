@@ -47,7 +47,7 @@ export const BackgroundMediaImage = (props) => {
       here
       <SimpleGrid cols={2}>
           {filteredArray.map((IMG, i) => {
-            console.log(IMG.attributes.Value.data.attributes.url);
+          //console.log(IMG.attributes.Value.data.attributes.url);
             return (
               <FileCardWithThumb
                 key={i}

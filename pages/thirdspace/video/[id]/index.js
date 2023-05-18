@@ -19,12 +19,11 @@ import { VideoPreviewMainTabs } from "../../../../components/Pages/Video/VideoPr
 import { RenderSampleCTA } from "../../../../components/Pages/Video/VideoPreviewContainer/RenderSampleCTA";
 import { CampaignIsRendering } from "../../../../components/Pages/Video/CampaignRendering/CampaignIsRendering";
 import { VideoStateComplete } from "../../../../components/Pages/Video/VideoStateComplete/VideoStateComplete";
+import { RightPanelTabs } from "../../../../components/Pages/Video/Tabs/Tabs_rightPanel";
 
 const qs = require("qs");
 
-
-
-const VideoCreatorPreviewer = ({ video, Modules, Videoid }) => {
+const VideoCreatorPreviewer = ({ video, Modules, Videoid,fonts }) => {
   // Update the video sequence to the DB
   const [Video, UpdateVideo, working] = useUpdateVideo();
   const [VideoOBJ, setVideoOBJ] = useState(video.OBJ);
@@ -39,7 +38,7 @@ const VideoCreatorPreviewer = ({ video, Modules, Videoid }) => {
 
   // use effect
   useEffect(() => {
-    console.log("video", video);
+    //console.log("video", video);
     UpdateVideo(VideoOBJ, Videoid);
   }, [VideoOBJ, video]);
 
@@ -64,10 +63,10 @@ const VideoCreatorPreviewer = ({ video, Modules, Videoid }) => {
     setVideoOBJ({ ...VideoOBJ, Series: updatedModules }); // Update the video OBJ with the updated Series array
   };
   useEffect(() => {
-    console.log(CampaignRender);
+    //console.log(CampaignRender);
   }, [CampaignRender]);
 
-  console.log("CampaignRender", CampaignRender);
+  //console.log("CampaignRender", CampaignRender);
   if (CampaignRender?.attributes?.isRendering)
     return (
       <CampaignIsRendering
@@ -126,8 +125,6 @@ const VideoCreatorPreviewer = ({ video, Modules, Videoid }) => {
               VideoTitle={video.Name}
             />
           )}
-          {/* 
-          <UIPaperWrapper>TODO : instructions and tooltip,</UIPaperWrapper> */}
         </Grid.Col>
 
         <Grid.Col
@@ -136,10 +133,14 @@ const VideoCreatorPreviewer = ({ video, Modules, Videoid }) => {
             backgroundColor: theme.colors.background,
           })}
         >
-          <AddNewSequence
+          <RightPanelTabs
             Modules={Modules}
             setSequence={setSequence}
             Videoid={Videoid}
+            dataSet={dataSet}
+            VideoOBJ={VideoOBJ}
+            setVideoOBJ={setVideoOBJ}
+            fonts={fonts}
           />
         </Grid.Col>
       </Grid>
@@ -207,17 +208,28 @@ export async function getServerSideProps(ctx) {
   );
   let Modules = ModulesRes.data;
 
+  const fontsRes = await fetcher(
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/fonts`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        //Authorization: `Bearer ${Cookies.get("jwt")}`,
+      },
+    }
+  );
+  let fonts = fontsRes.data;
+
   return {
     props: {
       video: videos.attributes,
       Videoid: id,
       Modules: Modules,
+      fonts:fonts
     },
   };
 }
 
 export default VideoCreatorPreviewer;
-
 
 /* export const getStaticPaths = async () => {
   const response = await fetcher(

@@ -9,7 +9,7 @@ export const VideoDataset = ({
   previewDataSetRow,
   setpreviewDataSetRow,
 }) => {
-  console.log(dataSet.data_set_rows.data.length);
+//console.log(dataSet.data_set_rows.data.length);
   return (
     <>
       <H3>

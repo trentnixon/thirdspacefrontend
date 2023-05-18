@@ -2,7 +2,7 @@ import { useMantineTheme } from "@mantine/core";
 import { P } from "./type";
 
 const TableHeaderCell = ({ children, icon, alignItems }) => {
-    console.log('alignItems', alignItems)
+  //console.log('alignItems', alignItems)
   const theme = useMantineTheme();
   return (
     <th>

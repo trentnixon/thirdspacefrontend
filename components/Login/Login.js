@@ -51,7 +51,7 @@ export function AuthenticationImage(props) {
   const { setrender, isUser } = props;
 
   const handleForm = (event) => {
-    console.log("event");
+    //console.log("event");
     event.preventDefault();
     setFakeToken(true);
     setrender(true);

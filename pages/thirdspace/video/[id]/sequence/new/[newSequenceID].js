@@ -50,7 +50,7 @@ export default function SequencePage({ Video, VideoModule }) {
     };
 
     const success = await UpdateVideo(updatedObject, Video.data.id);
-    console.log("Update success:", success); // Add this line
+  //console.log("Update success:", success); // Add this line
     if (success) {
       setUpdateSuccessful(true);
     }
@@ -161,7 +161,7 @@ const Sequencequery = qs.stringify(
 export async function getServerSideProps(context) {
   const { id, newSequenceID } = context.query;
 
-  console.log(id, newSequenceID);
+//console.log(id, newSequenceID);
   const Video = await fetcher(
     `${process.env.NEXT_PUBLIC_STRAPI_URL}/videos/${id}?${query}`,
     {

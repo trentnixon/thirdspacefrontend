@@ -1,6 +1,6 @@
 import { Container, Group } from "@mantine/core";
 import MembersShell from "../../../../components/template/MembersShell";
-import { BTN_LINK } from "../../../../components/ui/btn";
+import { BTN_LINK, PREBUILT_BACKBTN } from "../../../../components/ui/btn";
 import { H1, P } from "../../../../components/ui/type";
 
 const CreateNewCampaign = () => {
@@ -8,7 +8,7 @@ const CreateNewCampaign = () => {
     <MembersShell>
       <Container size={"xl"}>
         <Group position="right">
-          <BTN_LINK HREF={`/thirdspace/campaign`} LABEL={`Back`} />
+          <PREBUILT_BACKBTN />
         </Group>
         <H1>Create a Campaign</H1>
         <P>This feature is currently disabled</P>

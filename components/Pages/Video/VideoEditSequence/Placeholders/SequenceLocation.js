@@ -5,7 +5,7 @@ import { P } from "../../../ui/type";
 export const SequenceLocation = (props) => {
   const { setOBJ, OBJ, VideoOBJ } = props;
   const theme = useMantineTheme();
-  console.log(VideoOBJ.Series);
+//console.log(VideoOBJ.Series);
   return (
     <>
       <P>Sequence Location</P>

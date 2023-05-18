@@ -10,7 +10,7 @@ export const GridCenter = (props) => {
   const { rendering, renderState, RenderStatus } = props;
 
   useEffect(() => {
-    console.log('Render state changed: ', renderState);
+  //console.log('Render state changed: ', renderState);
   }, [renderState]);
   return (
     <Grid.Col span={6}>

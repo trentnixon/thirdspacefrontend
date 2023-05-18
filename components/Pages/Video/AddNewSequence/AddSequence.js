@@ -6,15 +6,14 @@ import {
   Modal,
   Group,
   useMantineTheme,
-  Image, 
+  Image,
   Space,
-  Radio,
   Input,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
 import { BTN_ICON_FUNC, BTN_ICON_LINK } from "../../../ui/btn";
-import { H3, P } from "../../../ui/type";
+import { P } from "../../../ui/type";
 import { UIPaperWrapper } from "../../../ui/Containers";
 
 import {
@@ -34,7 +33,7 @@ export const AddNewSequence = (props) => {
   const [TypeValue, setTypeValue] = useState("Static");
 
   const onClose = () => {
-    handlers.close(); 
+    handlers.close();
   };
 
   //console.log(Modules);
@@ -47,9 +46,7 @@ export const AddNewSequence = (props) => {
 
   return (
     <>
-      <H3>Modules</H3>
       <SearchModules />
-
       <Space h={20} />
 
       <Tabs variant="pills" defaultValue="Video">

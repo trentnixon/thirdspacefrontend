@@ -9,7 +9,7 @@ export const useLogUser = () => {
   const CreateLogUser = async (INFO) => {
     setLogUser(true);
     try {
-      console.log("useLogUser IS RUNNING");
+    //console.log("useLogUser IS RUNNING");
       const response = await fetcher(
         `${process.env.NEXT_PUBLIC_STRAPI_URL}/auth/local`,
         {
@@ -21,7 +21,7 @@ export const useLogUser = () => {
           body: JSON.stringify(INFO),
         }
       );
-      console.log(response);
+    //console.log(response);
       setToken(response)
       setLogUser(response);
      

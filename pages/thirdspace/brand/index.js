@@ -42,7 +42,7 @@ const Brand = (props) => {
   };
 
   useEffect(() => {
-    console.log("echo session in Brand.js ", Response);
+  //console.log("echo session in Brand.js ", Response);
   }, [session]);
 
   return (
@@ -69,8 +69,8 @@ Brand.getInitialProps = async (ctx) => {
     }
   );
   let Response = response.data;
-  console.log("Response:")
-  console.log(Response)
+//console.log("Response:")
+//console.log(Response)
   return {
     Response,
   };

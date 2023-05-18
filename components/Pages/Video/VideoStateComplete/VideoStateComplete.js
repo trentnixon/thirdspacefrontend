@@ -8,7 +8,7 @@ import { IconEye } from "@tabler/icons-react";
 
 export const VideoStateComplete = (props) => {
   const { video } = props;
-  console.log(video);
+//console.log(video);
   return (
     <MembersShell>
       <H1>Video Deployment</H1>

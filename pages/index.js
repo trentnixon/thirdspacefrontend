@@ -40,7 +40,7 @@ export const getServerSideProps = async (context) => {
   );
   //
  
-  console.log(response);
+//console.log(response);
   return {
     props: {
       associations: response,

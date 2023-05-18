@@ -58,7 +58,7 @@ function SequencePage({ Video, VideoModule, editSequenceID }) {
     };
 
     const success = await UpdateVideo(updatedObject, Video.data.id);
-    console.log("Update success:", success); // Add this line
+  //console.log("Update success:", success); // Add this line
 
     if (success) {
       setUpdateSuccessful(true);

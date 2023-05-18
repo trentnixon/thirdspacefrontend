@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 export const RenderSampleCTA= (props) => {
   const { Videoid } = props;
   const router = useRouter();
-  console.log(router.pathname);
+//console.log(router.pathname);
   return (
     <UIPaperWrapper>
       <Group position="left">

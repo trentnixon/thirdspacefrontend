@@ -31,7 +31,7 @@ export const UploadNewDataset = ({ ASSIGNTO }) => {
 
     // Check file type
     if (file.type !== "application/json" && file.type !== "text/csv") {
-      console.log("Invalid file type. Only JSON or CSV files are allowed.");
+      //console.log("Invalid file type. Only JSON or CSV files are allowed.");
       return;
     }
 
@@ -44,11 +44,11 @@ export const UploadNewDataset = ({ ASSIGNTO }) => {
       if (file.type === "application/json") {
         const jsonData = JSON.parse(fileContent);
 
-        console.log(jsonData); // do something with JSON data
+        //console.log(jsonData); // do something with JSON data
         setUploadedData(jsonData);
       } else {
         const csvData = await processCsvFile(fileContent);
-        console.log(csvData); // do something with CSV data
+        //console.log(csvData); // do something with CSV data
         setUploadedData(csvData);
       }
     };
@@ -74,7 +74,7 @@ export const UploadNewDataset = ({ ASSIGNTO }) => {
   };
 
   useEffect(() => {
-    console.log(dataset);
+    //console.log(dataset);
   }, [dataset]);
 
   if (working) {
@@ -138,7 +138,7 @@ function DatasetName({ DataSetLabel, setDataSetLabel }) {
 }
 
 const BTNGROUP = ({ resetData, UploadDataset, DataSetLabel }) => {
-  console.log("DataSetLabel", DataSetLabel)
+  //console.log("DataSetLabel", DataSetLabel)
   return (
     <Group>
       <BTN_FUNC LABEL={`Reset`} HANDLE={resetData} />

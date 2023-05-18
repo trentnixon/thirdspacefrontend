@@ -56,7 +56,7 @@ const Campaign = (props) => {
 
 
   useEffect(() => {
-    console.log("echo session in Campaign.js ", session);
+  //console.log("echo session in Campaign.js ", session);
   }, [session]);
 
 

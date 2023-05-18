@@ -57,7 +57,7 @@ export const RemotionSequencePlayer = ({ DATA, dataSet,Settings }) => {
 export const SequenceThumb = ({ DATA, dataSet }) => {
   const [SequenceOBJ, setVideoObjects] = useState([]);
 
-  console.log(DATA, dataSet);
+//console.log(DATA, dataSet);
   useEffect(() => {
     setVideoObjects(miniCompileVideoObjects(DATA, dataSet)[0]);
   }, [DATA]);

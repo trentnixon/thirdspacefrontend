@@ -10,7 +10,7 @@ import { UIPaperWrapper } from "../../../components/ui/Containers";
 import {
   NoAssets,
   ShowAssets,
-} from "../../../components/Common/DisplayAssignedAssets";
+} from "../../../components/Common/DisplayAssignedAssets"; 
 
 import { useAssignBrandAssets } from "../../../hooks/campaigns/useAssignBrandAsset";
 const qs = require("qs");
@@ -117,7 +117,7 @@ export async function getServerSideProps(ctx) {
   const { query } = ctx;
   const id = query.id;
 
-  console.log("query ", id);
+//console.log("query ", id);
 
   if (!id) {
     return {

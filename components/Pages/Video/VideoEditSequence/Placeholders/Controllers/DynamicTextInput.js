@@ -30,7 +30,7 @@ export const DynamicTextInput = (props) => {
   };
 
   const handleTitleInputChange = (value, isDynamic = false) => {
-    console.log(`is this a dynamic input ${isDynamic ? "true" : "false"}`);
+  //console.log(`is this a dynamic input ${isDynamic ? "true" : "false"}`);
     let newValue;
     let key;
     if (isDynamic) {

@@ -45,7 +45,7 @@ export const RenderCampaign = (props) => {
           isRendering: true,
         },
       };
-      console.log(updatedData);
+    //console.log(updatedData);
       setCampaignRender(updatedData);
     }
   }, [dataset, setCampaignRender]);

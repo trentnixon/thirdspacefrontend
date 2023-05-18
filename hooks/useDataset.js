@@ -42,7 +42,7 @@ const useCreateDataRows = () => {
   const createDataRows = async (obj, id, Name) => {
     await Promise.all(
       obj.map(async (row, i) => {
-        console.log(row, id);
+      //console.log(row, id);
         const response = await fetcher(
           `${process.env.NEXT_PUBLIC_STRAPI_URL}/data-set-rows`,
           {

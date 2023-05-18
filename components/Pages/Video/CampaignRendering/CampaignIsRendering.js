@@ -13,7 +13,7 @@ export const CampaignIsRendering = (props) => {
 
   // Function to fetch the updated render status
   const fetchUpdatedRenderStatus = async () => {
-    console.log("fetchUpdatedRenderStatus");
+    //console.log("fetchUpdatedRenderStatus");
     await GetCampaignRender(CampaignRender.id);
   };
 
@@ -59,7 +59,7 @@ export const CampaignIsRendering = (props) => {
   };
 
   useEffect(() => {
-    console.log(isCampaignRender?.attributes?.renders?.data);
+  //console.log(isCampaignRender?.attributes?.renders?.data);
     let timeoutId;
     if (isCampaignRender?.attributes?.isRendering) {
       timeoutId = setTimeout(() => {

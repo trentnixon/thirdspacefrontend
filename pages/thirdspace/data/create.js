@@ -6,7 +6,7 @@ import { H1, P } from "../../../components/ui/type";
 import { useRouter } from "next/router";
 const CreateNewDataset = () => {
   const router = useRouter();
-  console.log(router.query.id);
+//console.log(router.query.id);
 
   return (
     <MembersShell>

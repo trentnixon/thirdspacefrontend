@@ -10,7 +10,7 @@ export const CreateAComp = () => {
         <P marginBottom={20}>Render out a comp to download and share.</P>
         <BTN_FUNC
           HANDLE={() => {
-            console.log("reate Client Preview");
+          //console.log("reate Client Preview");
           }}
           LABEL={`Create Preview`}
         />

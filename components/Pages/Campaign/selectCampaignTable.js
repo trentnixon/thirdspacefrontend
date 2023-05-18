@@ -5,7 +5,7 @@ import { UIPaperWrapper } from "../../ui/Containers";
 
 export const SelectCampaignFromTable = (props) => {
   const { Response } = props;
-  console.log(Response);
+  //console.log(Response);
   return (
     <UIPaperWrapper>
       <Table>

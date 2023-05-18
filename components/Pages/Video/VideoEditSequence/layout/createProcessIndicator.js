@@ -12,8 +12,8 @@ export const CreateProcessIndicator = ({
     DATA: {}
   }
 }) => {
-  console.log("video_placeholders, VideoModule, videoObjects");
-  console.log(video_placeholders, VideoModule, CreateSequenceOBJ);
+//console.log("video_placeholders, VideoModule, videoObjects");
+//console.log(video_placeholders, VideoModule, CreateSequenceOBJ);
 
   function hasKey(obj, key) {
     return obj.DATA.fields && obj.DATA.fields.some((field) => field.name === key);
@@ -32,7 +32,7 @@ export const CreateProcessIndicator = ({
         </thead>
         <tbody>
           {video_placeholders.map((PlaceHolder, i) => {
-            console.log("PlaceHolder ", PlaceHolder.attributes.Name);
+          //console.log("PlaceHolder ", PlaceHolder.attributes.Name);
             return (
               <tr key={i}>
                 <td>{PlaceHolder.attributes.Name}</td>

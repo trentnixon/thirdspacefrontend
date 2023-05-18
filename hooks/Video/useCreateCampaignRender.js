@@ -64,7 +64,7 @@ export const useGetCampaignRender = () => {
         }
       );
 
-     /*  console.log(response.data) */
+     /*//console.log(response.data) */
       setisCampaignRender(response.data);
     } catch (err) {
       setisCampaignRender(err);

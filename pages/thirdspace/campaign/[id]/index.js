@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import MembersShell from "../../../../components/template/MembersShell";
-import {  Group } from "@mantine/core";
-import { BTN_LINK } from "../../../../components/ui/btn";
+import { Group } from "@mantine/core";
+import { BTN_LINK, PREBUILT_BACKBTN } from "../../../../components/ui/btn";
 import { H1, P } from "../../../../components/ui/type";
 import { fetcher } from "../../../../lib/api";
 import { IsCampaignSelected } from "../../../../components/Pages/Campaign/isCampaignSelected";
@@ -25,27 +25,27 @@ const query = qs.stringify(
     ],
   },
   {
-    encodeValuesOnly: true, 
+    encodeValuesOnly: true,
   }
 );
 
 const ViewCampaign = ({ campaign }) => {
- /*  console.log("campaign")
-  console.log(campaign) */
+  /*//console.log("campaign")
+//console.log(campaign) */
   const router = useRouter();
   return (
     <MembersShell>
       <Group position="right" my={10}>
-          <BTN_LINK LABEL={`Back to List`} HREF={`/thirdspace/campaign`} />
-              </Group>
-        <H1>{campaign.Name}</H1>
-        <P> {campaign.brand?.data?.attributes?.Name}</P>
+        <PREBUILT_BACKBTN />
+      </Group>
+      <H1>{campaign.Name}</H1>
+      <P> {campaign.brand?.data?.attributes?.Name}</P>
 
-      <IsCampaignSelected campaign={campaign} CampaignID={router.query.id}/>
- 
-      <CampaignTabs Campaign={campaign} CampaignID={router.query.id}/>
+      <IsCampaignSelected campaign={campaign} CampaignID={router.query.id} />
+
+      <CampaignTabs Campaign={campaign} CampaignID={router.query.id} />
     </MembersShell>
-  ); 
+  );
 };
 
 export async function getServerSideProps(ctx) {

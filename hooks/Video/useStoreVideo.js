@@ -7,7 +7,7 @@ export const useUpdateVideo = () => {
   const [working, setWorking] = useState(null);
 
   const UpdateVideo = async (obj, _ID) => {
-    console.log(obj, _ID);
+  //console.log(obj, _ID);
     setWorking(true);
     try {
       const response = await fetcher(

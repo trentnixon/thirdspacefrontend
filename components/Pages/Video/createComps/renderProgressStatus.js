@@ -19,7 +19,7 @@ export const RenderProgressStatus = (props) => {
   };
 
   useEffect(() => {
-    console.log("Render state changed: ", renderState);
+  //console.log("Render state changed: ", renderState);
   }, [renderState]);
 
   return (

@@ -13,7 +13,7 @@ import { DataTableHeader } from "../../ui/table";
 import { NoAssets, ShowAssets } from "../../Common/DisplayAssignedAssets";
 
 export const IsBrandSelected = ({ brand }) => {
-  console.log(brand);
+  //console.log(brand);
   const theme = useMantineTheme();
   const router = useRouter();
   const columns = [

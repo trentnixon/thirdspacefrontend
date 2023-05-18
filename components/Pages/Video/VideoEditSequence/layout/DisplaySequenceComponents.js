@@ -34,7 +34,7 @@ export const DisplaySequenceComponents = ({
 }) => {
  
 
-  function groupByVideoPlaceholderTypeName(arr) {
+function groupByVideoPlaceholderTypeName(arr) {
     return arr.reduce((accumulator, currentObj) => {
       const typeName =
         currentObj.attributes.video_placeholder_type.data.attributes.Name;
@@ -71,7 +71,7 @@ export const DisplaySequenceComponents = ({
       },
     };
   
-    console.log("MODULEDATA", MODULEDATA);
+  //console.log("MODULEDATA", MODULEDATA);
   
     setCreateSequenceOBJ(MODULEDATA);
   };
@@ -80,18 +80,16 @@ export const DisplaySequenceComponents = ({
   const groupedByPlaceholderTypeName = groupByVideoPlaceholderTypeName(
     VideoModule.video_placeholders.data
   );
-
-  console.log(groupedByPlaceholderTypeName);
   // HOOKS
   const [VideoAssets, GetVideoAssets, working] = useGETCampaignVideos();
   // USE EFFECT
-
+ 
   useEffect(() => {
     GetVideoAssets(Video.campaign.data.id);
   }, []);
 
   useEffect(() => {
-    console.log(VideoAssets);
+  //console.log(VideoAssets);
   }, [VideoAssets]);
   if (working !== false) {
     return <>WORKING</>;
@@ -129,7 +127,7 @@ export const DisplaySequenceComponents = ({
           return (
             <Tabs.Panel value={key} pt="xs" key={key}>
               {groupedByPlaceholderTypeName[key].map((PlaceHolder, i) => {
-                console.log(PlaceHolder);
+              //console.log(PlaceHolder);
                 return (
                   <div key={i}>
                     {React.createElement(
