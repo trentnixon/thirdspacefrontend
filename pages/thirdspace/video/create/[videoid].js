@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { Button, Group, Paper, Select, TextInput, Title } from "@mantine/core";
 import { useRouter } from "next/router";
-import MembersShell from "../../../components/template/MembersShell";
-import { BTN_LINK } from "../../../components/ui/btn";
-import { H1, H2, P } from "../../../components/ui/type";
-import { fetcher } from "../../../lib/api";
-import { UIPaperWrapper } from "../../../components/ui/Containers";
+import MembersShell from "../../../../components/template/MembersShell";
+import { BTN_LINK } from "../../../../components/ui/btn";
+import { H1, H2, P } from "../../../../components/ui/type";
+import { fetcher } from "../../../../lib/api";
+import { UIPaperWrapper } from "../../../../components/ui/Containers";
 
-import { useCreateVideoInstance } from "../../../hooks/Video/useCreateNewVideoInstance";
-import { VideoColorPickerGroup } from "../../../components/Pages/Video/components/ColorPicker";
-import { SelectVideoFont } from "../../../components/Pages/Video/components/SelectVideoFont";
+import { useCreateVideoInstance } from "../../../../hooks/Video/useCreateNewVideoInstance";
+import { VideoColorPickerGroup } from "../../../../components/Pages/Video/components/ColorPicker";
+import { SelectVideoFont } from "../../../../components/Pages/Video/components/SelectVideoFont";
 const qs = require("qs");
 const Strapiquery = qs.stringify(
   {
