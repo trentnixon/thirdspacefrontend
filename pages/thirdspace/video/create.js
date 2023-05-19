@@ -1,26 +1,14 @@
 import { useState, useEffect } from "react";
-import {
-  Button,
-  Group,
-  Paper,
-  Select,
-  Stack,
-  TextInput,
-  Title,
-} from "@mantine/core";
+import { Button, Group, Paper, Select, TextInput, Title } from "@mantine/core";
 import { useRouter } from "next/router";
 import MembersShell from "../../../components/template/MembersShell";
 import { BTN_LINK } from "../../../components/ui/btn";
-import { H1, H2, H3, P } from "../../../components/ui/type";
+import { H1, H2, P } from "../../../components/ui/type";
 import { fetcher } from "../../../lib/api";
 import { UIPaperWrapper } from "../../../components/ui/Containers";
 
-import { HexColorInput, HexColorPicker } from "react-colorful";
 import { useCreateVideoInstance } from "../../../hooks/Video/useCreateNewVideoInstance";
-import {
-  VideoColorPickerGroup,
-  VideoSettings_ColorPicker,
-} from "../../../components/Pages/Video/components/ColorPicker";
+import { VideoColorPickerGroup } from "../../../components/Pages/Video/components/ColorPicker";
 import { SelectVideoFont } from "../../../components/Pages/Video/components/SelectVideoFont";
 const qs = require("qs");
 const Strapiquery = qs.stringify(
@@ -49,7 +37,7 @@ const CreateNewVideo = ({ campaign, fonts }) => {
   const [VideoInstance, CreateVideoInstance, isComplete] =
     useCreateVideoInstance();
   //useCreateVideoInstance
-
+console.log("router.query.id = ", router.query.id)
   useEffect(() => {
     //console.log(VideoInstance);
   }, [VideoInstance]);
@@ -279,7 +267,6 @@ const CreateNewVideoForm = ({ campaign, fonts, CreateVideoInstance }) => {
           OBJ={OBJ}
           handleFontChange={handleFontChange}
         />
-
       </UIPaperWrapper>
       <Button type="submit">Create</Button>
     </form>

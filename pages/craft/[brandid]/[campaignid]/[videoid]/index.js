@@ -38,7 +38,7 @@ async function fetchVideo(brandid, campaignid, videoid) {
 }
 
 const VideoPage = ({ video }) => {
-  console.log(video);
+  //console.log(video);
 
   return (
     <CraftShell>
