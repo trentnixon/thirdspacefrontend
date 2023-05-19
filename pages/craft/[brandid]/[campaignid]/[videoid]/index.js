@@ -1,11 +1,12 @@
 // File: pages/craft/[brandid]/[campaignid]/[videoid]/index.js
 
 import { useRouter } from "next/router";
-
+import CraftShell from "../../../../../components/template/CraftShell";
+import { H1 } from "../../../../../components/ui/Client_type";
+import { PREBUILT_BACKBTN } from "../../../../../components/ui/Client_btn";
+import { Group } from "@mantine/core";
 async function fetchBrands() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_FRONTEND_URL}brands/`
-  );
+  const res = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}brands/`);
   const brands = await res.json();
   return brands.data;
 }
@@ -37,12 +38,26 @@ async function fetchVideo(brandid, campaignid, videoid) {
 }
 
 const VideoPage = ({ video }) => {
+  console.log(video);
 
-  console.log(video)
-
-  return <>
-    <h1>{video.attributes.Name}</h1>
-  </>;
+  return (
+    <CraftShell>
+      <Group position="apart">
+      <H1>{video.attributes.Name}</H1>
+      <PREBUILT_BACKBTN />
+      </Group>
+      [Preview]
+      [Form]
+      [Data validation]
+      [Download when complete]
+      [render progress]
+      [invoice/costing]
+      [data structure require and example]
+      
+    
+   
+    </CraftShell>
+  );
 };
 export default VideoPage;
 
@@ -70,7 +85,6 @@ export async function getStaticPaths() {
 
   return { paths, fallback: "blocking" };
 }
-
 
 export async function getStaticProps({ params }) {
   const video = await fetchVideo(

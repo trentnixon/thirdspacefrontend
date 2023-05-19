@@ -4,10 +4,11 @@ import axios from "axios";
 const qs = require("qs");
 const Fetchquery = qs.stringify(
   {
-   /*  populate: [
-      "brand",
-      "videos",
-    ], */
+    populate: [
+      "renders",
+      "campaign_renders",
+      "video_comps"
+    ],
   },
   {
     encodeValuesOnly: true,

@@ -1,12 +1,13 @@
 // File: pages/craft/[brandid]/index.js
 import { BTN_LINK } from "../../../components/ui/btn";
 import { useRouter } from "next/router";
-
+import CraftShell from "../../../components/template/CraftShell";
+import { H1, H2, H3, P } from "../../../components/ui/Client_type";
+import { CampaignCard } from "../../../components/Pages/Craft/CampaignCards.js/card";
+import { SimpleGrid } from "@mantine/core";
 // Fetch all brands
 async function fetchBrands() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_FRONTEND_URL}brands/`
-  );
+  const res = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}brands/`);
   const brands = await res.json();
   console.log("brands");
   console.log(brands.data);
@@ -51,26 +52,21 @@ export async function getStaticProps({ params }) {
 }
 
 const BrandInfo = (props) => {
-  const {} = props;
+  const { brand } = props;
   const router = useRouter();
   console.log(router.query.brandid);
-  console.log(props.brand.attributes.campaigns.data);
+  console.log(brand.attributes);
   return (
-    <>
-      <h1>Brand</h1>
-      <h3>{props.brand.attributes.Name}</h3>
-
-      {props.brand.attributes.campaigns.data.map((Campaign, i) => {
-        return (
-          <div key={i}>
-            <BTN_LINK
-              HREF={`/craft/${router.query.brandid}/${Campaign.id}`}
-              LABEL={`View`}
-            />
-            {Campaign.attributes.Name}
-          </div>
-        );
-      })}
-    </>
+    <CraftShell>
+      <H1>Brand</H1>
+      <H3>{brand.attributes.Name}</H3>
+      <P>{brand.attributes.Description}</P>
+      <H2>Campaigns</H2>
+      <SimpleGrid cols={2} mt={15}>
+        {brand.attributes.campaigns.data.map((Campaign, i) => {
+          return <CampaignCard key={i} Campaign={Campaign} />;
+        })}
+      </SimpleGrid>
+    </CraftShell>
   );
 };

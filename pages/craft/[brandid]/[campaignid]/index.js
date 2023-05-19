@@ -2,12 +2,15 @@
 
 import { useRouter } from "next/router";
 import { BTN_LINK } from "../../../../components/ui/btn";
+import CraftShell from "../../../../components/template/CraftShell";
+import { H1, H3, P } from "../../../../components/ui/Client_type";
+import { VideoCard } from "../../../../components/Pages/Craft/VideoCards/card";
+import { Group, SimpleGrid } from "@mantine/core";
+import { PREBUILT_BACKBTN } from "../../../../components/ui/Client_btn";
 // Fetch all campaigns of a brand
 // Fetch all brands
 async function fetchBrands() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_FRONTEND_URL}brands/`
-  );
+  const res = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}brands/`);
   const brands = await res.json();
   return brands.data;
 }
@@ -23,7 +26,6 @@ async function fetchCampaigns(brandid) {
 
 // Fetch a specific campaign
 async function fetchCampaign(brandid, campaignid) {
-
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_FRONTEND_URL}campaigns/${campaignid}`
   );
@@ -31,7 +33,6 @@ async function fetchCampaign(brandid, campaignid) {
 
   return campaign;
 }
-
 
 // Main Component
 const CampaignIndex = ({ campaign }) => {
@@ -77,27 +78,22 @@ const CampaignInfo = (props) => {
   console.log(campaign);
   const router = useRouter();
   console.log(router.query.brandid);
-//  console.log(props.brand.attributes.campaigns.data);
+  //  console.log(props.brand.attributes.campaigns.data);
   return (
-    <>
-      <h1>{campaign.attributes.Name}</h1>
+    <CraftShell>
+      <Group position="apart" mb={20}>
+        <H1>{campaign.attributes.Name}</H1>
+        <PREBUILT_BACKBTN />
+      </Group>
 
-      <div>
-        <h3>Videos</h3>
-        {
-          campaign.attributes.videos.data.map((videos,i)=>{
-            return(
-              <div key={i}>
-                <BTN_LINK
-              HREF={`/craft/${router.query.brandid}/${router.query.campaignid}/${videos.id}`}
-              LABEL={`View`}
-            />
-                  {videos.attributes.Name}
-                </div>
-            )
-          })
-        }
-      </div>
-    </>
+      <P>{campaign.attributes.Description}</P>
+      <H3>Video Options</H3>
+
+      <SimpleGrid cols={2} mt={15}>
+        {campaign.attributes.videos.data.map((video, i) => {
+          return <VideoCard Video={video} key={i} />;
+        })}
+      </SimpleGrid>
+    </CraftShell>
   );
 };
