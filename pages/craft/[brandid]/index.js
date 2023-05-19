@@ -9,8 +9,6 @@ import { SimpleGrid } from "@mantine/core";
 async function fetchBrands() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}brands/`);
   const brands = await res.json();
-  console.log("brands");
-  console.log(brands.data);
   return brands.data;
 }
 
@@ -54,8 +52,7 @@ export async function getStaticProps({ params }) {
 const BrandInfo = (props) => {
   const { brand } = props;
   const router = useRouter();
-  console.log(router.query.brandid);
-  console.log(brand.attributes);
+
   return (
     <CraftShell>
       <H1>Brand</H1>
