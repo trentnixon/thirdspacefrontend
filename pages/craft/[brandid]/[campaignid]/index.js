@@ -75,9 +75,9 @@ export async function getStaticProps({ params }) {
 // component
 const CampaignInfo = (props) => {
   const { campaign } = props;
-  console.log(campaign);
+  //console.log(campaign);
   const router = useRouter();
-  console.log(router.query.brandid);
+  //console.log(router.query.brandid);
   //  console.log(props.brand.attributes.campaigns.data);
   return (
     <CraftShell>
