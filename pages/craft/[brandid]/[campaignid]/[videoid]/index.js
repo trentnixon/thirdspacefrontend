@@ -1,6 +1,6 @@
 // File: pages/craft/[brandid]/[campaignid]/[videoid]/index.js
 
-import { useRouter } from "next/router";
+//import { useRouter } from "next/router";
 import CraftShell from "../../../../../components/template/CraftShell";
 import { H1 } from "../../../../../components/ui/Client_type";
 import { PREBUILT_BACKBTN } from "../../../../../components/ui/Client_btn";
@@ -27,7 +27,7 @@ async function fetchVideos(brandid, campaignid) {
 
   return videos.data;
 }
-
+ 
 async function fetchVideo(brandid, campaignid, videoid) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_FRONTEND_URL}videos/${videoid}`
