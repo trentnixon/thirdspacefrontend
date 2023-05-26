@@ -26,7 +26,7 @@ export default function SequencePage(props) {
   const [previewDataSetRow, setpreviewDataSetRow] = useState(0);
   const [rendering, setRendering] = useState(false);
 
-  const [RatioValue, setRatioValue] = useState("VideoShell916");
+  const [RatioValue, setRatioValue] = useState("VideoShell916"); 
   const [VideoOBJ, setVideoOBJ] = useState(useVideo.OBJ);
   const [dataSet, setdataSet] = useState(useVideo.dataset.data.attributes);
   const [renderState, setRenderState] = useState({

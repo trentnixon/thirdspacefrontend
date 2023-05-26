@@ -1,4 +1,4 @@
-import { Table } from "@mantine/core";
+import { ScrollArea, Table } from "@mantine/core";
 import { UIPaperWrapper } from "../../../ui/Containers";
 import { H3 } from "../../../ui/type";
 import { BTN_ICON_FUNC } from "../../../ui/btn";
@@ -9,24 +9,26 @@ export const VideoDataset = ({
   previewDataSetRow,
   setpreviewDataSetRow,
 }) => {
-//console.log(dataSet.data_set_rows.data.length);
+  //console.log(dataSet.data_set_rows.data.length);
   return (
     <>
       <H3>
         DATASET : {dataSet.Name} ({dataSet.data_set_rows.data.length})
       </H3>
       <UIPaperWrapper>
-        <DatasetTable
-          DATASET={dataSet.data_set_rows.data}
-          previewDataSetRow={previewDataSetRow}
-          setpreviewDataSetRow={setpreviewDataSetRow}
-        />
+        <ScrollArea>
+          <DatasetTable
+            DATASET={dataSet.data_set_rows.data}
+            previewDataSetRow={previewDataSetRow}
+            setpreviewDataSetRow={setpreviewDataSetRow}
+          />
+        </ScrollArea>
       </UIPaperWrapper>
     </>
   );
 };
 
-const DatasetTable = ({ DATASET, setpreviewDataSetRow,previewDataSetRow }) => {
+const DatasetTable = ({ DATASET, setpreviewDataSetRow, previewDataSetRow }) => {
   return (
     <Table>
       <thead>
@@ -44,10 +46,11 @@ const DatasetTable = ({ DATASET, setpreviewDataSetRow,previewDataSetRow }) => {
           );
           return (
             <tr key={row.attributes.Name}>
+              <th></th>
               {sortedItems.map((item, i) => {
                 return <th key={item.attributes.Key}>{item.attributes.Key}</th>;
               })}
-              <th></th>
+              
             </tr>
           );
         })}
@@ -68,22 +71,24 @@ const DatasetTable = ({ DATASET, setpreviewDataSetRow,previewDataSetRow }) => {
 
           return (
             <tr key={row.attributes.Name}>
+               <td>
+                {i === previewDataSetRow ? (
+                  <IconCheck />
+                ) : (
+                  <BTN_ICON_FUNC
+                    HANDLE={() => {
+                      setpreviewDataSetRow(i);
+                    }}
+                    ICON={<IconEye />}
+                  />
+                )}
+              </td>
               {sortedItems.map((item, i) => {
                 return (
                   <td key={item.attributes.Value}>{item.attributes.Value}</td>
                 );
               })}
-              <td>
-                {
-                  i === previewDataSetRow ? <IconCheck />:<BTN_ICON_FUNC
-                  HANDLE={() => {
-                    setpreviewDataSetRow(i);
-                  }}
-                  ICON={<IconEye />}
-                />
-                }
-                
-              </td>
+             
             </tr>
           );
         })}

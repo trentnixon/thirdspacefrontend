@@ -9,12 +9,15 @@ import {
 	ModuleVideoBackgroundNoText,
 	ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamer,
 	ModuleVideoBackgroundLogoStaticOfferDisclamer,
+	ModuleVideoBackgroundFlatColorUnderlayWithLogo,
+	ModuleVideoBackgroundFlatColorUnderlayFullScreenLeadCopyLogo
 } from './Components/Modules/video/Module_VideoBackground_45';
 
 import {
 	ModuleImageBackgroundNoText,
 	ModuleImageBackgroundSingleText,
 	ModuleImageBackgroundLogoPrefixOfferSuffixDisclamer,
+	ModuleImageBackgroundLogoFlatColorUnderlayWithLogo 
 } from './Components/Modules/Image/Module_ImageBackground_45';
 
 import {ModuleColorBackgroundNoText} from './Components/Modules/color/Module_ColorBackground_45';
@@ -23,15 +26,18 @@ const Components = {
 	ModuleVideoBackgroundSingleText,
 	ModuleVideoBackgroundTitleSubtitle,
 	ModuleVideoBackgroundNoText,
+	ModuleVideoBackgroundFlatColorUnderlayWithLogo,
+	ModuleVideoBackgroundFlatColorUnderlayFullScreenLeadCopyLogo,
 	ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamer,
 	ModuleVideoBackgroundLogoStaticOfferDisclamer,
+	ModuleImageBackgroundLogoFlatColorUnderlayWithLogo, 
 	ModuleImageBackgroundLogoPrefixOfferSuffixDisclamer,
 	ModuleImageBackgroundNoText,
 	ModuleImageBackgroundSingleText,
 	ModuleColorBackgroundNoText,
 };
 
-export const VideoShell45 = ({DATA}) => {
+export const VideoShell45 = ({DATA, RESOLUTION}) => {
 	const [fontFamilies, setFontFamilies] = useState({});
 	const fontFamily = fontFamilies[DATA.Settings.Font.fontFamily] || 'Heebo';
 
@@ -55,7 +61,8 @@ export const VideoShell45 = ({DATA}) => {
 								{React.createElement(Components[series.component], {
 									DATA: series.DATA,
 									Duration: series.DATA.Duration,
-									Theme:DATA.Settings.Theme
+									Theme:DATA.Settings.Theme,
+									RESOLUTION
 								})}
 							</Series.Sequence>
 						);

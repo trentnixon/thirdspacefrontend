@@ -15,7 +15,7 @@ export const RemotionPlayer = (props) => {
       style: { width: "100%" },
     },
     VideoShell45: {
-      component: VideoShell45,
+      component: VideoShell45, 
       W: 400,
       H: 500,
       style: { height: "600px" },
@@ -59,6 +59,10 @@ export const RemotionPlayer = (props) => {
         style={RatioObj[RATIO].style}
         inputProps={{
           DATA: VideoOBJ,
+          RESOLUTION:{
+						w:1920,
+						h:1080
+					} 
         }}
       />
     </div>

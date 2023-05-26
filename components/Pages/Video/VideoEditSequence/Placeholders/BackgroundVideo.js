@@ -23,41 +23,82 @@ import {
   IconFilePencil,
   IconMovie,
 } from "@tabler/icons-react";
+import { DynamicSelect } from "./Controllers/inputs/DynamicSelect";
+import { SwitchDynamicToStatic } from "./Controllers/inputs/SwitchDynamicToStatic";
 
 export const BackgroundVideo = (props) => {
+  const { VideoAssets, PlaceHolder, handleInputChange, dataset } = props;
 
-  const { VideoAssets, PlaceHolder,handleInputChange } = props;
-
+  const [inputType, setInputType] = useState("static");
   const [opened, setOpened] = useState(false);
   const [Selected, setSelected] = useState(false);
-
+  //const fieldName = `${PlaceHolder.attributes.ComponentName}`;
   const OBJTITLE = PlaceHolder.attributes.ComponentName;
   const TYPE = "Video";
   const filteredArray = VideoAssets.filter(
     (obj) => obj.attributes.video_placeholder_type.data.attributes.Name === TYPE
   );
 
-  const handleClick = (url) => {
-    handleInputChange({ name: OBJTITLE, value: `${url}`, dynamic: false });
+  const handleClick = (url, dynamic = false) => {
+    handleInputChange({ name: OBJTITLE, value: `${url}`, dynamic: dynamic });
   };
+
+  function findValueByKey(objArray, targetKey) {
+    const targetObj = objArray.find(
+      (obj) => obj.attributes.Key.toLowerCase() === targetKey.toLowerCase()
+    );
+    return targetObj ? targetObj.attributes.Value : null;
+  }
+
+  const handleVideoInputChange = (value, isDynamic = false) => {
+    console.log(`is this a dynamic input ${isDynamic ? "true" : "false"}`);
+    const newVideo = findValueByKey(DATASETROW, value);
+    console.log("New Value", newVideo);
+    const key = value;
+    handleInputChange({
+      name: OBJTITLE,
+      value: `${newVideo}`,
+      dynamic: true,
+      key,
+    });
+  };
+
+  const DATASETROW =
+    dataset.data_set_rows.data[0].attributes.data_set_items.data;
+  const keyValuesArray = DATASETROW.map((item) => item.attributes.Key); 
+  //console.log(keyValuesArray);
 
   return (
     <>
       <H3>Video Background</H3>
-      <UIPaperWrapper>
-        <Group align="stretch">
-          {filteredArray.map((vid, i) => {
-            return (
-              <FileCardWithThumb
-                key={i}
-                vid={vid}
-                setOpened={setOpened}
-                setSelected={setSelected}
-              />
-            );
-          })}
-        </Group>
-      </UIPaperWrapper>
+
+      <SwitchDynamicToStatic
+        inputType={inputType}
+        setInputType={setInputType}
+      />
+      {inputType === "dynamic" ? (
+        
+        <DynamicSelect
+          handleChange={(value) => handleVideoInputChange(value, true)}
+          keyValuesArray={keyValuesArray}
+        />
+      ) : (
+        <UIPaperWrapper>
+          <Group align="stretch">
+            {filteredArray.map((vid, i) => {
+              return (
+                <FileCardWithThumb
+                  key={i}
+                  vid={vid}
+                  setOpened={setOpened}
+                  setSelected={setSelected}
+                />
+              );
+            })}
+          </Group>
+        </UIPaperWrapper>
+      )}
+
       <VideoSelectModal
         setOpened={setOpened}
         Selected={Selected}

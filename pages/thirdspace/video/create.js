@@ -37,7 +37,7 @@ const CreateNewVideo = ({ campaign, fonts }) => {
   const [VideoInstance, CreateVideoInstance, isComplete] =
     useCreateVideoInstance();
   //useCreateVideoInstance
-console.log("router.query.id = ", router.query.id)
+
   useEffect(() => {
     //console.log(VideoInstance);
   }, [VideoInstance]);

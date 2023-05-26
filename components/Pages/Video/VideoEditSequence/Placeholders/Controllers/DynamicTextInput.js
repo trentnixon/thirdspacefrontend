@@ -18,7 +18,7 @@ export const DynamicTextInput = (props) => {
     dataset.data_set_rows.data[0].attributes.data_set_items.data;
   const keyValuesArray = DATASETROW.map((item) => item.attributes.Key);
 
-  // state
+  // state 
   const [titleError, setTitleError] = useState(false);
   const [inputType, setInputType] = useState("static");
 

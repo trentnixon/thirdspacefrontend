@@ -10,7 +10,6 @@ import {
   Center,
   Image,
   SimpleGrid,
-  Select,
 } from "@mantine/core";
 
 import { useState } from "react";
@@ -24,14 +23,15 @@ import {
   IconMovie,
   IconPhoto,
 } from "@tabler/icons-react";
-
+import { SwitchDynamicToStatic } from "./Controllers/inputs/SwitchDynamicToStatic";
+import { DynamicSelect } from "./Controllers/inputs/DynamicSelect";
 
 export const BackgroundMediaImage = (props) => {
-  const { VideoAssets, PlaceHolder,handleInputChange } = props;
+  const { VideoAssets, PlaceHolder, handleInputChange, dataset } = props;
+  const [inputType, setInputType] = useState("static");
   const [opened, setOpened] = useState(false);
   const [Selected, setSelected] = useState(false);
 
-  //console.log(VideoAssets);
   const OBJTITLE = PlaceHolder.attributes.ComponentName;
   const TYPE = "Image";
   const filteredArray = VideoAssets.filter(
@@ -39,15 +39,68 @@ export const BackgroundMediaImage = (props) => {
   );
 
   const handleClick = (IMGOBJ) => {
-    handleInputChange({ name: OBJTITLE, value: IMGOBJ, dynamic: false });
+
+    console.log("handleClick")
+    console.log({ name: OBJTITLE, value: IMGOBJ, dynamic: false })
+    handleInputChange({ name: OBJTITLE, value: IMGOBJ.URL, dynamic: false });
   };
+
+  function findValueByKey(objArray, targetKey) {
+    const targetObj = objArray.find(
+      (obj) => obj.attributes.Key.toLowerCase() === targetKey.toLowerCase()
+    );
+    return targetObj ? targetObj.attributes.Value : null;
+  }
+
+  const handleImageInputChange = (value, isDynamic = false) => {
+    const newVideo = findValueByKey(DATASETROW, value);
+    const key = value;
+
+
+
+    console.log("handhandleImageInputChangeleClick")
+    console.log({
+      name: OBJTITLE,
+      value: { URL: newVideo, height: 1280, width: 1920 },
+      dynamic: true,
+      key,
+    })
+
+    handleInputChange({
+      name: OBJTITLE,
+      value: { URL: newVideo, height: 1280, width: 1920 },
+      dynamic: true,
+      key,
+    });
+  };
+  /*
+   URL: Selected.attributes.Value.data.attributes.url,
+              height: Selected.attributes.Value.data.attributes.height,
+              width: Selected.attributes.Value.data.attributes.width,
+  */
+
+  const DATASETROW =
+    dataset.data_set_rows.data[0].attributes.data_set_items.data;
+  const keyValuesArray = DATASETROW.map((item) => item.attributes.Key);
+
   return (
     <>
-      <H3>BackgroundMediaImage</H3>
-      here
-      <SimpleGrid cols={2}>
+      <H3>Background Image</H3>
+
+      <SwitchDynamicToStatic
+        inputType={inputType}
+        setInputType={setInputType}
+      />
+
+      {inputType === "dynamic" ? (
+        <DynamicSelect
+          handleChange={(value) => handleImageInputChange(value, true)}
+          keyValuesArray={keyValuesArray}
+        />
+      ) : (
+        <SimpleGrid cols={2}>
           {filteredArray.map((IMG, i) => {
-          //console.log(IMG.attributes.Value.data.attributes.url);
+            //console.log(IMG.attributes.Value.data.attributes.url);
             return (
               <FileCardWithThumb
                 key={i}
@@ -58,6 +111,8 @@ export const BackgroundMediaImage = (props) => {
             );
           })}
         </SimpleGrid>
+      )}
+
       <VideoSelectModal
         setOpened={setOpened}
         Selected={Selected}
@@ -107,8 +162,8 @@ const FileCardWithThumb = ({ IMG, setOpened, setSelected }) => {
         width: "100%",
         alignItems: "stretch",
         display: "flex",
-        flexDirection: "column", 
-        backgroundColor:theme.colors['container']
+        flexDirection: "column",
+        backgroundColor: theme.colors["container"],
       }}
     >
       <Card.Section>
@@ -122,12 +177,7 @@ const FileCardWithThumb = ({ IMG, setOpened, setSelected }) => {
           <IconPhoto size={40} color={theme.colors.ui[2]} />
         </Box>
         <Center>
-          <Image
-            src={`${useIMG}`}
-            height={80}
-            width={80}
-            fit="contain"
-          />
+          <Image src={`${useIMG}`} height={80} width={80} fit="contain" />
         </Center>
       </Card.Section>
       <Center my={10}>
@@ -201,12 +251,7 @@ const VideoSelectModal = ({ Selected, setOpened, opened, handleClick }) => {
         />
       </Group>
       <Center>
-        <Image
-          height={250}
-          width={250}
-          fit="contain"
-          src={`${useIMG}`}
-        />
+        <Image height={250} width={250} fit="contain" src={`${useIMG}`} />
       </Center>
       <UIPaperWrapper>
         <List spacing={"xs"}>

@@ -1,5 +1,5 @@
 import {ClipInTitle} from '../../../../../Utils/UI/Copy/Titles';
-import {GlassBoxRevealVertial} from '../components/AnimatedContainers';
+import {GlassBoxRevealVertial} from '../components/Containers/AnimatedContainers';
 
 export const PrebuildSingleTitleInGlassBox = (props) => {
 	const {frame, Duration, Title, DATA, Theme} = props

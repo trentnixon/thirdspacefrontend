@@ -8,30 +8,36 @@ import {
 	ModuleVideoBackgroundTitleSubtitle,
 	ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamer,
 	ModuleVideoBackgroundLogoStaticOfferDisclamer,
+	ModuleVideoBackgroundFlatColorUnderlayWithLogo,
+	ModuleVideoBackgroundFlatColorUnderlayFullScreenLeadCopyLogo
 } from './Components/Modules/video/Module_VideoBackground_916';
 
 import {
 	ModuleImageBackgroundNoText,
 	ModuleImageBackgroundSingleText,
 	ModuleImageBackgroundLogoPrefixOfferSuffixDisclamer,
+	ModuleImageBackgroundLogoFlatColorUnderlayWithLogo 
 } from './Components/Modules/Image/Module_ImageBackground_916';
 
 import {ModuleColorBackgroundNoText} from './Components/Modules/color/Module_ColorBackground_916';
 
 const Components = {
-	ModuleVideoBackgroundNoText,
+	ModuleVideoBackgroundNoText, 
 	ModuleVideoBackgroundSingleText,
 	ModuleVideoBackgroundTitleSubtitle,
 	ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamer,
 	ModuleVideoBackgroundLogoStaticOfferDisclamer,
+	ModuleVideoBackgroundFlatColorUnderlayWithLogo,
+	ModuleVideoBackgroundFlatColorUnderlayFullScreenLeadCopyLogo, 
+	ModuleImageBackgroundLogoPrefixOfferSuffixDisclamer,
+	ModuleImageBackgroundLogoFlatColorUnderlayWithLogo,
 	ModuleImageBackgroundNoText,
 	ModuleImageBackgroundSingleText,
-	ModuleImageBackgroundLogoPrefixOfferSuffixDisclamer,
 	ModuleColorBackgroundNoText,
-};
+}; 
 
-export const VideoShell916 = ({DATA}) => {
-	console.log(DATA);
+export const VideoShell916 = ({DATA, RESOLUTION}) => {
+	// Console.log(DATA);
 	const [fontFamilies, setFontFamilies] = useState({});
 	const fontFamily = fontFamilies[DATA.Settings.Font.fontFamily] || 'Heebo';
 	useEffect(() => {
@@ -56,7 +62,8 @@ export const VideoShell916 = ({DATA}) => {
 								{React.createElement(Components[series.component], {
 									DATA: series.DATA,
 									Duration: series.DATA.Duration,
-									Theme:DATA.Settings.Theme
+									Theme:DATA.Settings.Theme,
+									RESOLUTION
 								})}
 							</Series.Sequence>
 						);

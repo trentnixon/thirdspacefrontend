@@ -30,7 +30,7 @@ export const ModuleVideoBackgroundSingleTextSQ = (props) => {
 
 const ModuleContainer = (props) => {
 	const {DATA, Duration, STYLES, Theme} = props
-	console.log("Theme", Theme)
+	// Console.log("Theme", Theme)
 	const frame = useCurrentFrame();
 	return (
 		<>

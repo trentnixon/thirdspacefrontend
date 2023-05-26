@@ -1,15 +1,15 @@
 // Import Modules
-// Static
+
 import {ModuleVideoBackgroundNoText916} from './Sequences/VideoBackground_NoText';
 import {ModuleVideoBackgroundSingleText916} from './Sequences/VideoBackground_SingleText';
 import {ModuleVideoBackgroundTitleSubtitle916} from './Sequences/VideoBackground_Title_Subtitle';
 import {ModuleVideoBackgroundLogoStaticOfferDisclamer916} from './Sequences/VideoBackground_Logo_StaticOffer_Disclamer';
 import {ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamer916} from './Sequences/VideoBackground_Logo_Prefix_Offer_Suffix_Disclamer';
-
-// Dynamic
+import {ModuleVideoBackgroundFlatColorUnderlayWithLogo916} from './Sequences/VideoBackground_FlatColorUnderlay_SingleText_Logo';
+import {VideoBackgroundFlatColorUnderlayFullScreenLeadCopyLogo916} from './Sequences/VideoBackground_FlatColorUnderlay_FullScreen_LeadCopy_Logo';
 
 // Export Modules
-// Static
+
 export const ModuleVideoBackgroundNoText = (props) =>
 	ModuleVideoBackgroundNoText916(props);
 export const ModuleVideoBackgroundSingleText = (props) =>
@@ -20,5 +20,7 @@ export const ModuleVideoBackgroundLogoStaticOfferDisclamer = (props) =>
 	ModuleVideoBackgroundLogoStaticOfferDisclamer916(props);
 export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamer = (props) =>
 	ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamer916(props);
-
-// Dynamic
+export const ModuleVideoBackgroundFlatColorUnderlayWithLogo = (props) =>
+	ModuleVideoBackgroundFlatColorUnderlayWithLogo916(props);
+	export const ModuleVideoBackgroundFlatColorUnderlayFullScreenLeadCopyLogo = (props) =>
+	VideoBackgroundFlatColorUnderlayFullScreenLeadCopyLogo916(props);

@@ -1,5 +1,5 @@
 // PACKAGES
-import { Group, Table } from "@mantine/core";
+import { Group, ScrollArea, Table } from "@mantine/core";
 import { useState, useEffect } from "react";
 // COMPONENTS
 import { RemotionPlayer } from "../Player";
@@ -48,12 +48,14 @@ export const VideoPreviewContainer = (props) => {
       <H4>Preview Data</H4>
 
       <UIPaperWrapper>
-        <DatasetTable
+        <ScrollArea>
+        <DatasetTable 
           DATASET={
             DATAROW.data_set_rows.data[previewDataSetRow].attributes
               .data_set_items.data
           }
         />
+        </ScrollArea>
       </UIPaperWrapper>
     </>
   );

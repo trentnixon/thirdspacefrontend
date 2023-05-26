@@ -20,7 +20,7 @@ const components = {
   BackgroundVideo,
   Title,
   BrandLogo,
-  BackgroundMediaImage, 
+  BackgroundMediaImage,  
   StaticOffer,
   Prefix, 
   Suffix,
@@ -49,6 +49,9 @@ function groupByVideoPlaceholderTypeName(arr) {
   }
 
   const handleInputChange = (newField) => {
+
+    console.log(newField)
+    
     if (!CreateSequenceOBJ.DATA.fields) {
       CreateSequenceOBJ.DATA.fields = [];
     }

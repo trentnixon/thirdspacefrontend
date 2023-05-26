@@ -5,7 +5,7 @@ import { useUpdateVideo } from "../../../../hooks/Video/useStoreVideo";
 // PACKAGES
 
 //COMPONENTS
-import { AddNewSequence } from "../../../../components/Pages/Video/AddNewSequence/AddSequence";
+//import { AddNewSequence } from "../../../../components/Pages/Video/AddNewSequence/AddSequence";
 
 //UTILS
 import MembersShell from "../../../../components/template/MembersShell";
@@ -107,10 +107,10 @@ const VideoCreatorPreviewer = ({ video, Modules, Videoid,fonts }) => {
               </ScrollArea>
             </>
           )}
-        </Grid.Col>
+        </Grid.Col> 
         <Grid.Col span={6}>
           <H2>{video.Name}</H2>
-          {sequence?.Series?.length === undefined ? (
+          {sequence?.Series?.length === undefined ? ( 
             "Create a New Video."
           ) : (
             <VideoPreviewMainTabs

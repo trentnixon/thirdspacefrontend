@@ -1,5 +1,5 @@
 import { Table } from "@mantine/core";
-import { P } from "../../../../ui/type";
+import { H3, P } from "../../../../ui/type";
 import {
   IconCircleCheck,
   IconQuestionCircle,
@@ -21,8 +21,8 @@ export const CreateProcessIndicator = ({
 
   return (
     <>
-      <P align={"right"}>{VideoModule.Name}</P>
-
+     {/*  <P align={"right"}>{VideoModule.Name}</P> */}
+      <H3>Module Check list</H3>
       <Table>
         <thead>
           <tr>

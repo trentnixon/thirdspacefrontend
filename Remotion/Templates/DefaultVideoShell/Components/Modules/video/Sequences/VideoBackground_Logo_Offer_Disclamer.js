@@ -30,7 +30,7 @@ export const ModuleVideoBackgroundLogoStaticOfferDisclamer916 = ({
 	DATA,
 	Duration,
 }) => {
-	console.log(DATA);
+	// Console.log(DATA);
 	/* If(!DATA?.BrandLogo) return  */
 	const STYLE = STYLES.landscape;
 	const SIZINGS = {

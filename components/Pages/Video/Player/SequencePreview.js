@@ -49,6 +49,10 @@ export const RemotionSequencePlayer = ({ DATA, dataSet,Settings }) => {
       style={{ width: "100%" }}
       inputProps={{
         DATA: { Series: [SequenceOBJ],Settings:Settings },
+        RESOLUTION:{
+          w:1920,
+          h:1080
+        }
       }}
     />
   );
@@ -100,6 +104,10 @@ export const SequenceThumb = ({ DATA, dataSet }) => {
           },
           Series: [SequenceOBJ],
         },
+        RESOLUTION:{
+          w:1920,
+          h:1080
+        } 
       }}
     />
   );
@@ -119,7 +127,11 @@ export const SequencePreview = (DATA) => {
       fps={30}
       style={{ width: "100%" }}
       inputProps={{
-        DATA: { Series: [DATA.DATA] },
+        DATA: { Series: [DATA.DATA] }, 
+        RESOLUTION:{
+          w:1920,
+          h:1080
+        } 
       }}
     />
   );

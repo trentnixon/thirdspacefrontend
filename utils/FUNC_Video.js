@@ -17,10 +17,11 @@ export function mainCompileVideoObjects(timelineObj, dataset) {
         Value: item.attributes.Value,
       })
     );
-
+ 
     const videoObjects = timelineObj.Series.map((sequence) => {
       const newData = {
         Duration: sequence.DATA.Duration || 150,
+        Settings: sequence.DATA.Settings,
       };
 
       if (
@@ -50,6 +51,8 @@ export function mainCompileVideoObjects(timelineObj, dataset) {
     };
   });
 
+  console.log("videoObjectsArray")
+  console.log(videoObjectsArray)
   return videoObjectsArray;
 }
 
@@ -77,6 +80,7 @@ export function miniCompileVideoObjects(userObj, dataSet) {
 
       const newData = {
         Duration: userObj.DATA.Duration || 150, // Add Duration field with default value 150
+        Settings: userObj.DATA.Settings ,
       };
 
       if (

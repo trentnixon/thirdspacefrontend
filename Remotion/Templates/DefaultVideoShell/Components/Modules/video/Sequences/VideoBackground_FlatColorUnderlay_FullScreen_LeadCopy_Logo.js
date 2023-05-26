@@ -1,9 +1,9 @@
-import {Sequence} from 'remotion';
+import {Sequence, useCurrentFrame} from 'remotion';
 // Import styled from 'styled-components';
 
 import {calculateImageSize} from '../../../../../../Utils/FUNC/imageFunctions';
 import {BackgroundVideoandStyles} from '../Modules/ImportBackgroundVideoandStyles';
-import {PreBuildPrefixVariableSuffixLogoDisclaimer} from '../../../Global/prebuilt/PrebuildPrefixVariableSuffixLogoDisclaimer';
+import {PrebuildFullScreenFlatcolorUnderlaySingleLeadCopyLogo} from '../../../Global/prebuilt/Prebuild_FullScreen_FlatcolorUnderlay_SingleLeadCopy_Logo';
 
 const STYLES = {
 	landscape: {zIndex: 0, position: 'absolute'},
@@ -20,7 +20,7 @@ const DefaultDisclamer = `The views and opinions expressed in this TV commercial
 those of the advertiser and do not necessarily reflect the views and
 opinions of the network or its affiliates.`;
 
-export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamer916 = (
+export const VideoBackgroundFlatColorUnderlayFullScreenLeadCopyLogo916 = (
 	props
 ) => {
 	const {DATA} = props;
@@ -32,14 +32,16 @@ export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamer916 = (
 			250,
 			500
 		),
-		TITLE: '6.5em',
+		TITLE: '5em',
+		TITLEWIDTH:'50%',
 		DISCLAIMER: '1.4em',
+
 	};
 
 	return <ModuleContainer STYLES={STYLE} SIZINGS={SIZINGS} {...props} />;
 };
 
-export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamer45 = (
+export const VideoBackgroundFlatColorUnderlayFullScreenLeadCopyLogo45 = (
 	props
 ) => {
 	const {DATA} = props;
@@ -51,14 +53,15 @@ export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamer45 = (
 			250,
 			500
 		),
-		TITLE: '6.5em',
+		TITLE: '5em',
+		TITLEWIDTH:'70%',
 		DISCLAIMER: '1.4em',
 	};
 
 	return <ModuleContainer STYLES={STYLE} SIZINGS={SIZINGS} {...props} />;
 };
 
-export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamerSQ = (
+export const VideoBackgroundFlatColorUnderlayFullScreenLeadCopyLogoSQ = (
 	props
 ) => {
 	const {DATA} = props;
@@ -70,7 +73,8 @@ export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamerSQ = (
 			400,
 			800
 		),
-		TITLE: '10em',
+		TITLE: '5em',
+		TITLEWIDTH:'70%',
 		DISCLAIMER: '1.4em',
 	};
 
@@ -78,18 +82,19 @@ export const ModuleVideoBackgroundLogoPrefixOfferSuffixDisclamerSQ = (
 };
 
 const ModuleContainer = (props) => {
-	const {DATA, STYLES, SIZINGS, Duration, Theme} = props;
-	// Console.log(DATA);
-
+	const {DATA, STYLES, SIZINGS, Duration, Theme, RESOLUTION} = props;
+	const frame = useCurrentFrame();
 	return (
 		<Sequence>
-			<PreBuildPrefixVariableSuffixLogoDisclaimer
+			<PrebuildFullScreenFlatcolorUnderlaySingleLeadCopyLogo
 				SIZINGS={SIZINGS}
 				DATA={DATA}
 				Duration={Duration}
-				Disclaimer={DefaultDisclamer}
+				Disclaimer={DefaultDisclamer} 
 				STYLES={STYLES}
 				Theme={Theme}
+				frame={frame}
+				RESOLUTION={RESOLUTION}
 			/>
 
 			<BackgroundVideoandStyles STYLES={STYLES} VIDEO={DATA.BackgroundVideo} />

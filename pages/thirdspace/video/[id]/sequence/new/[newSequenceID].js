@@ -11,7 +11,6 @@ import { SequencePreviewPlayer } from "../../../../../../components/Pages/Video/
 import { BackToListBtn } from "../../../../../../components/Pages/Video/VideoEditSequence/components/BackToListBtn";
 import { SaveToComposition } from "../../../../../../components/Pages/Video/VideoEditSequence/components/SaveToComposition";
 import { DisplaySequenceComponents } from "../../../../../../components/Pages/Video/VideoEditSequence/layout/DisplaySequenceComponents";
-import { SelectFPS } from "../../../../../../components/Pages/Video/VideoEditSequence/Placeholders/Settings/FPS";
 
 // UTILS
 
@@ -39,7 +38,7 @@ export default function SequencePage({ Video, VideoModule }) {
     Type: VideoModule.data.attributes.video_placeholder_type.data.attributes
       .Name,
     ID: generateRandomID(),
-    DATA: {},
+    DATA: {Settings:{}},
   });
 
   const handleAddSequence = async (OBJ) => {
@@ -62,7 +61,10 @@ export default function SequencePage({ Video, VideoModule }) {
     }
   }, [updateSuccessful]);
 
-  useEffect(() => {}, [CreateSequenceOBJ]);
+  useEffect(() => {
+    console.log("CreateSequenceOBJ")
+    console.log(CreateSequenceOBJ)
+  }, [CreateSequenceOBJ]);
 
   return (
     <MembersShell>
@@ -74,7 +76,7 @@ export default function SequencePage({ Video, VideoModule }) {
               backgroundColor: theme.colors.background,
             })}
           >
-            <DisplaySequenceComponents
+            <DisplaySequenceComponents 
               Video={Video.data.attributes}
               VideoModule={VideoModule.data.attributes}
               CreateSequenceOBJ={CreateSequenceOBJ}
@@ -82,8 +84,8 @@ export default function SequencePage({ Video, VideoModule }) {
               dataset={Video.data.attributes.dataset.data.attributes}
             />
           </Grid.Col>
-          <Grid.Col span={7}>
-            <H2>Create a New Sequence</H2>
+          <Grid.Col span={6}>
+            <H2>Create a New Sequence</H2> 
 
             <Group position="apart" my={20}>
               <BackToListBtn HREF={`/thirdspace/video/${Video.data.id}`} />
@@ -97,27 +99,28 @@ export default function SequencePage({ Video, VideoModule }) {
               VideoModule={VideoModule.data}
               Video={Video}
               CreateSequenceOBJ={CreateSequenceOBJ}
-              dataset={Video.data.attributes.dataset.data.attributes}
+              dataset={Video.data.attributes.dataset.data.attributes} 
             />
-           <SequenceSettings
-              setOBJ={setCreateSequenceOBJ}
-              OBJ={CreateSequenceOBJ}
-            />
-          </Grid.Col>
-
-          <Grid.Col
-            span={2}
-            sx={(theme) => ({
-              backgroundColor: theme.colors.background,
-            })}
-          >
-            <CreateProcessIndicator
+           <CreateProcessIndicator
               VideoModule={VideoModule.data.attributes}
               video_placeholders={
                 VideoModule.data.attributes.video_placeholders.data
               }
               CreateSequenceOBJ={CreateSequenceOBJ}
             />
+          </Grid.Col>
+
+          <Grid.Col
+            span={3}
+            sx={(theme) => ({
+              backgroundColor: theme.colors.background,
+            })}
+          >
+            <SequenceSettings 
+              setOBJ={setCreateSequenceOBJ}
+              OBJ={CreateSequenceOBJ}
+            />
+            
           </Grid.Col>
         </Grid>
       ) : (

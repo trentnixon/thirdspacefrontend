@@ -6,11 +6,10 @@ export const SequencePreviewPlayer = ({ CreateSequenceOBJ, dataset, Video }) => 
   const [videoObjects, setVideoObjects] = useState([]);
 
   useEffect(() => {
-  //console.log(CreateSequenceOBJ, Video.data)
     miniCompileVideoObjects(CreateSequenceOBJ, dataset);
   }, [CreateSequenceOBJ, dataset]); 
  
-  function miniCompileVideoObjects(userObj, dataset) {
+  function miniCompileVideoObjects(userObj, dataset) { 
     try {
       const DATASETROW = dataset.data_set_rows.data;
 
@@ -29,11 +28,12 @@ export const SequencePreviewPlayer = ({ CreateSequenceOBJ, dataset, Video }) => 
             Value: item.attributes.Value,
           })
         );
-
+      
         const newData = {
           Duration: userObj.DATA.Duration || 150, // Add Duration field with default value 150
+          Settings: userObj.DATA.Settings , // Initialize Settings as an empty object
         };
-
+      
         if (
           userObj.DATA &&
           userObj.DATA.fields &&
@@ -48,14 +48,19 @@ export const SequencePreviewPlayer = ({ CreateSequenceOBJ, dataset, Video }) => 
             }
           });
         }
-      //console.log(userObj)
-
+    
+        console.log(
+          {
+          ...userObj,
+          DATA: newData,
+        }
+        )
         return {
           ...userObj,
           DATA: newData,
-          //Video.data.attributes.OBJ.Settings
         };
       });
+      
       setErrorMessage(null);
       setVideoObjects(newVideoObjects);
     } catch (error) {
