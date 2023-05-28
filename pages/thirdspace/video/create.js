@@ -133,7 +133,8 @@ const CreateNewVideoForm = ({ campaign, fonts, CreateVideoInstance }) => {
   // List of datasets and campaigns for demonstration
   // Replace these with real data
 
-/*   const CreateDatasetARR = (DATA) => {
+  const CreateDatasetARR = (DATA) => {
+    console.log(DATA)
     const ARR = [];
     DATA.map((d, i) => {
       ARR.push({ value: d.id, label: d.attributes.Name });
@@ -146,7 +147,7 @@ const CreateNewVideoForm = ({ campaign, fonts, CreateVideoInstance }) => {
       ARR.push({ value: d.attributes.Name, label: d.attributes.Name });
     });
     return ARR;
-  }; */
+  };
 
   // select data
   const datasets = CreateDatasetARR(campaign.datasets.data);
