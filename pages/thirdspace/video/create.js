@@ -226,7 +226,7 @@ const CreateNewVideoForm = ({ campaign, fonts, CreateVideoInstance }) => {
         />
       </UIPaperWrapper>
       <H2>Create Video Theme</H2>
-      <UIPaperWrapper>
+      {/* <UIPaperWrapper>
         <Paper
           shadow="xl"
           my={10}
@@ -267,7 +267,7 @@ const CreateNewVideoForm = ({ campaign, fonts, CreateVideoInstance }) => {
           OBJ={OBJ}
           handleFontChange={handleFontChange}
         />
-      </UIPaperWrapper>
+      </UIPaperWrapper> */}
       <Button type="submit">Create</Button>
     </form>
   );
