@@ -206,7 +206,7 @@ const CreateNewVideoForm = ({ campaign, fonts, CreateVideoInstance }) => {
   return (
     <form onSubmit={handleSubmit}>
       <H2>About Video</H2>
-      <UIPaperWrapper>
+     {/*  <UIPaperWrapper>
         <TextInput
           label="Video Name"
           description="Please use a unique naming. This name will be used to identify the renders later"
@@ -224,7 +224,7 @@ const CreateNewVideoForm = ({ campaign, fonts, CreateVideoInstance }) => {
           value={formValues.dataset[0]}
           onChange={handleSelectChange}
         />
-      </UIPaperWrapper>
+      </UIPaperWrapper> */}
       <H2>Create Video Theme</H2>
       {/* <UIPaperWrapper>
         <Paper
