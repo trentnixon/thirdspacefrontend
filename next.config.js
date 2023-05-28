@@ -1,10 +1,9 @@
-/** @type {import('next').NextConfig} */
-/* const nextConfig = {
-  reactStrictMode: true,
-}
-
-module.exports = nextConfig */
-
 const withTM = require('next-transpile-modules')(['remotion-animated']);
+const withSourceMaps = require('@zeit/next-source-maps')
 
-module.exports = withTM({reactStrictMode: true,});
+module.exports = withSourceMaps(withTM({
+  reactStrictMode: true,
+  webpack(config, options) {
+    return config
+  }
+}));

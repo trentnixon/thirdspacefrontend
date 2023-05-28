@@ -30,6 +30,7 @@
     "@remotion/preload": "3.3.87",
     "@tabler/icons": "^2.3.0",
     "@tabler/icons-react": "^2.5.0",
+    "@zeit/next-source-maps": "^0.0.3",
     "axios": "^1.4.0",
     "dayjs": "^1.11.7",
     "embla-carousel-react": "^7.0.9",
