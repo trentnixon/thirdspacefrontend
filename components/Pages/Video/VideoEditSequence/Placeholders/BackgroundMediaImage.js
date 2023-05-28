@@ -40,8 +40,8 @@ export const BackgroundMediaImage = (props) => {
 
   const handleClick = (IMGOBJ) => {
 
-    console.log("handleClick")
-    console.log({ name: OBJTITLE, value: IMGOBJ, dynamic: false })
+    //console.log("handleClick")
+    //console.log({ name: OBJTITLE, value: IMGOBJ, dynamic: false })
     handleInputChange({ name: OBJTITLE, value: IMGOBJ.URL, dynamic: false });
   };
 
@@ -58,13 +58,13 @@ export const BackgroundMediaImage = (props) => {
 
 
 
-    console.log("handhandleImageInputChangeleClick")
+    /* console.log("handhandleImageInputChangeleClick")
     console.log({
       name: OBJTITLE,
       value: { URL: newVideo, height: 1280, width: 1920 },
       dynamic: true,
       key,
-    })
+    }) */
 
     handleInputChange({
       name: OBJTITLE,

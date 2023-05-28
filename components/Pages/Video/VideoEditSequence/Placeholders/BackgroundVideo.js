@@ -51,9 +51,9 @@ export const BackgroundVideo = (props) => {
   }
 
   const handleVideoInputChange = (value, isDynamic = false) => {
-    console.log(`is this a dynamic input ${isDynamic ? "true" : "false"}`);
+    //console.log(`is this a dynamic input ${isDynamic ? "true" : "false"}`);
     const newVideo = findValueByKey(DATASETROW, value);
-    console.log("New Value", newVideo);
+    //console.log("New Value", newVideo);
     const key = value;
     handleInputChange({
       name: OBJTITLE,

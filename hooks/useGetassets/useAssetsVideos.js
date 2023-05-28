@@ -40,7 +40,7 @@ export const useGETCampaignVideos = () => {
         }
       );
       let VideoAssets = VideoAssetsRes.data;
-    console.log(VideoAssets)
+      //console.log(VideoAssets)
       setVideoAssets(VideoAssets);
       setWorking(false);
     } catch (err) {

@@ -21,7 +21,7 @@ export default function CraftShell(props) {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
 
-  console.log(theme)
+  //console.log(theme)
   return (
     <AppShell
       styles={{

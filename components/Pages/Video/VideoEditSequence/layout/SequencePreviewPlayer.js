@@ -49,12 +49,12 @@ export const SequencePreviewPlayer = ({ CreateSequenceOBJ, dataset, Video }) => 
           });
         }
     
-        console.log(
+      /*   console.log(
           {
           ...userObj,
           DATA: newData,
         }
-        )
+        ) */
         return {
           ...userObj,
           DATA: newData,

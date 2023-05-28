@@ -7,8 +7,8 @@ export const ContainerHorizontalEntryPoint = (props) => {
 
   const SettingName = "ContainerDirection";
   useEffect(() => {
-    console.log("OBJ");
-    console.log(OBJ.DATA.fields);
+    //console.log("OBJ");
+    //console.log(OBJ.DATA.fields);
   }, [OBJ]);
 
   const handleChange = (selectedValue) => {

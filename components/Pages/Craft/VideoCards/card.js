@@ -19,7 +19,7 @@ export function VideoCard(props) {
   const { Video } = props;
   const { classes, theme } = useStyles();
   const router = useRouter();
-  console.log(Video);
+  //console.log(Video);
 
   return (
     <Card withBorder radius="md" p="md" className={classes.card}>

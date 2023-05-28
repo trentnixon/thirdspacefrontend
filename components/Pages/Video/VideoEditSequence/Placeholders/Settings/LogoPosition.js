@@ -7,8 +7,8 @@ export const LogoPosition = (props) => {
   const Field = "BrandLogo";
 const SettingName ='LogoPosition'
   useEffect(() => {
-  console.log("OBJ");
-  console.log(OBJ.DATA.fields);
+  //console.log("OBJ");
+  //console.log(OBJ.DATA.fields);
   }, [OBJ]);
 
   const handleChange = (selectedValue) => {

@@ -62,8 +62,8 @@ export default function SequencePage({ Video, VideoModule }) {
   }, [updateSuccessful]);
 
   useEffect(() => {
-    console.log("CreateSequenceOBJ")
-    console.log(CreateSequenceOBJ)
+    //console.log("CreateSequenceOBJ")
+    //console.log(CreateSequenceOBJ)
   }, [CreateSequenceOBJ]);
 
   return (

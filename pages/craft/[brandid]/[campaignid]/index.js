@@ -78,7 +78,7 @@ const CampaignInfo = (props) => {
   //console.log(campaign);
   const router = useRouter();
   //console.log(router.query.brandid);
-  //  console.log(props.brand.attributes.campaigns.data);
+  //console.log(props.brand.attributes.campaigns.data);
   return (
     <CraftShell>
       <Group position="apart" mb={20}>

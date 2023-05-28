@@ -19,7 +19,7 @@ export function CampaignCard(props) {
   const { Campaign } = props;
   const { classes, theme } = useStyles();
   const router = useRouter();
-  console.log(Campaign.attributes);
+  //console.log(Campaign.attributes);
   const features = Campaign.attributes.videos.data.map((badge) => (
     <Badge
       color={theme.colorScheme === "dark" ? "dark" : "dark"}

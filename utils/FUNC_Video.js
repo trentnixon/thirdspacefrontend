@@ -51,8 +51,8 @@ export function mainCompileVideoObjects(timelineObj, dataset) {
     };
   });
 
-  console.log("videoObjectsArray")
-  console.log(videoObjectsArray)
+  //console.log("videoObjectsArray")
+  //console.log(videoObjectsArray)
   return videoObjectsArray;
 }
 

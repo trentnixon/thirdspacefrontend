@@ -66,7 +66,7 @@ export const ImageBackgroundPush = (props) => {
     translateValue = translateBy;
   }
 
-  console.log(translateValue);
+  //console.log(translateValue);
 
   return (
     <AbsoluteFill style={STYLES}>
