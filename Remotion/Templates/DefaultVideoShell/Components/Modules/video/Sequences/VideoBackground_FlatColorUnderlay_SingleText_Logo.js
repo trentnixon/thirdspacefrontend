@@ -53,7 +53,7 @@ export const ModuleVideoBackgroundFlatColorUnderlayWithLogo45 = (
 			250,
 			500
 		),
-		TITLE: '5em',
+		TITLE: '2em',
 		DISCLAIMER: '1.4em',
 	};
 

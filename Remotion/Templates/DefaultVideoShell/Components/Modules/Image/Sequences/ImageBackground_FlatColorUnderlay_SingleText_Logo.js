@@ -46,7 +46,7 @@ export const ModuleImageBackgroundLogoFlatColorUnderlayWithLogo45 = (props) => {
 			250,
 			500
 		),
-		TITLE: '5em',
+		TITLE: '2em',
 		DISCLAIMER: '1.4em',
 	};
 

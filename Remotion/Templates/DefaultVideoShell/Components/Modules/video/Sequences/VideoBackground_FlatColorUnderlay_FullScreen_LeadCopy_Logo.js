@@ -53,7 +53,7 @@ export const VideoBackgroundFlatColorUnderlayFullScreenLeadCopyLogo45 = (
 			250,
 			500
 		),
-		TITLE: '5em',
+		TITLE: '2em',
 		TITLEWIDTH:'70%',
 		DISCLAIMER: '1.4em',
 	};
