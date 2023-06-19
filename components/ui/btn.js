@@ -3,10 +3,11 @@ import {
   useMantineTheme,
   createStyles,
   ActionIcon,
+  NavLink,
 } from "@mantine/core";
 import Link from "next/link";
-import { useRouter } from 'next/router'
-import { IconAdjustments } from "@tabler/icons-react";
+import { useRouter } from "next/router";
+import { IconArrowBadgeRight, IconAdjustments, IconLink } from "@tabler/icons-react";
 const useStyles = createStyles((theme, _params, getRef) => ({
   standard: {
     borderColor: theme.colors.ui[0],
@@ -88,27 +89,36 @@ export const BTN_LINK = ({
   );
 };
 
+export const NAV_LINK = ({
+  LABEL,
+  HREF,
+  isDisabled = false,
+  THEME = "standard",
+}) => {
+  const { classes } = useStyles();
+  return (
+    <Link href={HREF} passHref>
+      <NavLink label={LABEL} icon={<IconArrowBadgeRight size="1rem" stroke={1.5} />} />
+    </Link>
+  );
+};
+
 export const BTN_ICON_FUNC = ({ HANDLE, ICON = false, THEME = "standard" }) => {
   const { classes } = useStyles();
   return <ActionIcon onClick={HANDLE}>{ICON}</ActionIcon>;
 };
 
-export const BTN_ICON_LINK = ({HREF,ICON = false}) => {
+export const BTN_ICON_LINK = ({ HREF, ICON = false }) => {
   return (
     <Link href={HREF} passHref>
-    <ActionIcon>
-      {ICON}
-    
-    </ActionIcon>
+      <ActionIcon>{ICON}</ActionIcon>
     </Link>
   );
 };
 
-
 /* PRE BUILT BUTTONS*/
 
-
-export const PREBUILT_BACKBTN = ()=>{
-  const router = useRouter()
-  return <BTN_FUNC HANDLE={() => router.back()} LABEL={`Back`} />
-}
+export const PREBUILT_BACKBTN = () => {
+  const router = useRouter();
+  return <BTN_FUNC HANDLE={() => router.back()} LABEL={`Back`} />;
+};
