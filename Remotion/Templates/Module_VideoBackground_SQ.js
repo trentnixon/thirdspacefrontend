@@ -5,9 +5,12 @@ import {DefaultBackgroundOnlySQ} from './Components/Modules/default/defaultBackg
 import { DefaultColorBackgroundWithLogoAnimationSQ } from './Components/Modules/default/defaultColorBackgroundWithLogoAnimation';
 
 // Custom Client Builds
-// Default
+// Winnings
 import {WinningsLogoAndOfferSQ} from './Components/Modules/winnings/VideoBackground_Logo_Prefix_Offer_Suffix_Disclamer';
 import {WinningsLogoAndOfferIMGSQ} from './Components/Modules/winnings/ImageBackground_Logo_Prefix_Offer_Suffix_Disclamer';
+import {WinningsOutroSQ} from './Components/Modules/winnings/VideoBackground_OutroSection';
+
+
 
 // Globus
 import {GlobusFlatColorUnderlayFullScreenSQ} from './Components/Modules/globus/GlobusFlatColorUnderlayFullScreen';
@@ -30,7 +33,8 @@ export const WinningsLogoAndOffer = (props) =>
 WinningsLogoAndOfferSQ(props);
 export const WinningsLogoAndOfferIMG = (props) =>
 WinningsLogoAndOfferIMGSQ(props);
-
+export const WinningsOutro = (props) =>
+WinningsOutroSQ(props);
 
 // Globus
 export const GlobusFlatColorUnderlayFullScreen = (props) =>

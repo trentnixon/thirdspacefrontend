@@ -22,7 +22,7 @@ const qs = require("qs");
 
 export default function SequencePage({ Video, VideoModule }) {
   const router = useRouter();
-  const [updateSuccessful, setUpdateSuccessful] = useState(false);
+  const [updateSuccessful, setUpdateSuccessful] = useState(false); 
   const [saving, setSaving] = useState(false);
   const [responseVideo, UpdateVideo, working] = useUpdateVideo();
 

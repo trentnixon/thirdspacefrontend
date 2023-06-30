@@ -56,16 +56,6 @@ export const BackgroundMediaImage = (props) => {
     const newVideo = findValueByKey(DATASETROW, value);
     const key = value;
 
-
-
-    /* console.log("handhandleImageInputChangeleClick")
-    console.log({
-      name: OBJTITLE,
-      value: { URL: newVideo, height: 1280, width: 1920 },
-      dynamic: true,
-      key,
-    }) */
-
     handleInputChange({
       name: OBJTITLE,
       value: { URL: newVideo, height: 1280, width: 1920 },

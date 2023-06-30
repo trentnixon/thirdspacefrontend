@@ -22,7 +22,7 @@ import { BackgroundAudio } from "../Placeholders/type/audio/BackgroundAudio";
 import { useGETCampaignVideos } from "../../../../../hooks/useGetassets/useAssetsVideos";
 
 const components = {
-  BackgroundVideo,
+  BackgroundVideo, 
   Title,
   LongCopy,
   BrandLogo,

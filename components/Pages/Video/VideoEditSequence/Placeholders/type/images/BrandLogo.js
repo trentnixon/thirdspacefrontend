@@ -21,6 +21,8 @@ import {
   IconFilePencil,
   IconPhoto,
 } from "@tabler/icons-react";
+import { SwitchDynamicToStatic } from "../../Controllers/inputs/SwitchDynamicToStatic";
+import { DynamicSelect } from "../../Controllers/inputs/DynamicSelect";
 
 export const BrandLogo = (props) => {
   const {
@@ -32,8 +34,9 @@ export const BrandLogo = (props) => {
   } = props;
   const [opened, setOpened] = useState(false);
   const [Selected, setSelected] = useState(false);
-
+  const [inputType, setInputType] = useState("static");
   const fieldName = PlaceHolder.attributes.ComponentName;
+  const OBJTITLE = PlaceHolder.attributes.ComponentName;
   const TYPE = "Image";
   const filteredArray = VideoAssets.filter(
     (obj) => obj.attributes.video_placeholder_type.data.attributes.Name === TYPE
@@ -42,7 +45,7 @@ export const BrandLogo = (props) => {
   const handleClick = (IMGOBJ) => {
     // Create a new field object for the image
     const newField = {
-      name: fieldName,
+      name: OBJTITLE,
       value: IMGOBJ,
       dynamic: false, // Assuming images are not dynamic
       key: undefined,
@@ -52,10 +55,64 @@ export const BrandLogo = (props) => {
     handleInputChange(newField);
   };
 
+  function findValueByKey(objArray, targetKey) {
+    const targetObj = objArray.find(
+      (obj) => obj.attributes.Key.toLowerCase() === targetKey.toLowerCase()
+    );
+    return targetObj ? targetObj.attributes.Value : null;
+  }
+
+ /*  const handleVideoInputChange = (value, isDynamic = false) => {
+    //console.log(`is this a dynamic input ${isDynamic ? "true" : "false"}`);
+    const newVideo = findValueByKey(DATASETROW, value);
+    console.log("handleVideoInputChange ", newVideo);
+    const key = value;
+    handleInputChange({
+      name: fieldName,
+      value: { URL: newVideo },
+      dynamic: true,
+      key,
+    });
+  }; */
+  const handleImageInputChange = (value, isDynamic = false) => {
+    const newVideo = findValueByKey(DATASETROW, value);
+    const key = value;
+/*
+ const newField = {
+      name: OBJTITLE,
+      value: IMGOBJ,
+      dynamic: false, // Assuming images are not dynamic
+      key: undefined,
+    };
+*/
+    handleInputChange({
+      name: OBJTITLE,
+      value: { URL: newVideo, height: 1280, width: 1920 },
+      dynamic: false,
+      key,
+    });
+  };
+  const DATASETROW =
+  dataset.data_set_rows.data[0].attributes.data_set_items.data;
+const keyValuesArray = DATASETROW.map((item) => item.attributes.Key); 
+
   return (
     <>
       <H3>Brand Logos</H3>
-      <UIPaperWrapper>
+      <SwitchDynamicToStatic
+       inputType={inputType}
+       setInputType={setInputType}
+     />
+
+     
+      {inputType === "dynamic" ? (
+        
+        <DynamicSelect
+          handleChange={(value) => handleImageInputChange(value, true)}
+          keyValuesArray={keyValuesArray}
+        />
+      ) : ( 
+        <UIPaperWrapper>
         <Group align="stretch">
           {filteredArray.map((IMG, i) => {
             return (
@@ -69,6 +126,21 @@ export const BrandLogo = (props) => {
           })}
         </Group>
       </UIPaperWrapper>
+      )}
+      {/* <UIPaperWrapper>
+        <Group align="stretch">
+          {filteredArray.map((IMG, i) => {
+            return (
+              <FileCardWithThumb
+                key={i}
+                IMG={IMG}
+                setOpened={setOpened}
+                setSelected={setSelected}
+              /> 
+            );
+          })}
+        </Group>
+      </UIPaperWrapper> */}
       <VideoSelectModal
         setOpened={setOpened}
         Selected={Selected}

@@ -83,6 +83,7 @@ export const ManshakeBeforeAfterCardSwap = (props) => {
 						height: `${SIZINGS.RATIO.HEIGHT / 1.3}px`,
 					}}
 				/>
+		
 			</Animated>
 
 			<Animated

@@ -8,21 +8,22 @@ import * as M from './Module_VideoBackground_916';
 
 const Components = {
 	DefaultBackgroundOnly: M.DefaultBackgroundOnly,
-	DefaultColorBackgroundWithLogoAnimation:M.DefaultColorBackgroundWithLogoAnimation,
+	DefaultColorBackgroundWithLogoAnimation:
+		M.DefaultColorBackgroundWithLogoAnimation,
 	WinningsLogoAndOffer: M.WinningsLogoAndOffer,
-	WinningsLogoAndOfferIMG:M.WinningsLogoAndOfferIMG,
+	WinningsLogoAndOfferIMG: M.WinningsLogoAndOfferIMG,
+	WinningsOutro: M.WinningsOutro,
 	GlobusFlatColorUnderlayFullScreen: M.GlobusFlatColorUnderlayFullScreen,
 	GlobusFlatColorUnderlayHalfScreen: M.GlobusFlatColorUnderlayHalfScreen,
 	ManshakeTwoImagesAndHero: M.ManshakeTwoImagesAndHero,
-	ManshakeTwoCardSwap:M.ManshakeTwoCardSwap
-}; 
+	ManshakeTwoCardSwap: M.ManshakeTwoCardSwap,
+};
 
 export const VideoShell916 = ({DATA, RESOLUTION}) => {
-  
 	const {SequenceAudio, SequenceVisual, Settings} = DATA;
 	const [fontFamilies, setFontFamilies] = useState({});
 	const fontFamily = fontFamilies[Settings.Font.fontFamily] || 'Heebo';
- 
+
 	useEffect(() => {
 		const loadFonts = async () => {
 			const loadedFontFamilies = await preloadFonts();
@@ -38,7 +39,7 @@ export const VideoShell916 = ({DATA, RESOLUTION}) => {
 			<AbsoluteFill>
 				<Series>
 					{SequenceVisual.map((series, i) => {
-						return ( 
+						return (
 							<Series.Sequence key={i} durationInFrames={series.DATA.Duration}>
 								{React.createElement(Components[series.component], {
 									DATA: series.DATA,
@@ -51,7 +52,13 @@ export const VideoShell916 = ({DATA, RESOLUTION}) => {
 					})}
 				</Series>
 			</AbsoluteFill>
-			<CompositionAudio Tracks={SequenceAudio} />
+			<CompositionAudio
+				Tracks={SequenceAudio}
+				Duration={DATA.SequenceVisual.reduce(
+					(acc, obj) => acc + obj.DATA.Duration,
+					0
+				)}
+			/>
 		</AbsoluteFill>
 	);
 };

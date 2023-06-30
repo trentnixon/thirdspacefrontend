@@ -5,7 +5,7 @@ import {VideoShellSQ} from '../Templates/Video_SQ';
 import OBJ from './default.json';
 import {splitAudioAndVisual} from '../Utils/FUNC/DataFormatting';
 
-export const DefaultModuleGroup = () => {
+export const DefaultModuleGroup = ({DefaultFPS}) => {
 	const VIDEODATA = OBJ
 	// Formatt Data
 	const {SequenceAudio, SequenceVisual} = splitAudioAndVisual(VIDEODATA.Series);
@@ -18,7 +18,7 @@ export const DefaultModuleGroup = () => {
 					(acc, obj) => acc + obj.DATA.Duration,
 					0
 				)}
-				fps={30}
+				fps={DefaultFPS}
 				width={1920}
 				height={1080}
 				defaultProps={{
@@ -40,7 +40,7 @@ export const DefaultModuleGroup = () => {
 					(acc, obj) => acc + obj.DATA.Duration,
 					0
 				)}
-				fps={30}
+				fps={DefaultFPS}
 				width={1080}
 				height={1350}
 				defaultProps={{
@@ -62,7 +62,7 @@ export const DefaultModuleGroup = () => {
 					(acc, obj) => acc + obj.DATA.Duration,
 					0
 				)}
-				fps={30}
+				fps={DefaultFPS}
 				width={1920}
 				height={1920}
 				defaultProps={{

@@ -10,6 +10,7 @@ const Components = {
 	DefaultColorBackgroundWithLogoAnimation:M.DefaultColorBackgroundWithLogoAnimation,
 	WinningsLogoAndOffer: M.WinningsLogoAndOffer,
 	WinningsLogoAndOfferIMG:M.WinningsLogoAndOfferIMG,
+	WinningsOutro:M.WinningsOutro,
 	GlobusFlatColorUnderlayFullScreen: M.GlobusFlatColorUnderlayFullScreen,
 	GlobusFlatColorUnderlayHalfScreen: M.GlobusFlatColorUnderlayHalfScreen,
 	ManshakeTwoImagesAndHero: M.ManshakeTwoImagesAndHero,
@@ -50,7 +51,11 @@ export const VideoShell45 = ({DATA, RESOLUTION}) => {
 					})}
 				</Series>
 			</AbsoluteFill>
-			<CompositionAudio Tracks={SequenceAudio} />
+			<CompositionAudio Tracks={SequenceAudio} 
+			Duration={DATA.SequenceVisual.reduce(
+				(acc, obj) => acc + obj.DATA.Duration,
+				0
+			)}/>
 		</AbsoluteFill>
 	);
 };

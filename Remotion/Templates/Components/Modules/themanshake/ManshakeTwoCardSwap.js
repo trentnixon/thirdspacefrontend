@@ -28,7 +28,7 @@ export const ManshakeTwoCardSwap916 = (props) => {
 		},
 		TITLE: '7em',
 		WEIGHTLOSS: '8em',
-		DISCLAIMER: '1.8em',
+		DISCLAIMER: '1.8em', 
 	};
 
 	return <ModuleContainerAlt STYLES={STYLE} SIZINGS={SIZINGS} {...props} />;

@@ -6,6 +6,7 @@ import { DefaultColorBackgroundWithLogoAnimation45 } from './Components/Modules/
 // Winnings
 import {WinningsLogoAndOffer45} from './Components/Modules/winnings/VideoBackground_Logo_Prefix_Offer_Suffix_Disclamer';
 import {WinningsLogoAndOfferIMG45} from './Components/Modules/winnings/ImageBackground_Logo_Prefix_Offer_Suffix_Disclamer';
+import {WinningsOutro45} from './Components/Modules/winnings/VideoBackground_OutroSection';
 
 
 // Globus
@@ -32,7 +33,8 @@ WinningsLogoAndOffer45(props);
 
 export const WinningsLogoAndOfferIMG = (props) =>
 WinningsLogoAndOfferIMG45(props);
-
+export const WinningsOutro = (props) =>
+WinningsOutro45(props);
 
 
 // Globus

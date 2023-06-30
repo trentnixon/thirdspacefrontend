@@ -1,11 +1,11 @@
-import {Composition, getInputProps} from 'remotion';
+import {Composition} from 'remotion';
 import {VideoShell916} from '../Templates/Video_916';
 import {VideoShell45} from '../Templates/Video_45';
 import {VideoShellSQ} from '../Templates/Video_SQ';
 import OBJ from './manshake.json';
 import {splitAudioAndVisual} from '../Utils/FUNC/DataFormatting';
 
-export const ManshakeModuleGroup = () => {
+export const ManshakeModuleGroup = ({DefaultFPS}) => {
 	const VIDEODATA = OBJ
 	// Formatt Data
 
@@ -19,7 +19,7 @@ export const ManshakeModuleGroup = () => {
 					(acc, obj) => acc + obj.DATA.Duration,
 					0
 				)}
-				fps={30}
+				fps={DefaultFPS}
 				width={1920}
 				height={1080}
 				defaultProps={{
@@ -41,7 +41,7 @@ export const ManshakeModuleGroup = () => {
 					(acc, obj) => acc + obj.DATA.Duration,
 					0
 				)}
-				fps={30}
+				fps={DefaultFPS}
 				width={1080}
 				height={1350}
 				defaultProps={{
@@ -63,7 +63,7 @@ export const ManshakeModuleGroup = () => {
 					(acc, obj) => acc + obj.DATA.Duration,
 					0
 				)}
-				fps={30}
+				fps={DefaultFPS}
 				width={1920}
 				height={1920}
 				defaultProps={{
