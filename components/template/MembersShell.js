@@ -27,7 +27,7 @@ export default function MembersShell(props) {
         main: {
           background: theme.colors.html,
         },
-      }}
+      }} 
       navbarOffsetBreakpoint="sm"
       asideOffsetBreakpoint="sm"
       navbar={
