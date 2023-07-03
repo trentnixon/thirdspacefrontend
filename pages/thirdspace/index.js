@@ -5,7 +5,7 @@ const MemberAuth = () => {
   return (
     <MembersShell>
       <H1>Dashboard</H1>
-      <P>Content to come</P>
+      <P>Content to come..</P>
     </MembersShell>
   );
 };

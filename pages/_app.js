@@ -11,7 +11,7 @@ export default function App(props) {
       <SessionDetailsProvider>
        <Component {...pageProps} />
        </SessionDetailsProvider>
-    </MantineProviderWrapper>
+    </MantineProviderWrapper> 
   );
 }
 /* import '@/styles/globals.css'
